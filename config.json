@@ -1,0 +1,29 @@
+{
+  "DISTRIBUTION": false,
+  "SERVERDEV": false,
+  "DIRECTION": {
+    "SRC": "src",
+    "DEV": "dev",
+    "DIST": "dist",
+    "SERVER": "public",
+    "SCSS": "/scss",
+    "PUG": "/pug",
+    "WEBPACK": "/webpack",
+    "JSON": "/json",
+    "IMAGE": "/images",
+    "FONT": "/fonts"
+  },
+  "SPRITE": {
+    "FILENAME": "default_sprite.png",
+    "DISTFILENAME": "dist_sprite.png"
+  },
+  "WEBPACK": {
+    "FILENAME": "main",
+    "DISTFILENAME": "dist_javascript"
+  },
+  "RESTART": {
+    "GULPFILE": "./gulpfile.babel.js",
+    "TASK": "all-task",
+    "PATHTOGULPJS": "./node_modules/gulp/bin/gulp.js"
+  }
+}

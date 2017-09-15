@@ -1,0 +1,13 @@
+doctype html
+if conditionalComment
+  <!--[if !IE]><!-->
+  <html lang="#{docLang}" class="no-js">
+  <!--<![endif]-->
+  <!--[if IE 9]>
+  <html lang="#{docLang}" class="no-js minor-ie ie9">
+  <![endif]-->
+  <!--[if IE 8]>
+  <html lang="#{docLang}" class="no-js minor-ie ie8">
+  <![endif]-->
+else
+  <html lang="#{docLang}" class="no-js">

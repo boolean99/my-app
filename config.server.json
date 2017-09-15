@@ -1,0 +1,25 @@
+{
+  "DIRECTION" : {
+    "STATIC": {
+      "SRC":    "src",
+      "PUBLIC": "public"
+    },
+    "VIEW": {
+      "PUG":  "/pug",
+      "HTML": "/html"
+    },
+    "STYLE": {
+      "SCSS": "/scss",
+      "CSS":  "/css"
+    },
+    "SCRIPT": {
+      "WEBPACK": "/webpack",
+      "JS":      "/js"
+    },
+    "OTHER": {
+      "JSON":  "/json",
+      "FONT":  "/fonts",
+      "IMAGE": "/images"
+    }
+  }
+}

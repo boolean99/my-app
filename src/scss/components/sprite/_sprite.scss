@@ -1,0 +1,112 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$share-copy-link-name: 'share_copy_link';
+$share-copy-link-x: 0px;
+$share-copy-link-y: 0px;
+$share-copy-link-offset-x: 0px;
+$share-copy-link-offset-y: 0px;
+$share-copy-link-width: 36px;
+$share-copy-link-height: 35px;
+$share-copy-link-total-width: 77px;
+$share-copy-link-total-height: 75px;
+$share-copy-link-image: '../images/default_sprite.png';
+$share-copy-link: (0px, 0px, 0px, 0px, 36px, 35px, 77px, 75px, '../images/default_sprite.png', 'share_copy_link', );
+$share-facebook-name: 'share_facebook';
+$share-facebook-x: 41px;
+$share-facebook-y: 0px;
+$share-facebook-offset-x: -41px;
+$share-facebook-offset-y: 0px;
+$share-facebook-width: 36px;
+$share-facebook-height: 35px;
+$share-facebook-total-width: 77px;
+$share-facebook-total-height: 75px;
+$share-facebook-image: '../images/default_sprite.png';
+$share-facebook: (41px, 0px, -41px, 0px, 36px, 35px, 77px, 75px, '../images/default_sprite.png', 'share_facebook', );
+$share-twitter-name: 'share_twitter';
+$share-twitter-x: 0px;
+$share-twitter-y: 40px;
+$share-twitter-offset-x: 0px;
+$share-twitter-offset-y: -40px;
+$share-twitter-width: 36px;
+$share-twitter-height: 35px;
+$share-twitter-total-width: 77px;
+$share-twitter-total-height: 75px;
+$share-twitter-image: '../images/default_sprite.png';
+$share-twitter: (0px, 40px, 0px, -40px, 36px, 35px, 77px, 75px, '../images/default_sprite.png', 'share_twitter', );
+$spritesheet-width: 77px;
+$spritesheet-height: 75px;
+$spritesheet-image: '../images/default_sprite.png';
+$spritesheet-sprites: ($share-copy-link, $share-facebook, $share-twitter, );
+$spritesheet: (77px, 75px, '../images/default_sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

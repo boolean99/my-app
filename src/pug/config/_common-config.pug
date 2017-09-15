@@ -1,0 +1,51 @@
+//----------[*]- 전역 변수 정의 -[*]----------\\
+//- 배포|비배포 설정 변수
+- var DIST= false
+
+//- head 공통 설정
+- var multilingual=        ['ar', 'ZH', 'En', 'FR', 'DE', 'ID', 'JA', 'KO', 'RU', 'ES', 'VI']
+- var docLang=             multilingual[7]
+- var viewportWidth=       ''
+- var conditionalComment=  false
+- var html5Shiv=           false
+- var respond=             false
+- var jquery=              false
+- var jqueryMinorIE=       false
+- var facebook=			   false
+- var twitter=			   false
+- var shortcutIcon=		   ''
+- var noCache=             false
+- var fontawesome=		   true
+- var materialicon=		   true
+
+//- IMG 파일 URL
+- var url= 'images/'
+
+//- 배포시 수정될 img 경로를 바꿔준다
+if DIST
+  - var url= '/images/'
+
+//- 스킵네비게이션
+- var skipNavigation=     false
+-
+  var skipNavigationItem=
+    [
+      {
+        'text': 'content1',
+        'href': '#1'
+      },
+      {
+        'text': 'content2',
+        'href': '#2'
+      },
+      {
+        'text': 'content3',
+        'href': '#3'
+      }
+    ]
+    
+//----------[*]- 헬퍼형 함수, 서버 변수 호출 -[*]----------\\
+//- https://github.com/werty1001/bempug
+include ../../../node_modules/bempug/index
+include _server-var
+include ../packages/func/**/*

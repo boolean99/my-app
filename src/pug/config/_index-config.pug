@@ -1,0 +1,62 @@
+//----------[*]- 전역 변수 호출 -[*]----------\\
+include _common-config
+//----------[*]- 전역 변수 호출 -[*]----------\\
+
+//- head 설정
+- var metaDescription=    		''
+- var metaSubject= 				`${pageName}`
+- var title=              		`${pageName}`
+- var appleMobileWebAppTitle= 	`${pageName}`
+- var inlineJavascript=         false
+- var inlineStyleSheet=         false
+
+//----------[*]- SNS META 태그 설정 -[*]----------\\
+//- facebook
+- var facebookAppId=        '513057942237381'
+- var facebookTitle=	 	title
+- var facebookUrl=			locationOrigin + pathname
+- var facebookImage=	 	`${locationOrigin}${pathname}/images/facebook_img.jpg`
+- var facebookDescription=	title
+
+//- twitter (기본적으로 facebook의 값을 상속받음)
+- var twitterTitle=			title
+- var twitterUrl=			facebookUrl
+- var twitterImage=	 		facebookImage
+- var twitterDescription=	facebookDescription
+- var twitterCard=			''
+//----------[*]- SNS META 태그 설정 -[*]----------\\
+
+//- bottom 설정
+- var js= true
+
+//- CSS & JS & IMG 파일 URL
+-
+  var cssFileName=
+    [
+      'css/index.css'
+    ]
+- 
+  var jsFileName=
+    [
+      //'/socket.io/socket.io.js',
+      //'/reload/reload.js',
+      'js/main.bundle.js'
+    ]
+
+//- 배포시 수정될 파일명 & img 경로를 바꿔준다
+if DIST
+  -
+    var cssFileName=
+      [
+        'css/index.css'
+      ]
+  - 
+    var jsFileName=
+      [
+        //'/socket.io/socket.io.js',
+        'js/main.bundle.js'
+      ]
+
+//----------[*]- 템플릿, 믹스인 호출 파일 -[*]----------\\
+include ../packages/mixin/**/*
+include ../packages/basic/**/!(_bottom)*

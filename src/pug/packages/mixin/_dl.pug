@@ -1,0 +1,20 @@
+mixin dl(...args)
+  dl&attributes(attributes)
+    each key, index in args
+      - var innerArgs = key
+      each innerKey, index in innerArgs
+        if index === 0
+          dt= `${innerKey}`
+        else
+          dd= `${innerKey}`
+//----------[*]- 사용 예 -[*]----------\\
+
+  +dl(['dtText', 'ddText'], ['2', 'test'])(class='dl-class')
+
+//----------[*]- 결과 -[*]----------\\
+  <dl class="dl-class">
+    <dt>dtText</dt>
+    <dd>ddText</dd>
+    <dt>2</dt>
+    <dd>test</dd>
+  </dl>

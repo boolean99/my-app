@@ -1,0 +1,15 @@
+mixin list(...args)
+  ul&attributes(attributes)
+    each key in args
+      li= `${key}`
+
+//----------[*]- 사용 예 -[*]----------\\
+
+  +list('list1', 'list2', 'list3')
+
+//----------[*]- 결과 -[*]----------\\
+  <ul>
+    <li>list1</li>
+    <li>list2</li>
+    <li>list3</li>
+  </ul>

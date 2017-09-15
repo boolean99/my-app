@@ -1,0 +1,15 @@
+mixin input(type, name, textValue)
+  input&attributes({
+    'type': type,
+    'placeholder': ['text', 'password'].includes(type) ? textValue: null,
+    'value': ['button', 'file', 'reset', 'submit', 'hidden'].includes(type) ? textValue : null,
+    'name': name
+  })&attributes(attributes)
+  
+//----------[*]- 사용 예 -[*]----------\\
+
+  +input('password', 'insert your password', 'inputName')(id='input-id')
+
+//----------[*]- 결과 -[*]----------\\
+
+  <input type="password" placeholder="insert your password" name="inputName" id="input-id">

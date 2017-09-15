@@ -1,0 +1,25 @@
+@charset "UTF-8";
+// scss 변수 모듈 호출
+@import "config";
+
+// css 초기화 모듈 호출
+@import "base/reset/**/*";
+@import "base/common/**/*";
+
+// helpers 모듈 호출
+@import "helpers/**/*";
+
+// utils 모듈 호출
+@import "utils/**/*";
+
+// components 프로젝트 의존형 모듈 호출
+@import "components/**/*";
+
+// shame 모듈 호출
+@import "shame/shame";
+
+// setting 모듈 호출
+@import "setting/**/*";
+
+// layout 모듈 호출
+@import "bem/**/*";

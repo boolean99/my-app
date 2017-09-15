@@ -1,0 +1,14 @@
+mixin a(href, text, title)
+  a&attributes({
+  href: href,
+  title: title,
+  alt: title
+  })&attributes(attributes)= text
+
+//----------[*]- 사용 예 -[*]----------\\
+
+  +a('./', 'gotohome', '메인으로')(id="link-id")
+
+//----------[*]- 결과 -[*]----------\\
+
+  <a href="./" title="메인으로" alt="메인으로" id="link-id">gotohome</a>

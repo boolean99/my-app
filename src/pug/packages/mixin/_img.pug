@@ -1,0 +1,13 @@
+mixin img(myUrl, alt)
+  img&attributes({
+    src: url + myUrl,
+    alt: alt
+  })&attributes(attributes)
+
+//----------[*]- 사용 예 -[*]----------\\
+
+  +img('sprite.png', '스프라이트이미지')(id='img-id')
+
+//----------[*]- 결과 -[*]----------\\
+  전역변수 url과 합친 경로를 사용함
+  <img src="images/sprite.png" alt="스프라이트이미지" id="img-id">

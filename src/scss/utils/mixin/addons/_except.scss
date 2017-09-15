@@ -1,0 +1,40 @@
+// 특정 아이템만 css를 해제해 주는 역할의 믹스인
+@mixin except(
+    $property,
+    $nth
+  ) {
+    $value-0: ('margin-right', 'margin-left', 'margin-bottom', 'margin-top', 'margin', 'padding-right', 'padding-left', 'padding-bottom', 'padding-top', 'padding', 'right', 'left', 'bottom', 'top');
+    $value-none: ('float', 'clear');
+    
+    #{nth($property, 1)}: nth($property, 2);
+    
+    @if(index($value-0, nth($property, 1)) != null) {
+      @if($nth == 'first') {
+        &:first-of-type {
+          #{nth($property, 1)}: 0;
+        }
+      }@else if($nth == 'last') {
+        &:last-of-type {
+          #{nth($property, 1)}: 0;
+        }
+      }@else {
+        &:nth-of-type(#{$nth}) {
+          #{nth($property, 1)}: 0;
+        }
+      }
+    }@else {
+      @if($nth == 'first') {
+        &:first-of-type {
+          #{nth($property, 1)}: none;
+        }
+      }@else if($nth == 'last') {
+        &:last-of-type {
+          #{nth($property, 1)}: none;
+        }
+      }@else {
+        &:nth-of-type(#{$nth}) {
+          #{nth($property, 1)}: none;
+        }
+      }
+    }
+}

@@ -6,8 +6,6 @@
     $value-0: ('margin-right', 'margin-left', 'margin-bottom', 'margin-top', 'margin', 'padding-right', 'padding-left', 'padding-bottom', 'padding-top', 'padding', 'right', 'left', 'bottom', 'top');
     $value-none: ('float', 'clear');
     
-    #{nth($property, 1)}: nth($property, 2);
-    
     @if(index($value-0, nth($property, 1)) != null) {
       @if($nth == 'first') {
         &:first-of-type {

@@ -10,7 +10,7 @@ import mobileDetect from 'mobile-detect';
 // devTools 호출
 import devTools from './devtools/dev-tools';
 import mirror from './devtools/mirror';
-import preview from './devtools/preview';
+//import preview from './devtools/preview';
 
 // 헬퍼 모듈 호출
 import catchEventTarget from './helpers/catch-event-target';/**/
@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(eventTarget.target, eventTarget.findJsString);
     
     switch(eventTarget.findJsString) {
+      case 'js-hamberger' :
+        toggleModifier(eventTarget.target, 'hamberger--actived')
+        break;
       case 'js-clickable' :
 //        console.log(index(eventTarget.target));
 //        toggleModifier(
@@ -61,21 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, false);
   
-  DOC.addEventListener('click', (e) => {
-    // 클릭 이벤트 캡쳐링
-    const eventTarget = catchEventTarget(e.target || e.srcElement);
-
-    switch(eventTarget.findJsString) {
-      case 'js-copy-link' :
-//       clipboardFunc(eventTarget.findJsString);
-        break;
-      default :
-        return false;
-    }
-  }, true);
-  
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
+    
+  DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
+    
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);
   else console.log(`WINDOW's been loaded`);
 //    socket = io();

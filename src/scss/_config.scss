@@ -5,7 +5,7 @@
 // -------------
 // css reset modules
 // -------------
-$css-reset: false; // base 모듈내부의 reset 모듈을 호출해 css를 초기화 할것인지 결정
+$css-reset: true; // base 모듈내부의 reset 모듈을 호출해 css를 초기화 할것인지 결정
 
 // -------------
 // html debug
@@ -25,7 +25,7 @@ $orientation: true; // false 일때 가로모드에서 화면 회전을 고정�
 // -------------
 // 스킵네비게이션 설정 css 사용 유무 변수
 // -------------
-$skip-navi:  false;
+$skip-navi:  true;
 $font-color: #fff;
 $bg-color:   #000;
 
@@ -93,7 +93,7 @@ $bp1200: 1200;
 // -------------
 // 미리보기 설정
 // -------------
-$layout-preview:  true; // 프리뷰 사용 변수
+$layout-preview:  false; // 프리뷰 사용 변수
 $preview-fixed:   false; // 프리뷰 이미지를 새로고침 시에도 고정시켜놓는다
 $available-m:     false;  // 미디어쿼리로 작은 화면에 맞는 이미지-m를 사용할지 결정
 $available-s:     false;  // 미디어쿼리로 작은 화면에 맞는 이미지-s를 사용할지 결정
@@ -115,15 +115,11 @@ $noscript: true; // noscript 태그에 대한 스타일을 정의함
 // 프로젝트별 전역변수
 // -------------
 // 컬러
-$main-color: #b39a25;
+$main-color: DodgerBlue;
 
 // 폰트
-$segoesc: 'segoesc';
-$segoescb: 'segoescb';
-$Vollkorn-Italic: 'Vollkorn-Italic';
-$Montserrat-Light: 'Montserrat-Light';
-$Montserrat-Regular: 'Montserrat-Regular';
-$Montserrat-Bold: 'Montserrat-Bold';
+$font-logo: 'Tangerine', cursive;
+
 
 // 기타 변수
 

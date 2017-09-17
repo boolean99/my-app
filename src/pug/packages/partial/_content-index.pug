@@ -1,4 +1,18 @@
-+b('button', {
-  t: 'button',
-  b: 'js-copy-link'
-})(data-clipboard-text='hello world!')= title
++b('main-visual', { t: 'section' })
+  +b('header', { t: 'header', e: '&'})
+    +b('logo', { t: 'h1', e: 'header' }) Boolean#[span 99]
+    +b('welcome', { t: 'p' }) WELCOME TO MY BLOG
+  +b('img-background-board', { t: 'section', e: '&' })
+    -for(var i = 0; i < mainVisualDotNum; i++)
+      +e('item', { t: 'figure' })
+        +img(`main_visual_0${i + 1}.jpg`, '')
+        +e('figcaption', { t: 'figcaption' })
+  +b('paging', { t: 'ul', e: '&', m: 'sort-dot' })
+    -for(var i = 0; i < mainVisualDotNum; i++)
+      +e('elm', { t: 'li', m: i === 0 ? 'actived' : null })(title=`change main background image number by ${i + 1}`)
+  +b('scroll-notice-icon', { t: 'button', e: '&' })(title='Get Started')
+  +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.left'})
+  +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.right'})
+//+b('hamberger', { t: 'a', b: 'js-hamberger' })(href='#')
+  -for(var i = 0; i < 3; i++)
+    +e('path', {  t: 'span' })

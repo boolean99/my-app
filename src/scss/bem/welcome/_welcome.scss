@@ -1,0 +1,9 @@
+.welcome {
+  color: darken(#fff, 10);
+  text-shadow: 0 1px 0 #000;
+  font-weight: bolder;
+  text-align: center;
+  word-break: keep-all;
+  
+  @include vertical-rythme(0.2em);
+}

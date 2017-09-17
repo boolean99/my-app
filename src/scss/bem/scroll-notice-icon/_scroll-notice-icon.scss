@@ -1,0 +1,39 @@
+.scroll-notice-icon {
+  border: 3px solid #fff;
+  border-radius: 60px;
+  cursor: pointer;
+  background: transparent;
+  
+  @include size(40px, 60px);
+  
+  &::before {
+    background: #fff;
+    border-radius: 20%;
+    animation-name: scroll-wheel;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-duration: 1.5s;
+    border-radius: 10px;
+    
+    @extend %pseudo;
+    @include size(5px, 8px);
+    @include center(true, false);
+  }
+}
+
+@keyframes scroll-wheel {
+  0% {
+    opacity: 0;
+    top: 12px;
+  }
+  5% {
+    opacity: 1;
+  }
+  15% {
+    top: 6px;
+  }
+  100% {
+    opacity: 0;
+    top: 40px;
+  }
+}

@@ -1,0 +1,14 @@
+.paging__elm {
+  border: 3px solid #fff;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: 0.3s $ease-out-cubic;
+  
+  @extend %fl;
+  @include size(14px);
+  @include except(margin-left, 1);
+  
+  &:hover {
+    background: #fff;
+  }
+}

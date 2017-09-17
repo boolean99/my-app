@@ -1,0 +1,5 @@
+.header {
+  display: inline-block;
+  
+  @include vertical-rythme(rem(80px), 75%);
+}

@@ -1,0 +1,6 @@
+.main-visual__header{
+  z-index: 1;
+  margin-top: 100px;
+
+  @include center(true, false);
+}

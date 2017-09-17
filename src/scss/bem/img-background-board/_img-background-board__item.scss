@@ -1,0 +1,19 @@
+.img-background-board__item {
+  margin-right: -100%;
+  position: relative;
+  
+  @extend %wide-wide;
+  @extend %fl;
+  
+  @for $i from 0 through 3 {
+    &:nth-of-type(#{$i}) {
+      background: url($css-url + "main_visual_0#{$i}.jpg") 50% 50% / cover no-repeat;
+//      background: url($css-url + "main_visual_03.jpg") 50% 50% / cover no-repeat;
+      left: 100 * ($i - 1) + vw;
+    }
+  }
+  
+  > img {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,18 @@
+.handler__preview {
+  background: #fff;
+  transition: 0.4s all $ease-out-cubic;
+  transition-delay: 0s;
+  opacity: 0;
+  padding: 10px;
+  
+  @include size(0, 100%);
+  @include position(0 null null null);
+}
+
+.handler {
+  &:hover .handler__preview {
+    opacity: 1;
+    width: 310px;
+    transition-delay: 0.4s;
+  }
+}

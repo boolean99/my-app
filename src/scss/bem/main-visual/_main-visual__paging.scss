@@ -1,3 +1,4 @@
 .main-visual__paging {
   @include position(null null 50px null);
+  @include mirror(right 40px);
 }

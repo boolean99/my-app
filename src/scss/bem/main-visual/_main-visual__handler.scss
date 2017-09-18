@@ -1,0 +1,5 @@
+.main-visual__handler {
+  transform: translateY(-50%);
+  
+  @include position(50% null null null);
+}

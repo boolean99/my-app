@@ -1,0 +1,6 @@
+.preview {
+  > a {
+    @extend %fl;
+    @extend %wide-wide;
+  }
+}

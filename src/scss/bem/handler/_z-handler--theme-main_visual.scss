@@ -1,0 +1,20 @@
+.handler--theme-main_visual {
+  background: transparent;
+  color: #fff;
+  
+  @include size(45px, 80px);
+  
+  &:hover {
+    height: 120px;
+    background: $main-color;
+  }
+  
+  &::before {
+    @include center(true, true);
+    @include vertical-rythme(60px);
+  }
+  
+  #{$mirror-root} &::before {
+    @include vertical-rythme(60px);
+  }
+}

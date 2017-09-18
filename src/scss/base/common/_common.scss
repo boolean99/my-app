@@ -49,6 +49,7 @@
 // 반응형 이미지 모듈
 @mixin responsive-img() {
   > img {
+    float: left;
 	max-width: 100%;
     vertical-align: bottom;
     

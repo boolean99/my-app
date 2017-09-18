@@ -1,0 +1,8 @@
+.handler--left {
+  @include mirror(left 0);
+  @include fa-init("\f104");
+  
+  #{$mirror-root} & {
+    @include fa-init("\f105");
+  }
+}

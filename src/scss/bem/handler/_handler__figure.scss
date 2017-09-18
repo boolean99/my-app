@@ -1,0 +1,16 @@
+.handler__figure {
+  @include size(100px);
+  @include position(10px null null null);
+}
+
+.handler__preview--left {
+  .handler__figure {
+    @include mirror(right 10px);
+  }
+}
+
+.handler__preview--right {
+  .handler__figure {
+    @include mirror(left 10px);
+  }
+}

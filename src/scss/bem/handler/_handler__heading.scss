@@ -1,4 +1,24 @@
 .handler__heading {
   width: calc(100% - 100px);
-  @extend %fl;
+  font-family: $font-yanone;
+  padding-bottom: 20px;
+  border-bottom: 2px solid $main-color;
+  
+  @include vertical-rythme(rem(20px));
+}
+
+.handler__preview--left {
+  .handler__heading {
+    @include mirror(float left);
+  }
+}
+
+.handler__preview--right {
+  .handler__heading {
+    @include mirror(float right);
+  }
+}
+
+.handler__preview:hover .handler__heading {
+  text-decoration: underline;
 }

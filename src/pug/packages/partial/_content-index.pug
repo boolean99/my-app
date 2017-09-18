@@ -17,14 +17,14 @@
       a(href='#')
         +e('heading', { t: 'h1' }) On top of the night mountain
         +e('author', { t: 'time' })(datetime='2017-09-15T19:00') Published 18 Jan by #[span Boolean99]
-        +b('invisible-figure', { t: 'figure', e: 'img' })
+        +b('invisible-figure', { t: 'figure', b: 'handler__figure' })
           +e('img', {t: 'img', b: 'invisible-figure' } )(src='http://placehold.it/100x100?text=undefined')
   +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.right'})
     +e('preview', { t: 'section', m: 'right', b: 'preview' })
       a(href='#')
         +e('heading', { t: 'h1' }) On top of the night mountain
         +e('author', { t: 'time' })(datetime='2017-09-15T19:00') Published 18 Jan by #[span Boolean99]
-        +b('invisible-figure', { t: 'figure', e: 'img' })
+        +b('invisible-figure', { t: 'figure', b: 'handler__figure' })
           +e('img', {t: 'img', b: 'invisible-figure' } )(src='http://placehold.it/100x100?text=undefined')
 //+b('hamberger', { t: 'a', b: 'js-hamberger' })(href='#')
   -for(var i = 0; i < 3; i++)

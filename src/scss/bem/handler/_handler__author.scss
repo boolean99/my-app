@@ -1,5 +1,18 @@
 .handler__author {
   width: calc(100% - 100px);
   
-  @extend %fl;
+  @include vertical-rythme(rem(12px));
+  @include mirror(float right);
+}
+
+.handler__preview--left {
+  .handler__author {
+    @include mirror(float left);
+  }
+}
+
+.handler__preview--right {
+  .handler__author {
+    @include mirror(float right);
+  }
 }

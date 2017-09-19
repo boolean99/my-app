@@ -1,0 +1,8 @@
+.independent-article__date {
+  font-family: $font-Overpass;
+  color: #959595;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+  
+  @include vertical-rythme(rem(12px));
+}

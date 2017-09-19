@@ -56,6 +56,13 @@
     @extend %wide-auto;
   }
 }
+@mixin responsive() {
+  float: left;
+  max-width: 100%;
+  vertical-align: bottom;
+
+  @extend %wide-auto;
+}
 
 // 클리어픽스
 @mixin clearfix() {

@@ -4,6 +4,7 @@
   transition-delay: 0s;
   opacity: 0;
   padding: 10px;
+  font-family: $font-yanone;
   
   @include size(0, 100%);
   @include position(0 null null null);

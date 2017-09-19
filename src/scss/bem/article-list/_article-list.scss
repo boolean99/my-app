@@ -1,0 +1,4 @@
+.article-list {
+  @include mirror(float left);
+  @include size(75%, auto);
+}

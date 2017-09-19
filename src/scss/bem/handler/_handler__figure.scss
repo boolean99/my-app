@@ -1,6 +1,6 @@
 .handler__figure {
-  @include size(100px);
   @include position(10px null null null);
+  @include breaking-space(width 100 310);
 }
 
 .handler__preview--left {

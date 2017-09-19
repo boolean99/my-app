@@ -1,21 +1,21 @@
 .handler__heading {
-  width: calc(100% - 100px);
-  font-family: $font-yanone;
-  padding-bottom: 20px;
-  border-bottom: 2px solid $main-color;
+  width: calc(100% - 110px);
+  padding-bottom: 10px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
   
-  @include vertical-rythme(rem(20px));
+  @include vertical-rythme(rem(18px));
 }
 
 .handler__preview--left {
   .handler__heading {
-    @include mirror(float left);
+    @include mirror(float left, text-align right);
   }
 }
 
 .handler__preview--right {
   .handler__heading {
-    @include mirror(float right);
+    @include mirror(float right, text-align left);
   }
 }
 

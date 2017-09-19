@@ -1,0 +1,32 @@
+.independent-article__title {
+  color: #222;
+  text-transform: uppercase;
+  font-family: $font-Amiri;
+  margin-bottom: 16px;
+  padding-bottom: 4px;
+  
+  @include vertical-rythme(rem(32px));
+  
+  &:hover {
+    opacity: 0.8;
+    
+    a::before {
+      width: 100%;
+    }
+  }
+  
+  > a {
+    display: inline-block;
+    position: relative;
+    
+    &::before {
+      background: #222;
+      opacity: 0.8;
+      transition: 0.3s all $ease-in-cubic;
+      
+      @extend %pseudo;
+      @include size(0, 1px);
+      @include position(null null 0 0);
+    }
+  }
+}

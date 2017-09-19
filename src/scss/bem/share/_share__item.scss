@@ -1,0 +1,33 @@
+$share-transition: 0.5s all $ease-out-cubic;
+
+.share__item {
+  border: 1px solid #e5e5e5;
+  transform: skewX(-25deg);
+  transition: $share-transition;
+  
+  @include size(50px, 40px);
+  
+  &:hover {
+  }
+  
+  div {
+    transition: $share-transition;
+    transform: skewX(25deg);
+  }
+  
+  span {
+    @include a11y-hidden;
+  }
+
+  $share-i: 1;
+
+  @each $key, $value in $snsList {
+    &:nth-of-type(#{$share-i}) {
+      div {
+        @include fa-init($value);
+      }
+    }
+
+    $share-i: $share-i + 1;
+  }
+}

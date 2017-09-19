@@ -14,20 +14,22 @@ import mirror from './devtools/mirror';
 
 // 헬퍼 모듈 호출
 import catchEventTarget from './helpers/catch-event-target';/**/
-import clipboardFunc from './helpers/clipboard-function';
-import cloneObj from './helpers/clone-obj';
-import colorAdjust from './helpers/color-adjust';
-import delayEvent from './helpers/delay-event';
-import index from './helpers/index';
-import parents from './helpers/parents';
-import readingZero from './helpers/reading-zero';
-import scrollTop from './helpers/smooth-scrolling';
+//import clipboardFunc from './helpers/clipboard-function';
+//import cloneObj from './helpers/clone-obj';
+//import colorAdjust from './helpers/color-adjust';
+//import delayEvent from './helpers/delay-event';
+//import index from './helpers/index';
+//import parents from './helpers/parents';
+//import readingZero from './helpers/reading-zero';
+//import scrollTop from './helpers/smooth-scrolling';
 import toggleBoolean from './helpers/toggle-boolean';
 import toggleModifier from './helpers/toggle-modifier';
-import splitSearch from '../../app_helpers/split-search';
+//import splitSearch from '../../app_helpers/split-search';
+
 // 프로젝트 모듈 호출
-import {socketFunc} from './project/socket';
-import * as kbs from './project/kbs';
+//import {socketFunc} from './project/socket';
+//import * as kbs from './project/kbs';
+import returnXHttpObj from './project/xhttp';
 
 // 전역변수 선언
 let socket;
@@ -73,6 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
   else console.log(`WINDOW's been loaded`);
 //    socket = io();
 //    socketFunc(socket);
+    
+    /*  xhttp 호출 예제
+    function testFunc(value) {
+      console.log(value.responseText);
+    }
+    
+    let xHttpObj = returnXHttpObj(testFunc);
+    
+    xHttpObj.open('GET', 'index.html', true);
+    xHttpObj.send(null);
+    
+    */
   });
   
   WIN.addEventListener('resize', () => {

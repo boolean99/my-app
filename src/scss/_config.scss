@@ -114,15 +114,15 @@ $noscript: true; // noscript 태그에 대한 스타일을 정의함
 // -------------
 // 프로젝트별 전역변수
 // -------------
-// 컬러
-$main-color: DodgerBlue;
 
 // 폰트
 $font-logo: 'Tangerine', cursive;
 $font-yanone: 'Yanone Kaffeesatz', sans-serif;
-
+$font-Overpass: 'Overpass Mono', monospace;
+$font-Amiri: 'Amiri', serif;
 
 // 기타 변수
+$snsList: ('facebook': "\f09a",'twitter': "\f099",'googleplus': "\f0d5",'reply': "\f0e5");
 
 // -------------
 // 배포 | 비배포 설정

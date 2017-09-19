@@ -1,0 +1,9 @@
+.contents-section__share {
+  @extend %fl;
+  
+  > div {
+    z-index: 2;
+    
+    @include center(true, true);
+  }
+}

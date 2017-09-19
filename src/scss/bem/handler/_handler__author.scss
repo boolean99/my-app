@@ -1,18 +1,24 @@
 .handler__author {
-  width: calc(100% - 100px);
+  width: calc(100% - 110px);
+  padding-top: 10px;
+  font-style: italic;
+  letter-spacing: 0.1em;
   
-  @include vertical-rythme(rem(12px));
-  @include mirror(float right);
+  @include vertical-rythme(rem(11px));
+  
+  > span {
+    color: #292929;
+  }
 }
 
 .handler__preview--left {
   .handler__author {
-    @include mirror(float left);
+    @include mirror(float left, text-align right);
   }
 }
 
 .handler__preview--right {
   .handler__author {
-    @include mirror(float right);
+    @include mirror(float right, text-align left);
   }
 }

@@ -1,0 +1,10 @@
+.figure__img {
+  margin-bottom: 30px;
+  
+  @extend %container;
+  @include responsive-img;
+  
+  &:hover {
+    opacity: 0.7;
+  }
+}

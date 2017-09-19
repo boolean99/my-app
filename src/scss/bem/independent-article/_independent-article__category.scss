@@ -1,0 +1,9 @@
+.independent-article__category {
+  font-family: $font-Overpass;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+  
+  @include vertical-rythme(rem(14px));
+}

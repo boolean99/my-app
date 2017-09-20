@@ -2,12 +2,13 @@
   @include a11y-hidden;
   
   &:checked {
-    + .toggle-button-label {
+    & + .toggle-button-label {
       color: #939393;
     }
     
-    + .toggle-button-label + .side-bar-panel__wrapper {
+    & + .toggle-button-label + .side-bar-panel__wrapper {
       height: 0;
+      padding: 0;
     }
   }
 }

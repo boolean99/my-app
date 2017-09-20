@@ -1,6 +1,7 @@
 .latest-post {
-  height: 100px;
+  height: 120px;
   margin-top: 8px;
+  position: relative;
   
   background: url("#{$css-url}main_visual_03.jpg") #eee 50% 50% / cover no-repeat;
   
@@ -11,5 +12,43 @@
     .latest-post__division {
       opacity: 1;
     }
+    
+    $animation-duration: 0.3;
+    
+    .hover-rectangle-line-path {
+      animation-duration: $animation-duration+s;
+      animation-fill-mode: both;
+      
+      @for $i from 0 through 3 {
+        &:nth-of-type(#{($i + 1)}) {
+          @if(($i + 1)%2 == 0) {
+            // 짝수
+            animation-name: line-path-in-vertical;
+          }@else {
+            // 홀수
+            animation-name: line-path-in-horizontal;
+          }
+          animation-delay: ($animation-duration * $i)+s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes line-path-in-horizontal {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: calc(100% - 20px);    
+  }
+}
+
+@keyframes line-path-in-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: calc(100% - 20px);    
   }
 }

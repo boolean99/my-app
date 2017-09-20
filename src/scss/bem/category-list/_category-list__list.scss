@@ -1,0 +1,17 @@
+.category-list__list {
+  list-style-type: circle;
+  list-style-position: inside;
+  border-bottom: 1px dotted #b7b7b7;
+  margin-top: 6px;
+  transition: 0.2s all $ease-out-cubic;
+  
+  @include except(margin-top, 1);
+  @extend %container;
+  @include vertical-rythme(rem(15px));
+  
+  > a {
+    padding: 10px 0;
+    color: #777;
+    display: inline-block;
+  }
+}

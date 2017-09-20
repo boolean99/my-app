@@ -1,0 +1,64 @@
+.hover-rectangle-line-path {
+  $rectangle-line-path-thickness: 2px;
+  $rectangle-line-path-padding: 10px;
+  $animation-duration: 0.3;
+  $loop-i: 3;
+  
+  background: #fff;
+  position: absolute;
+  animation-duration: $animation-duration+s;
+  animation-fill-mode: both;
+  opacity: 0.5;
+  
+  @for $i from 0 through 3 {
+    &:nth-of-type(#{($i + 1)}) {
+      animation-delay: ($animation-duration*$loop-i)+s;
+      
+      @if(($i + 1)%2 == 0) {
+        // 짝수
+        animation-name: line-path-out-vertical;
+        
+        @include size($rectangle-line-path-thickness, 0);
+      }@else {
+        // 홀수
+        animation-name: line-path-out-horizontal;
+        
+        @include size(0, $rectangle-line-path-thickness);
+      }
+      
+      @if(($i + 1) == 1) {
+        top: $rectangle-line-path-padding;
+        left: $rectangle-line-path-padding;
+      }@else if(($i + 1) == 2) {
+        top: $rectangle-line-path-padding;
+        right: $rectangle-line-path-padding;
+      }@else if(($i + 1) == 3) {
+        bottom: $rectangle-line-path-padding;
+        right: $rectangle-line-path-padding;
+      }@else if(($i + 1) == 4) {
+        bottom: $rectangle-line-path-padding;
+        left: $rectangle-line-path-padding;
+      }
+      
+      $loop-i: $loop-i - 1;
+    }
+  }
+}
+
+@keyframes line-path-out-horizontal {
+  0% {
+    width: calc(100% - 20px);    
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes line-path-out-vertical {
+  0% {
+    height: calc(100% - 20px);    
+  }
+  100% {
+    height: 0;
+  }
+}

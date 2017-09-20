@@ -15,6 +15,10 @@ $main-color: rgb(35, 174, 244);
 }
 
 .progress-bar {
+  &::-webkit-progress-bar {
+    background-color: tint($main-color, 80);
+  }
+
   &::-webkit-progress-value {
     background-color: $main-color;
   }
@@ -92,5 +96,14 @@ $main-color: rgb(35, 174, 244);
   }
 }
 
+.side-bar-panel__read-more {
+  color: $main-color;
+}
 
-
+.category-list__list {
+  color: $main-color;
+  
+  &:hover {
+    border-bottom-color: $main-color;;
+  }
+}

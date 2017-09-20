@@ -3,3 +3,7 @@
   +b('toggle-button-input', { t: 'input' })(type='checkbox' id='categories')
   +b('toggle-button-label', { t: 'label' })(for='categories') menu
   +e('wrapper', { t: 'div' })
+    +b('category-list', { t: 'ul', e: 'side-bar' })
+      -for(var i = 0; i < navList.length; i++)
+        +e('list', { t: 'li' })
+          a(href='#')= navList[i]

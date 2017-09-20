@@ -1,6 +1,7 @@
 +b('contents-section', { t: 'section', e: 'index'})
   include ../nav/_nav
-  +e('article-list', { t: 'main', b: 'article-list' })
-    include ../left-side/_left-side
-  +e('side-bar', { t: 'aside', b: 'side-bar' })
-    //include ../right-side/_right-side
+  +e('container', { t: 'div' })
+    +e('article-list', { t: 'main', b: 'article-list' })
+      include ../left-side/_left-side
+    +e('side-bar', { t: 'aside', b: 'side-bar' })
+      include ../right-side/_right-side

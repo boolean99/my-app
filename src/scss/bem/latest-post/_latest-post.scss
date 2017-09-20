@@ -1,0 +1,15 @@
+.latest-post {
+  height: 100px;
+  margin-top: 8px;
+  
+  background: url("#{$css-url}main_visual_03.jpg") #eee 50% 50% / cover no-repeat;
+  
+  @include item-center('elm');
+  @include except(margin-top, 1);
+  
+  &:hover {
+    .latest-post__division {
+      opacity: 1;
+    }
+  }
+}

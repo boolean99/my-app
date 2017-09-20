@@ -1,0 +1,7 @@
++b('side-bar-panel', { t: 'section', e: 'side-bar' })
+  +b('form-area', { t: 'form', e: '&', m: 'type-search' })(method='GET')
+    +e('fieldset', { t: 'fieldset' })
+      +e('heading', { t: 'h1', m: 'type-inner', p: 'side-bar-panel' }) SEARCH
+      +e('legend', { t: 'legend' }) Search specific article
+      +e('input', { t: 'input', m: 'search' })(type='search' name='search-article' placeholder='TYPE AND HIT ENTER')
+      +e('input', { t: 'input', m: 'submit' })(type='submit' value='SEARCH')

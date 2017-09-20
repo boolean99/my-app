@@ -1,0 +1,13 @@
+.side-bar-panel__heading--type-inner {
+  margin-bottom: 40px;
+  position: relative;
+  
+  &::after {
+    transform: translateX(-50%);
+    border-bottom: 1px solid #656565;
+    
+    @include size(20%, 0);
+    @extend %pseudo;
+    @include position(null null -20px 50%);
+  }
+}

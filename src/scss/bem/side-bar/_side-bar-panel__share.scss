@@ -1,0 +1,26 @@
+.side-bar-panel__share {
+  @extend %container;
+  
+  .share__item {
+    transform: none;
+    border-radius: 50%;
+    
+    @include size(35px);
+    
+    &:hover {
+      div::before {
+        color: #fff;
+      }
+    }
+    
+    div {
+      transform: none;
+    }
+  }
+  
+  .share__list-item {
+    margin-left: 6px;
+    
+    @include except(margin-left, 1);
+  }
+}

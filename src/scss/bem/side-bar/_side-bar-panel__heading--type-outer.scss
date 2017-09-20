@@ -1,0 +1,7 @@
+.side-bar-panel__heading--type-outer {
+  margin-bottom: 25px;
+  
+  @include vertical-rythme(rem(14px), rem(46px));
+  @include size(100%, 46px);
+  @include border(left 1px solid #ebebeb, right 1px solid #ebebeb, bottom 1px solid #ebebeb);
+}

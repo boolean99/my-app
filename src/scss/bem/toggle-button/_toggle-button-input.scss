@@ -1,0 +1,13 @@
+.toggle-button-input {
+  @include a11y-hidden;
+  
+  &:checked {
+    + .toggle-button-label {
+      color: #939393;
+    }
+    
+    + .toggle-button-label + .side-bar-panel__wrapper {
+      height: 0;
+    }
+  }
+}

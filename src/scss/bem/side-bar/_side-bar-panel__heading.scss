@@ -1,0 +1,10 @@
+.side-bar-panel__heading {
+  text-align: center;
+  font-family: $font-Overpass;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  color: #535353;
+  transition: 0.5s all $ease-in-out-cubic;
+
+  @extend %none-select;
+}

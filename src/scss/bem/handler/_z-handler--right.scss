@@ -1,8 +1,3 @@
 .handler--right {
   @include mirror(right 0);
-  @include fa-init("\f105");
-  
-  #{$mirror-root} & {
-    @include fa-init("\f104");
-  }
 }

@@ -1,0 +1,5 @@
+.latest-post__date {
+  margin-bottom: 0;
+  
+  @include vertical-rythme(rem(10px));
+}

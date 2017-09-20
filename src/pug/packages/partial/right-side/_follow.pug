@@ -1,0 +1,11 @@
++b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'follow' })
+  +e('heading', { t: 'h1', m: 'type-outer' }) FOLLOW ME
+  +b('toggle-button-input', { t: 'input' })(type='checkbox' id='follow')
+  +b('toggle-button-label', { t: 'label' })(for='follow') menu
+  +e('wrapper', { t: 'div' })
+    +b('share', { t: 'section', e: '&'})
+      +e('list', { t: 'ul' })
+        -for(var j = 0; j < snsList.length; j++)
+          +e('list-item', { t: 'li' })
+            +e('item', { t: 'button' })
+              div: span=snsList[j]

@@ -1,0 +1,12 @@
++b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'latest-post' })
+  +e('heading', { t: 'h1', m: 'type-outer' }) LATEST POSTS
+  +b('toggle-button-input', { t: 'input' })(type='checkbox' id='latest-post')
+  +b('toggle-button-label', { t: 'label' })(for='latest-post') menu
+  +e('wrapper', { t: 'div' })
+    -for(var i = 0; i < 4; i++)
+      +b('latest-post', { t: 'article', e: '&' })
+        +e('division', { t: 'div' })
+          +e('category', { t: 'span', p: 'independent-article', e: 'latest-post' }) es2015
+          +e('title', { t: 'h1', p: 'independent-article', e: 'latest-post' })
+            a(href='#') Basic Inner Workings of Camera
+          +e('date', { t: 'p', p: 'independent-article', e: 'latest-post' }) MAY 9, 2017

@@ -1,0 +1,15 @@
+.handler__arrow {
+  z-index: 2;
+  position: relative;
+  animation-name: handler-arrow-off;
+  animation-delay: 0.3s;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  width: 45px;
+  
+  @extend %wide-wide;
+
+  &::before {
+    @include center(true, true);
+  }
+}

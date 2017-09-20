@@ -1,19 +1,14 @@
 .handler--theme-main_visual {
-  background: transparent;
   color: #fff;
   
   @include size(45px, 80px);
   
   &:hover {
-    height: 120px;
+    @include size(355px, 120px);
   }
-  
-  &::before {
-    @include center(true, true);
-    @include vertical-rythme(60px);
-  }
-  
-  #{$mirror-root} &::before {
-    @include vertical-rythme(60px);
+
+  &:hover .handler__arrow {
+    animation-delay: 0s;
+    animation-name: handler-arrow-on;
   }
 }

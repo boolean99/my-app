@@ -7,6 +7,7 @@
   margin: 0 5px;
   transition: 0.2s all $ease-in-out-cubic;
   
+  @extend %none-select;
   @include vertical-rythme(rem(16px));
   @include item-center('elm');
   

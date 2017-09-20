@@ -11,16 +11,18 @@
         +e('figcaption', { t: 'figcaption', b: 'invisible-figure' })
   +b('paging', { t: 'ul', e: '&', m: 'sort-dot' })
     -for(var i = 0; i < mainVisualDotNum; i++)
-      +e('elm', { t: 'li', m: i === 0 ? 'actived' : null })(title=`change main background image number by ${i + 1}`)
+      +e('elm', { t: 'li', m: i === 0 ? 'actived' : null })(title=`change main figure number by ${i + 1}`)
   +b('scroll-notice-icon', { t: 'button', e: '&' })(title='Get Started')
-  +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.left'})
+  +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.left'})(title='Previous figure')
+    +e('arrow', { t: 'div', m: 'left' })
     +e('preview', { t: 'section', m: 'left', b: 'preview' })
       a(href='#')
         +e('heading', { t: 'h1' }) On top of the night mountain
         +e('author', { t: 'time' })(datetime='2017-09-15T19:00') Published 18 Jan by #[span Boolean99]
         +b('invisible-figure', { t: 'figure', b: 'handler__figure' })
           +e('img', {t: 'img', b: 'invisible-figure' } )(src='http://placehold.it/100x100?text=undefined')
-  +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.right'})
+  +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.right'})(title='next figure')
+    +e('arrow', { t: 'div', m: 'right' })
     +e('preview', { t: 'section', m: 'right', b: 'preview' })
       a(href='#')
         +e('heading', { t: 'h1' }) On top of the night mountain

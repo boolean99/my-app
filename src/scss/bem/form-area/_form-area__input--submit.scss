@@ -1,0 +1,11 @@
+.form-area__input--submit {
+  margin-top: 15px;
+  font-family: $font-Overpass;
+  padding: 10px 0;
+  color: #fff;
+  height: 40px;
+  
+  &:hover {
+    opacity: 0.7;
+  }
+}

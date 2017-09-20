@@ -19,6 +19,8 @@
   }
 }
 
-.handler__preview:hover .handler__heading {
-  text-decoration: underline;
+.handler__preview:hover {
+  .handler__heading {
+    text-decoration: underline;
+  }
 }

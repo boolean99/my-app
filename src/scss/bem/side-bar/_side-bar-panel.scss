@@ -1,0 +1,9 @@
+.side-bar-panel {
+  @extend %wide-auto;
+  
+  &:hover {
+    .side-bar-panel__heading {
+      border-color: $main-color;
+    }
+  }
+}

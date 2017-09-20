@@ -1,0 +1,16 @@
+.handler__arrow--left {
+  @include mirror(float left);
+  @include fa-init("\f104");
+  
+  #{$mirror-root} & {
+    @include fa-init("\f105");
+  }
+  
+  &::before {
+    @include vertical-rythme(60px);
+  }
+  
+  #{$mirror-root} &::before {
+    @include vertical-rythme(60px);
+  }
+}

@@ -209,14 +209,6 @@
     }
   }
 
-  input[type="submit"] {
-    @if $input-css-reset == true {
-      background: #fff;
-      border: none;
-      padding: 0;
-    }
-  }
-
   button,
   html input[type="button"],
   input[type="reset"],
@@ -243,114 +235,11 @@
   input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
-
-      @if $input-css-reset == true {
-        width: $checkbox-radio-size;
-        height: $checkbox-radio-size;
-        background: #fff;
-        position: relative;
-
-          @if $cross-browsing == true {
-            &:checked:before {
-              content:" ";
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              margin-left: -(($checkbox-radio-size / 3) / 2);
-              margin-top: -(($checkbox-radio-size / 3) / 2);
-              display: inline-block;
-              width: $checkbox-radio-size / 3;
-              height: $checkbox-radio-size / 3;
-              background: $checkbox-radio-checked-color;
-              border-radius: 50%;
-            }
-          }@else {
-            &:checked::before {
-              content:" ";
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              display: inline-block;
-              width: $checkbox-radio-size / 3;
-              height: $checkbox-radio-size / 3;
-              background: $checkbox-radio-checked-color;
-              border-radius: 50%;
-            }
-          }
-      }
   }
 
   input[type="checkbox"] {
     box-sizing: border-box;
     padding: 0;
-
-      @if $input-css-reset == true {
-        width: $checkbox-radio-size;
-        height: $checkbox-radio-size;
-        background: #fff;
-        position: relative;
-
-          @if $fa-use == true {
-            @if $cross-browsing == true {
-              &:checked {
-                @include fa-init("\f00c");
-
-                &:before {
-                  position: absolute;
-                  left: 50%;
-                  top: 50%;
-                  display: inline-block;
-                  margin-left: -7px;
-                  margin-top: -8px;
-                  color: $checkbox-radio-checked-color;
-                }
-              }
-            }@else {
-              &:checked {
-                @include fa-init("\f00c");
-
-                &:before {
-                  position: absolute;
-                  left: 50%;
-                  top: 50%;
-                  transform: translate(-50%, -50%);
-                  display: inline-block;
-                  color: $checkbox-radio-checked-color;
-                }
-              }
-            }
-          }@else {
-            @if $cross-browsing == true {
-              &:checked:before {
-                content:" ";
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                margin-left: -(($checkbox-radio-size / 3) / 2);
-                margin-top: -(($checkbox-radio-size / 3) / 2);
-                display: inline-block;
-                width: $checkbox-radio-size / 3;
-                height: $checkbox-radio-size / 3;
-                background: $checkbox-radio-checked-color;
-                border-radius: 50%;
-              }
-            }@else {
-              &:checked::before {
-                content:" ";
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                display: inline-block;
-                width: $checkbox-radio-size / 3;
-                height: $checkbox-radio-size / 3;
-                background: $checkbox-radio-checked-color;
-                border-radius: 50%;
-              }
-            }
-          }
-      }
   }
 
   input[type="radio"] {
@@ -362,13 +251,6 @@
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     height: auto;
-  }
-
-  input[type="search"] {
-    -webkit-appearance: textfield;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
   }
 
   input[type="search"]::-webkit-search-cancel-button,

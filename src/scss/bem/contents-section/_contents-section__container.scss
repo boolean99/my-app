@@ -1,0 +1,6 @@
+.contents-section__container {
+  @include container-center($container-width);
+  @include breaking($bp1200, below) {
+    width: 100%;
+  }
+}

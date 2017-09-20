@@ -5,15 +5,15 @@
   opacity: 0;
   padding: 10px;
   font-family: $font-yanone;
+  z-index: 1;
   
-  @include size(0, 100%);
+  @include size(310px, 100%);
   @include position(0 null null null);
 }
 
 .handler {
   &:hover .handler__preview {
     opacity: 1;
-    width: 310px;
     transition-delay: 0.4s;
   }
 }

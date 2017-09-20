@@ -1,0 +1,12 @@
+.latest-post__title {
+  margin-bottom: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  
+  @include vertical-rythme(rem(14px), rem(18px));
+  
+  &:hover {
+    text-decoration: none;
+  }
+}

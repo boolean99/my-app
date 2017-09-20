@@ -1,3 +1,9 @@
 .handler__preview--right {
-  @include mirror(right 45px);
+  @include mirror(right -310px);
+}
+
+.handler {
+  &:hover .handler__preview--right {
+    @include mirror(right 45px);
+  }
 }

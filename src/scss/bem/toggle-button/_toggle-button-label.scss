@@ -1,0 +1,8 @@
+.toggle-button-label {
+  cursor: pointer;
+  transition: 0.3s all $ease-in-cubic;
+  
+  @extend %material-icons;
+  @extend %none-select;
+  @include position(11px 11px null null);
+}

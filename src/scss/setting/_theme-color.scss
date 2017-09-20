@@ -1,4 +1,4 @@
-$main-color: rgb(30, 144, 255);
+$main-color: rgb(35, 174, 244);
 
 .handler__author {
   color: $main-color;
@@ -10,12 +10,6 @@ $main-color: rgb(30, 144, 255);
 
 .hamberger {
   span {
-    background: $main-color;
-  }
-}
-
-.handler--theme-main_visual {
-  &:hover {
     background: $main-color;
   }
 }
@@ -43,7 +37,6 @@ $main-color: rgb(30, 144, 255);
 }
 
 .share__item {
-  
   div {
     color: $main-color;
   }
@@ -55,17 +48,49 @@ $main-color: rgb(30, 144, 255);
       color: tint($main-color, 40);
     }
   }
-  
 }
 
+@keyframes handler-arrow-on {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: $main-color;
+  }
+}
 
+@keyframes handler-arrow-off {
+  0% {
+    background: $main-color;
+  }
+  100% {
+    background: transparent;
+  }
+}
 
+.side-bar-panel__heading--type-outer {
+  border-top: 1px solid $main-color;
+}
 
+.toggle-button-label {
+  color: $main-color;
+}
 
+.side-bar-panel__form-area {
+  .form-area__fieldset {
+    background: tint($main-color, 80);
+  }
+}
 
+.form-area__input--submit {
+  background: $main-color;
+}
 
-
-
+.side-bar-panel__share {
+  .share__item:hover {
+    background: $main-color;
+  }
+}
 
 
 

@@ -1,0 +1,29 @@
++b('main-visual', { t: 'section', e: 'index' })
+  +e('porgress-bar', {t: 'progress', b: 'progress-bar' })(value='50' max='100') 50%
+  +b('header', { t: 'header', e: '&'})
+    include ../logo/_logo
+    +b('welcome', { t: 'p' }) WELCOME TO MY BLOG
+  +b('img-background-board', { t: 'section', e: '&' })
+    -for(var i = 0; i < mainVisualDotNum; i++)
+      +e('item', { t: 'figure', b: 'invisible-figure' })
+        +img(`main_visual_0${i + 1}.jpg`, '')(class='invisible-figure__img')
+        +e('figcaption', { t: 'figcaption', b: 'invisible-figure' })
+  +b('paging', { t: 'ul', e: '&', m: 'sort-dot', b: 'js-paging' })
+    +e('elm', { t: 'li', m: 'actived' })(title=`change main figure number by 1`)
+  +b('scroll-notice-icon', { t: 'button', e: '&' })(title='Get Started')
+  +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.left', b: 'js-handler--left'})(title='Previous figure')
+    +e('arrow', { t: 'div', m: 'left' })
+    +e('preview', { t: 'section', m: 'left', b: 'preview' })
+      a(href='#')
+        +e('heading', { t: 'h1' }) On top of the night mountain
+        +e('author', { t: 'time' })(datetime='2017-09-15T19:00') Published 18 Jan by #[span Boolean99]
+        +b('invisible-figure', { t: 'figure', b: 'handler__figure' })
+          +e('img', {t: 'img', b: 'invisible-figure' } )(src='http://placehold.it/100x100?text=undefined')
+  +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.right', b: 'js-handler--right'})(title='next figure')
+    +e('arrow', { t: 'div', m: 'right' })
+    +e('preview', { t: 'section', m: 'right', b: 'preview' })
+      a(href='#')
+        +e('heading', { t: 'h1' }) On top of the night mountain
+        +e('author', { t: 'time' })(datetime='2017-09-15T19:00') Published 18 Jan by #[span Boolean99]
+        +b('invisible-figure', { t: 'figure', b: 'handler__figure' })
+          +e('img', {t: 'img', b: 'invisible-figure' } )(src='http://placehold.it/100x100?text=undefined')

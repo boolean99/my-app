@@ -1,0 +1,7 @@
+.footer {
+  background: #222;
+  padding: 40px 0;
+  color: #626262;
+  
+  @extend %wide-auto;
+}

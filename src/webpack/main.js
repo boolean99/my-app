@@ -30,6 +30,7 @@ import toggleModifier from './helpers/toggle-modifier';
 //import {socketFunc} from './project/socket';
 //import * as kbs from './project/kbs';
 import returnXHttpObj from './project/xhttp';
+import gallery from './project/gallery';
 
 // 전역변수 선언
 let socket;
@@ -53,6 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'js-hamberger' :
         toggleModifier(eventTarget.target, 'hamberger--actived')
         break;
+      case 'js-handler--left' :
+        gallery.prev();
+        break;
+      case 'js-handler--right' :
+        gallery.next();
+        break;
       case 'js-clickable' :
 //        console.log(index(eventTarget.target));
 //        toggleModifier(
@@ -68,6 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
+    gallery.init();
+    console.log(gallery);
+    
     
   DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
     

@@ -1,0 +1,9 @@
+.subscribe {
+  text-align: center;
+  padding: 25px 0;
+  font-family: $font-yanone;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  
+  @extend %wide-auto;
+}

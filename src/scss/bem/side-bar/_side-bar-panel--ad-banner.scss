@@ -1,0 +1,5 @@
+.side-bar-panel--ad-banner {
+  .side-bar-panel__wrapper {
+    @include responsive-img;
+  }
+}

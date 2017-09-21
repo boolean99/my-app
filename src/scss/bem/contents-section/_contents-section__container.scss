@@ -1,4 +1,6 @@
 .contents-section__container {
+  padding: 40px 0;
+  
   @include container-center($container-width);
   @include breaking($bp1200, below) {
     width: 100%;

@@ -1,0 +1,5 @@
+.footer__logo {
+  @extend %fl;
+  @include center(true, false, relative);
+  @include vertical-rythme(rem(55px));
+}

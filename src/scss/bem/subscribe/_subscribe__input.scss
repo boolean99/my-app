@@ -1,0 +1,15 @@
+.subscribe__input {
+  padding: 3px 6px;
+  display: inline-block;
+  vertical-align: bottom;
+  letter-spacing: 0.06em;
+  border-width: 1px;
+  border-style: solid;
+  transition: 0.6s all $ease-out-cubic;
+  
+  @include size(240px, 35px);
+  
+  &:nth-of-type(2) {
+    margin: 0 15px;
+  }
+}

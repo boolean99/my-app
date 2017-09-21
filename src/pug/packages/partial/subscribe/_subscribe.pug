@@ -1,6 +1,6 @@
 +b('subscribe', { t: 'section', e: '&' })
   +e('heading', { t: 'h1' })
     |Subscribe to my newsletter to get updates in your inbox!
-  +e('input', { t: 'input' })(placeholder='Type your name..')
-  +e('input', { t: 'input' })(placeholder='Type your email address..')
-  +e('subscribe-submit', { t: 'button', b: 'button' }) SUBSCRIBE NOW
+  +b('input', { t: 'input', e: '&', m: 'shape-text'})(placeholder='Type your name..' type='text')
+  +b('input', { t: 'input', e: '&', m: 'shape-text'})(placeholder='Type your email address..' type='email')
+  +b('input', { t: 'button', e: '&', m: 'theme-flat_button' }) SUBSCRIBE NOW

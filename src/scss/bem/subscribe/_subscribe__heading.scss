@@ -1,6 +1,7 @@
 .subscribe__heading {
   color: #919191;
   margin-bottom: 15px;
+  direction: ltr;
   
   @include vertical-rythme(rem(17px));
 }

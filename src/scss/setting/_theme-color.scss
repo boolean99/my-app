@@ -87,10 +87,6 @@ $main-color: rgb(35, 174, 244);
   }
 }
 
-.form-area__input--submit {
-  background: $main-color;
-}
-
 .side-bar-panel__share {
   .share__item:hover {
     background: $main-color;
@@ -113,7 +109,7 @@ $main-color: rgb(35, 174, 244);
   background: tint($main-color, 80);
 }
 
-.subscribe__subscribe-submit {
+.input--theme-flat_button {
   background: $main-color;
   border-color: shade($main-color, 20);
   
@@ -123,7 +119,7 @@ $main-color: rgb(35, 174, 244);
   }
 }
 
-.subscribe__input {
+.input--shape-text {
   border-color: tint($main-color, 60);
   
   
@@ -157,7 +153,7 @@ html, body, div, span, applet, object, iframe,
   }
 }
 
-.button--get-more-article {
+.button--load-more-article {
   &:hover {
     color: $main-color;
     border-color: $main-color;

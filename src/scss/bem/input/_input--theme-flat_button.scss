@@ -1,0 +1,15 @@
+.input--theme-flat_button {
+  font-family: $font-Overpass;
+  padding: 10px 0;
+  color: #fff;
+  height: 40px;
+  letter-spacing: 0.06em;
+  border-width: 1px;
+  border-style: solid;
+  transition: 1.3s all $ease-out-cubic;
+  display: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

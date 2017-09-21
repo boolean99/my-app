@@ -4,15 +4,14 @@
   padding: 6px 8px;
   border-radius: 4px;
   font-family: $font-Overpass;
-  margin-left: 6px;
   margin-bottom: 6px;
   transition: 0.3s all $ease-out-quad;
   position: relative;
   top: 0;
   
-  @extend %fl;
   @include except(margin-let, 1);
   @include vertical-rythme(rem(16px));
+  @include mirror(float left, margin-right 6px);
   
   &:hover {
     top: -2px;

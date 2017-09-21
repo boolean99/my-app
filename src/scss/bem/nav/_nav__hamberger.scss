@@ -1,0 +1,5 @@
+.nav__hamberger {
+  margin: 15px 20px 0 0;
+  @include mirror(float right);
+  @include hamberger-size(40px, 25px);
+}

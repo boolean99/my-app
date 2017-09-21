@@ -1,3 +1,4 @@
 +b('nav', { t: 'nav', e: 'contents-section' })
   -for(var i = 0; i < navList.length; i++)
     +e('list', { t: 'a' })(href=`/${i === 0 ? '' : navList[i]}`)= navList[i]
+  include ../hamberger/_hamberger

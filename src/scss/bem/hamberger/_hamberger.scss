@@ -1,7 +1,7 @@
 @mixin hamberger-size($width, $height) {
   @include size($width, $height);
   
-  span {
+  > span {
     @include size(100%, $height*0.2);
     
     &:nth-child(1) {
@@ -13,21 +13,7 @@
     }
     &:nth-child(3) {
       top: 100%;
-      margin-top: -($height*0.2 / 2);
-    }
-  }
-  
-  @at-root .hamberger--actived span {
-    &:nth-child(1) {
-      top: 50%;
-      margin-top: -($height*0.2 / 2);
-    }
-    &:nth-child(2) {
-      left: -$width;
-    }
-    &:nth-child(3) {
-      top: 50%;
-      margin-top: -($height*0.2 / 2);
+      margin-top: -$height*0.2;
     }
   }
 }

@@ -1,5 +1,15 @@
 .nav__hamberger {
-  margin: 15px 20px 0 0;
+  right: 20px;
+  
+  @include center(false, true, relative);
   @include mirror(float right);
   @include hamberger-size(40px, 25px);
+  
+  &.hamberger--actived {
+    @include hamberger--actived-size(40px, 25px);
+  }
+  
+  > span {
+    background: #fff;
+  }
 }

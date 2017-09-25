@@ -1,0 +1,10 @@
+.other-articles__description {
+  margin-top: 10px;
+  color: #000;
+  
+  @include vertical-rythme(rem(18px));
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}

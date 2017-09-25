@@ -1,0 +1,10 @@
++b('comment', { t: 'section', e: '&' })
+  +b('form-area', { t: 'form', p: false })(action='' method='POST')
+    +e('heading', { t: 'h1' })
+      p WRITE A COMMENT
+      span
+    +b('input', { t: 'input', e: '&' })(placeholder='Name' type='text' require)
+    +b('input', { t: 'input', e: '&' })(placeholder='Email' type='email' require)
+    +b('input', { t: 'input', e: '&' })(placeholder='Website' type='text')
+    +b('input', { t: 'textarea', m:'test-area' })(placeholder='Enter your comment here...' name='comment-content' required)
+    +b('input', { t: 'input', e: '&', m: 'theme-flat_button' })(value='POST COMMENT' type='submit')

@@ -1,0 +1,7 @@
+.other-articles__list-container {
+  @include container-center(1020px);
+  
+  @include breaking($bp1200, below) {
+    width: 100%;
+  }
+}

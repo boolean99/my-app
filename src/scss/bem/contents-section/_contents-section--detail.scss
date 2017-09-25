@@ -1,0 +1,14 @@
+.contents-section--detail {
+  .contents-section__container {
+    margin: 0;
+    width: 100%;
+  }
+  
+  .contents-section__item {
+    float: none;
+    @include container-center(1200px);
+    @include breaking($bp1200, below) {
+      width: 100%;
+    }
+  }
+}

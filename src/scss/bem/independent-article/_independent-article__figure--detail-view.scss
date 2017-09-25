@@ -1,0 +1,7 @@
+.independent-article__figure--detail-view {
+  @include responsive-img;
+  
+  .contents-section__figcaption {
+    @include vertical-rythme(rem(22px));
+  }
+}

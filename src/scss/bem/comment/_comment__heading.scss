@@ -1,0 +1,27 @@
+.comment__heading {
+  color: #2a2a2a;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+  
+  @include vertical-rythme(rem(12px));
+  
+  > p {
+    z-index: 2;
+    position: relative;
+    background: #fff;
+    display: inline-block;
+    padding: 0 30px;
+  }
+  
+  > span {
+    z-index: 1;
+    height: 1px;
+    width: 100%;
+    background: #e5e5e5;
+    left: 0;
+    right: 0;
+    @include center(false, true);
+  }
+}

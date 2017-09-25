@@ -1,0 +1,11 @@
+.other-articles__list-item {
+  margin-right: 30px;
+
+  @extend %fl;
+  @include except(margin-right, last);
+  @include breaking($bp1200, below) {
+    width: 33.33%;
+    padding: 0 30px;
+    margin: 0;
+  }
+}

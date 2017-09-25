@@ -1,0 +1,10 @@
+.comment__input {
+  border: 1px solid #e5e5e5;
+  width: 33.33%;
+  padding: 0 20px;
+  margin-left: 30px;
+  
+  @extend %fl;
+  @include except(margin-left, first);
+  @include size(calc(33.33% - 20px), 40px);
+}

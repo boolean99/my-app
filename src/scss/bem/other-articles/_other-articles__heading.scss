@@ -1,0 +1,8 @@
+.other-articles__heading {
+  margin-bottom: 45px;
+  font-family: $font-yanone;
+  letter-spacing: 0.2em;
+  text-align: center;
+  
+  @include vertical-rythme(rem(16px));
+}

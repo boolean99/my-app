@@ -14,4 +14,8 @@
   &:hover {
     opacity: 0.6;
   }
+  
+  @include breaking($bp800, below) {
+    display: none;
+  }
 }

@@ -1,0 +1,25 @@
++e('item', { t: 'article', b: 'independent-article'})
+  +e('category', { t: 'span', p: 'independent-article' }) es2015
+  +e('title', { t: 'h1', p: 'independent-article' })
+    a(href='') Basic Inner Workings of Camera
+  +e('date', { t: 'p', p: 'independent-article' }) MAY 9, 2017
+  +e('figure', { t: 'figure', b: 'figure', p: 'independent-article', m: 'detail-view' })
+    +img(`article_img_02.jpg`)
+    +e('figcaption', { t: 'figcaption' })
+      |More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous negative one inside gorilla and drew humbly shot tortoise inside opaquely. Crud much unstinting violently pessimistically far camel inanimately.#[br]#[br]Coquettish darn pernicious foresaw therefore much amongst lingeringly shed much due antagonistically alongside so then more and about turgid wrote so stunningly this that much slew.
+  +b('share', { t: 'section', e: '&'})
+    div
+      -for(var j = 0; j < snsList.length; j++)
+        +e('item', { t: 'button' })
+          div: span=snsList[j]
+    hr
++b('other-articles', { t: 'sectin', e: '&' })
+  +e('heading', { t: 'h1' }) YOU MIGHT ALSO LIKE...
+  +e('list-container', { t: 'ul' })
+    -for(var i = 0; i < 3; i ++)
+      +e('list-item', { t: 'li' })
+        +e('link', { t: 'a' })(href='#')
+          +e('img', { t: 'img' })(src='http://placehold.it/320x245?text=other article')
+        +e('link', { t: 'a' })(href='#')
+          +e('description', { t: 'p' }) Coachella’s Stellar Star Lineup
+include ../comment/_comment

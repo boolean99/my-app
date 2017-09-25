@@ -1,0 +1,8 @@
+.contents-section__comment{
+  @include container-center(1200px);
+  
+  .input--theme-flat_button {
+    margin: 0;
+    width: 200px;
+  }
+}

@@ -11,4 +11,22 @@
       padding: 0;
     }
   }
+  
+  @include breaking($bp1020, below) {
+    & + .toggle-button-label {
+      color: #939393;
+    }
+
+    & + .toggle-button-label + .side-bar-panel__wrapper {
+      height: 0;
+      padding: 0;
+    }
+    
+    &:checked {
+      & + .toggle-button-label + .side-bar-panel__wrapper {
+        height: auto;
+        padding-top: 25px;
+      }
+    }
+  }
 }

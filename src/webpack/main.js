@@ -76,34 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
     
-    function Person(name) {
-      this.name = name;
-    }
-    
-    Person.prototype.getName = function() {
-      return `my name is ${this.name}`;
-    };
-    
-    let test = new Person('won');
-    
-    function temp(name) {
-      this.name = name;
-    }
-    
-    temp.prototype = new Person();
-    
-    let test2 = new temp('choi');
-    
-    console.log(Person);
-    console.log(Person.name);
-    console.log(Person.getName);
-    console.log(test);
-    console.log(test.name);
-    console.log(test.getName());
-    console.log(test2);
-    console.log(test2.name);
-    console.log(test2.getName());
-    
   DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
     
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);

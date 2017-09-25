@@ -3,4 +3,8 @@
   
   @include mirror(float left);
   @include size(25%, auto);
+  @include breaking($bp1020, below) {
+    width: 100%;
+    padding: 20px 25px 0;
+  }
 }

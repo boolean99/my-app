@@ -161,4 +161,12 @@ html, body, div, span, applet, object, iframe,
   }
 }
 
-
+.toggle-button-input {
+  @include breaking($bp1020, below) {
+    &:checked {
+      & + .toggle-button-label {
+        color: $main-color !important;
+      }
+    }
+  }
+}

@@ -1,4 +1,12 @@
-const gallery = {
+function gallery() {
+  this.prototype = function getname() {
+    alert(this.name);
+  }
+}
+
+
+/*
+
   GV: {
     // global value
     DOM: document,
@@ -39,9 +47,8 @@ const gallery = {
     console.log('prev');
     
   }
-};
 
-
+*/
 
 
 

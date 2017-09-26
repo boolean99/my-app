@@ -1,5 +1,6 @@
-$main-color: rgb(35, 174, 244);
-//$main-color: hsl(300, 76%, 72%);
+//$main-color: rgb(35, 174, 244);
+$main-color: hsl(300, 76%, 72%);
+$main-color: hsl(0, 100%, 50%);
 
 .handler__author {
   color: $main-color;
@@ -15,14 +16,8 @@ $main-color: rgb(35, 174, 244);
   }
 }
 
-.progress-bar {
-  &::-webkit-progress-bar {
-    background-color: tint($main-color, 80);
-  }
-
-  &::-webkit-progress-value {
-    background-color: $main-color;
-  }
+.progress-bar span {
+  background: $main-color;
 }
 
 .nav {

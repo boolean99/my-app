@@ -39,16 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // 돔 로드완료 이벤트
   const WIN = window,
         DOC = document,
-        MD = new mobileDetect(WIN.navigator.userAgent);
+        MD = new mobileDetect(WIN.navigator.userAgent),
+        Gallery = new gallery('main-visual');
   
   if(MD.mobile()) console.log(`mobile DOM's been loaded`);
   else console.log(`DOM's been loaded`);
+  
+  Gallery.styleInit();
+  console.log(Gallery);
   
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링
     const eventTarget = catchEventTarget(e.target || e.srcElement);
     
-    console.log(eventTarget.target, eventTarget.findJsString);
+//    console.log(eventTarget.target, eventTarget.findJsString);
     
     switch(eventTarget.findJsString) {
       case 'js-scroll-to-contents' :
@@ -58,10 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleModifier(eventTarget.target, 'hamberger--actived')
         break;
       case 'js-handler--left' :
-//        gallery.prev();
+        Gallery.containerMove('left');
+//        console.log(Gallery);
         break;
       case 'js-handler--right' :
-//        gallery.next();
+        Gallery.containerMove('right');
+        console.log(Gallery);
         break;
       case 'js-clickable' :
 //        console.log(index(eventTarget.target));
@@ -79,17 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
     
-    
-    let test = new gallery('main-visual');
-    let test2 = new gallery('scroll-notice-icon');
-    
-    
-    test.styleInit();
-    console.log(test);
-//    console.log(test2);
-//    console.log(test2.galleryContainer);
+    Gallery.autoRolling();
     
   DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
+    
     
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);
   else console.log(`WINDOW's been loaded`);

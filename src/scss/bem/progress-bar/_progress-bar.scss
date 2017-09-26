@@ -1,9 +1,28 @@
 .progress-bar {
   z-index: 1;
-  appearance: none;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
   
   @include size(100%, 2px);
   @include position(0 0 null 0);
+  
+  > span {
+    display: inline-block;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    height: 100%;
+    animation-name: progress-bar;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+    
+    @extend %fl;
+  }
+}
+
+@keyframes progress-bar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }

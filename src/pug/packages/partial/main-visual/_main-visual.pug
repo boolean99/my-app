@@ -1,11 +1,11 @@
 +b('main-visual', { t: 'section', e: 'index' })
-  +e('porgress-bar', {t: 'progress', b: 'progress-bar' })(value='50' max='100') 50%
+  +e('porgress-bar', {t: 'div', b: 'progress-bar' }): span.js-progress-bar
   +b('header', { t: 'header', e: '&'})
     include ../logo/_logo
     +b('welcome', { t: 'p' }) WELCOME TO MY BLOG
-  +b('img-background-board', { t: 'section', e: '&' })
+  +b('img-background-board', { t: 'section', e: '&', b: 'js-gallery-container' })
     -for(var i = 0; i < mainVisualDotNum; i++)
-      +e('item', { t: 'figure', b: 'invisible-figure js-gallery-fragment' })
+      +e('item', { t: 'figure', b: 'invisible-figure' })
         +img(`main_visual_0${i + 1}.jpg`, '')(class='invisible-figure__img')
         +e('figcaption', { t: 'figcaption', b: 'invisible-figure' })
   +b('paging', { t: 'ul', e: '&', m: 'sort-dot', b: 'js-paging' })

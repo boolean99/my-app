@@ -21,7 +21,7 @@ import catchEventTarget from './helpers/catch-event-target';/**/
 //import index from './helpers/index';
 //import parents from './helpers/parents';
 //import readingZero from './helpers/reading-zero';
-//import scrollTop from './helpers/smooth-scrolling';
+import scrollTop from './helpers/smooth-scrolling';
 import toggleBoolean from './helpers/toggle-boolean';
 import toggleModifier from './helpers/toggle-modifier';
 //import splitSearch from '../../app_helpers/split-search';
@@ -51,14 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(eventTarget.target, eventTarget.findJsString);
     
     switch(eventTarget.findJsString) {
+      case 'js-scroll-to-contents' :
+        scrollTop(document.body, window.innerHeight, 300);
+        break;
       case 'js-hamberger' :
         toggleModifier(eventTarget.target, 'hamberger--actived')
         break;
       case 'js-handler--left' :
-        gallery.prev();
+//        gallery.prev();
         break;
       case 'js-handler--right' :
-        gallery.next();
+//        gallery.next();
         break;
       case 'js-clickable' :
 //        console.log(index(eventTarget.target));
@@ -75,6 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
   
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
+    
+    
+    let test = new gallery('main-visual');
+    let test2 = new gallery('scroll-notice-icon');
+    
+    
+    test.styleInit();
+    console.log(test);
+//    console.log(test2);
+//    console.log(test2.galleryContainer);
     
   DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
     

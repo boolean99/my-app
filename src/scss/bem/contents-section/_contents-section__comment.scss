@@ -3,6 +3,16 @@
   
   .input--theme-flat_button {
     margin: 0;
-    width: 200px;
+    width: 250px;
+    
+    @include center(true, false, relative);
+    
+    @include breaking($bp600, below) {
+      width: 100%;
+    }
+  }
+  
+  @include breaking($bp1200, below) {
+    width: 100%;
   }
 }

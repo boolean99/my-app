@@ -18,7 +18,7 @@ import catchEventTarget from './helpers/catch-event-target';/**/
 //import cloneObj from './helpers/clone-obj';
 //import colorAdjust from './helpers/color-adjust';
 //import delayEvent from './helpers/delay-event';
-//import index from './helpers/index';
+import index from './helpers/index';
 //import parents from './helpers/parents';
 //import readingZero from './helpers/reading-zero';
 import scrollTop from './helpers/smooth-scrolling';
@@ -31,6 +31,7 @@ import toggleModifier from './helpers/toggle-modifier';
 //import * as kbs from './project/kbs';
 import returnXHttpObj from './project/xhttp';
 import gallery from './project/gallery';
+import progressBar from './project/progress-bar';
 
 // 전역변수 선언
 let socket;
@@ -46,13 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
   else console.log(`DOM's been loaded`);
   
   Gallery.styleInit();
-  console.log(Gallery);
   
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링
     const eventTarget = catchEventTarget(e.target || e.srcElement);
     
-//    console.log(eventTarget.target, eventTarget.findJsString);
+    console.log(eventTarget.target, eventTarget.findJsString);
     
     switch(eventTarget.findJsString) {
       case 'js-scroll-to-contents' :
@@ -63,11 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
       case 'js-handler--left' :
         Gallery.containerMove('left');
-//        console.log(Gallery);
         break;
       case 'js-handler--right' :
         Gallery.containerMove('right');
-        console.log(Gallery);
+        break;
+      case 'js-paging__elm' :
+        Gallery.currentDot(index(eventTarget.target));
         break;
       case 'js-clickable' :
 //        console.log(index(eventTarget.target));
@@ -84,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
-    
-    Gallery.autoRolling();
+    progressBar('running', Gallery.galleryAutorollingDuration);
+    Gallery.autoRolling(Gallery.galleryAutorollingDuration * 1000);
     
   DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
     

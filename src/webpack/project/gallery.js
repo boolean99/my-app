@@ -1,4 +1,4 @@
-import progressBar from './progress-bar';
+import toggleModifier from '../helpers/toggle-modifier';
 
 function gallery(targetQuery) {
   let doc = document,
@@ -13,7 +13,7 @@ function gallery(targetQuery) {
   
   // 갤러리 초기화에 필요한 변수 할당
   this.galleryLength = this.container.childElementCount;
-  this.autoRollingDuration = 4;
+  this.galleryAutorollingDuration = 5;
 
   // 갤러리 left값 업데이트
   this.updateEssentialValue = {
@@ -37,7 +37,7 @@ function gallery(targetQuery) {
     let pagingHtml = '';
     
     for(let i = 0; i < this.galleryLength; i++) {
-      pagingHtml += `<li class="paging__elm" title="change main figure number by ${i + 2}"></li>`;
+      pagingHtml += `<li class="paging__elm js-paging__elm" title="change main figure number by ${i + 2}"></li>`;
     }
     
     this.paging.insertAdjacentHTML('beforeend', pagingHtml);
@@ -48,14 +48,17 @@ function gallery(targetQuery) {
   
   // 갤러리 움직임 이벤트
   this.containerMove = function(direction) {
-    
     if(direction === 'left') {
+      // 좌측 핸들러 클릭 === 이전이미지 보기
       if(this.containerLeftValue) {
         // left의 값이 0 이 아닐때
         this.container.style.left = `${this.containerLeftValue + this.containerWidth}px`;
         this.updateEssentialValue.leftValue();
+      }else {
+        // left의 값이 0 일때 => 마지막 이미지 노출
+        this.container.style.left = `-${this.maxLeftDistance}px`;
+        this.updateEssentialValue.leftValue();
       }
-      // 좌측 핸들러 클릭 === 이전이미지 보기
     }else if(direction === 'right') {
       // 우측 핸들러 클릭 === 다음이미지 보기
       if(!this.containerLeftValue) {
@@ -74,12 +77,8 @@ function gallery(targetQuery) {
     }
   };
   
-  this.autoRolling = function(time = this.autoRollingDuration * 1000) {
+  this.autoRolling = function(time) {
     // 갤러리 자동 회전
-    progressBar('running', this.autoRollingDuration);
-    
-    this.autoRolling.startTime = Date.now();
-      
     this.autoRolling.tId = setTimeout(() => {
       if(Math.abs(this.containerLeftValue) < this.maxLeftDistance) {
         this.containerMove('right');
@@ -88,24 +87,31 @@ function gallery(targetQuery) {
         this.updateEssentialValue.leftValue();
       }
       
-      this.autoRolling();
+      this.autoRolling(time);
     }, time);
+  };
+  
+  this.currentDot = function(index) {
+    console.log(index);
     
-    console.log(this.autoRolling.endTime - this.autoRolling.startTime);
-  }
+    
+    toggleModifier(
+      this.paging.querySelector(`.paging__elm--actived`),
+      'paging__elm--actived'
+    );
+    toggleModifier(
+      this.paging.querySelector(`.js-paging__elm:nth-of-type(${index + 1})`),
+      'paging__elm--actived'
+    );
   
-  // 갤러리 상단 프로그레스바 마우스 온 이벤트 리스너
-  doc.querySelector(`.${targetQuery}`).addEventListener('mouseenter', (e) => {
-    this.autoRolling.endTime = Date.now();
-    clearTimeout(this.autoRolling.tId);
-    progressBar('paused');
-  });
   
-  // 갤러리 상단 프로그레스바 마우스 아웃 이벤트 리스너
-  doc.querySelector(`.${targetQuery}`).addEventListener('mouseleave', (e) => {
-    this.autoRolling(this.autoRollingDuration * 1000 - (this.autoRolling.endTime - this.autoRolling.startTime));
-    progressBar('running', this.autoRollingDuration);
-  });
+  
+  
+  
+  
+  
+  };
+  
   
   
   
@@ -118,21 +124,10 @@ function gallery(targetQuery) {
   
   
   /*
-      갤러리 마우스 오버했을때 타임 멈췄다가 아웃했을때 실행시키는 기능 구현중
+  
+    이미지 넘어갈때 좌우측 핸들러에 다음, 이전 이미지에대한 프리뷰 뿌려주는 기능 필요함
   
   */
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 };
 

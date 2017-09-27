@@ -9,7 +9,7 @@
         +img(`main_visual_0${i + 1}.jpg`, '')(class='invisible-figure__img')
         +e('figcaption', { t: 'figcaption', b: 'invisible-figure' })
   +b('paging', { t: 'ul', e: '&', m: 'sort-dot', b: 'js-paging' })
-    +e('elm', { t: 'li', m: 'actived' })(title=`change main figure number by 1`)
+    +e('elm', { t: 'li', m: 'actived', b: 'js-paging__elm' })(title=`change main figure number by 1`)
   +b('scroll-notice-icon', { t: 'button', e: '&', b: 'js-scroll-to-contents' })(title='Get Started')
   +b('handler', { t: 'div', e: '&', m: 'theme-main_visual.left', b: 'js-handler--left'})(title='Previous figure')
     +e('arrow', { t: 'div', m: 'left' })

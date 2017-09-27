@@ -43,3 +43,9 @@
 @if ($noscript == true) {
   @include noscript;  
 }
+
+.main-visual {
+  > *:not([class~="img-background-board"]) {
+    transition: 0.2s opacity linear;
+  }
+}

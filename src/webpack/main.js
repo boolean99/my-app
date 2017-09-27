@@ -32,6 +32,7 @@ import toggleModifier from './helpers/toggle-modifier';
 import returnXHttpObj from './project/xhttp';
 import gallery from './project/gallery';
 import progressBar from './project/progress-bar';
+import mainVisualScrollOpacity from './project/main-visual-scroll-opacity';
 
 // 전역변수 선언
 let socket;
@@ -47,12 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
   else console.log(`DOM's been loaded`);
   
   Gallery.styleInit();
+  mainVisualScrollOpacity();
   
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링
     const eventTarget = catchEventTarget(e.target || e.srcElement);
     
-    console.log(eventTarget.target, eventTarget.findJsString);
+//    console.log(eventTarget.target, eventTarget.findJsString);
     
     switch(eventTarget.findJsString) {
       case 'js-scroll-to-contents' :
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Gallery.containerMove('right');
         break;
       case 'js-paging__elm' :
-        Gallery.currentDot(index(eventTarget.target));
+        Gallery.currentDot(index(eventTarget.target) + 1);
         break;
       case 'js-clickable' :
 //        console.log(index(eventTarget.target));
@@ -85,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
-    progressBar('running', Gallery.galleryAutorollingDuration);
     Gallery.autoRolling(Gallery.galleryAutorollingDuration * 1000);
+    progressBar('running', Gallery.galleryAutorollingDuration);
     
   DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
     
@@ -128,6 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   DOC.addEventListener('wheel', (e) => {
     const eventTarget = catchEventTarget(e.target || e.srcElement);
+    
+    mainVisualScrollOpacity();
     
     switch(eventTarget.findJsString) {
       case 'js-test':

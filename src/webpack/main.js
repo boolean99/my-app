@@ -6,7 +6,6 @@ import globalConfig from './helpers/global-config';
 
 // npm 모듈 호출
 import mobileDetect from 'mobile-detect';
-import ColorPicker from 'simple-color-picker';
 
 // devTools 호출
 import devTools from './devtools/dev-tools';
@@ -23,17 +22,18 @@ import index from './helpers/index';
 //import parents from './helpers/parents';
 //import readingZero from './helpers/reading-zero';
 import scrollTop from './helpers/smooth-scrolling';
-import toggleBoolean from './helpers/toggle-boolean';
+//import toggleBoolean from './helpers/toggle-boolean';
 import toggleModifier from './helpers/toggle-modifier';
 //import splitSearch from '../../app_helpers/split-search';
 
 // 프로젝트 모듈 호출
 //import {socketFunc} from './project/socket';
 //import * as kbs from './project/kbs';
-import returnXHttpObj from './project/xhttp';
+//import returnXHttpObj from './project/xhttp';
 import gallery from './project/gallery';
 import progressBar from './project/progress-bar';
 import mainVisualScrollOpacity from './project/main-visual-scroll-opacity';
+import colorPickerModule from './project/color-picker';
 
 // 전역변수 선언
 let socket;
@@ -43,20 +43,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const WIN = window,
         DOC = document,
         MD = new mobileDetect(WIN.navigator.userAgent),
-        Gallery = new gallery('main-visual'),
-        colorPicker = new ColorPicker({
-          color: '#FF0000',
-          background: '#454545',
-          width: 240,
-          height: 200
-        });
+        Gallery = new gallery('main-visual');
   
   if(MD.mobile()) console.log(`mobile DOM's been loaded`);
   else console.log(`DOM's been loaded`);
   
+  // 갤러리 초기화 호출
   Gallery.styleInit();
+  
+  // 메인비쥬얼 플로팅 요소 스크롤에따른 스크롤 조절(모바일 별도작업 필요)
   mainVisualScrollOpacity();
-  colorPicker.appendTo(DOC.querySelector('.js-color-pciker > .setting-panel'));
+  
+  // 컬러픽커 모듈 호출
+  colorPickerModule();
+  
   
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링
@@ -79,6 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
       case 'js-paging__elm' :
         Gallery.currentDot(index(eventTarget.target) + 1);
+        break;
+      case 'js-setting-icon' :
+        toggleModifier(
+          eventTarget.target.parentElement,
+          'color-picker--actived'
+        );
         break;
       case 'js-clickable' :
 //        console.log(index(eventTarget.target));
@@ -163,3 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchObj = e.changedTouches[0];
   });
 });
+
+    
+
+

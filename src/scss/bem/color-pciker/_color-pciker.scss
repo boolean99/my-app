@@ -1,5 +1,6 @@
 .color-picker {
-  z-index: 4;
+  background: #454545;
+  padding: 10px 10px 40px;
   
-  @include position(fixed, 15vh null null 0);
+  @include position(fixed, 15vh null null -210px);
 }

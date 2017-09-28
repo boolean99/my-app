@@ -1,7 +1,16 @@
 .setting-icon {
-  background: #454545;
   color: #fff;
+  background: inherit;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-size: 22px;
+  outline: none;
   
-  @include position(0 -24px null null);
   @extend %material-icons;
+  @include position(0 -42px null null);
+  @include size(42px);
+  
+  &:hover {
+    background: tint(#454545, 5);
+  }
 }

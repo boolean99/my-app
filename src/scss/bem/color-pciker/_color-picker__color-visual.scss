@@ -1,0 +1,7 @@
+.color-picker__color-visual {
+  border: 1px solid #8f8f8f;
+  margin-right: 10px;
+  
+  @extend %fl;
+  @include size(calc(40% - 5px), 100%);
+}

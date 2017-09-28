@@ -1,0 +1,9 @@
+.color-picker__color-string {
+  border: 1px solid #555;
+  text-align: center;
+  background: #101010;
+  color: #7a7a7a;
+  
+  @extend %fl;
+  @include size(calc(60% - 5px), 100%);
+}

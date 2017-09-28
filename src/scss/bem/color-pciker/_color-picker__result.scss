@@ -1,0 +1,4 @@
+.color-picker__result {
+  @include size(155px, 25px);
+  @include position(null null 10px 15px);
+}

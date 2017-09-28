@@ -1,0 +1,5 @@
+.color-picker {
+  z-index: 4;
+  
+  @include position(fixed, 15vh null null 0);
+}

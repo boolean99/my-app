@@ -6,6 +6,7 @@ import globalConfig from './helpers/global-config';
 
 // npm 모듈 호출
 import mobileDetect from 'mobile-detect';
+import ColorPicker from 'simple-color-picker';
 
 // devTools 호출
 import devTools from './devtools/dev-tools';
@@ -42,13 +43,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const WIN = window,
         DOC = document,
         MD = new mobileDetect(WIN.navigator.userAgent),
-        Gallery = new gallery('main-visual');
+        Gallery = new gallery('main-visual'),
+        colorPicker = new ColorPicker({
+          color: '#FF0000',
+          background: '#454545',
+          width: 240,
+          height: 200
+        });
   
   if(MD.mobile()) console.log(`mobile DOM's been loaded`);
   else console.log(`DOM's been loaded`);
   
   Gallery.styleInit();
   mainVisualScrollOpacity();
+  colorPicker.appendTo(DOC.querySelector('.js-color-pciker > .setting-panel'));
   
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링

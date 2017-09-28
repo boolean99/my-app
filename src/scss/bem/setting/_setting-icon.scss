@@ -1,0 +1,7 @@
+.setting-icon {
+  background: #454545;
+  color: #fff;
+  
+  @include position(0 -24px null null);
+  @extend %material-icons;
+}

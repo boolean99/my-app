@@ -1,0 +1,21 @@
+.loader__external-circle {
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  stroke: #22cf76;
+  stroke-dasharray: 312;
+  animation: external 1s linear infinite;
+}
+
+@keyframes external {
+  0% {
+    stroke-dashoffset: 312;
+    transform: rotate(70deg);
+  }
+  60% {
+    stroke-dashoffset: -312;
+  }
+  100% {
+    stroke-dashoffset: -312;
+    transform: rotate(450deg);
+  }
+}

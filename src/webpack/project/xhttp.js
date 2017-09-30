@@ -1,4 +1,4 @@
-export default function returnXHttpObj(func, ...param) {
+export default function returnXHttpObj(func, param) {
   let xHttp = new XMLHttpRequest();
   
   xHttp.onreadystatechange = function() {

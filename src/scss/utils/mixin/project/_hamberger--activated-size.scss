@@ -1,0 +1,15 @@
+@mixin hamberger--activated-size($width, $height) {
+  > span {
+    &:nth-child(1) {
+      top: 50%;
+      margin-top: -($height*0.2 / 2);
+    }
+    &:nth-child(2) {
+      left: -$width;
+    }
+    &:nth-child(3) {
+      top: 50%;
+      margin-top: -($height*0.2 / 2);
+    }
+  }
+}

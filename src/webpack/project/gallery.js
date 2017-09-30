@@ -1,4 +1,4 @@
-import toggleModifier from '../helpers/toggle-modifier';
+import modifier from '../helpers/modifier';
 import index from '../helpers/index';
 
 function gallery(targetQuery) {
@@ -103,10 +103,10 @@ function gallery(targetQuery) {
     
     if(itemIndex === 'next') {
       // 우측 핸들러를 클릭했을때
-      willMoveIndex = index(this.paging.querySelector(`.paging__elm--actived`)) + 2;
+      willMoveIndex = index(this.paging.querySelector(`.paging__elm--activated`)) + 2;
     }else if(itemIndex === 'prev') {
       // 좌측 핸들러를 클릭했을때
-      willMoveIndex = index(this.paging.querySelector(`.paging__elm--actived`));
+      willMoveIndex = index(this.paging.querySelector(`.paging__elm--activated`));
     }else if(Number.isFinite(itemIndex)) {
       // 페이징 버튼을 클릭했을때
       willMoveIndex = itemIndex;
@@ -122,14 +122,16 @@ function gallery(targetQuery) {
     }
     
     // 활성화되어있는 요소를 모두 비활성화
-    toggleModifier(
-      this.paging.querySelectorAll(`.paging__elm--actived`),
-      'paging__elm--actived'
+    modifier(
+      'remove',
+      this.paging.querySelectorAll(`.paging__elm--activated`),
+      'paging__elm--activated'
     );
     // 클릭한 요소를 활성화
-    toggleModifier(
+    modifier(
+      'add',
       this.paging.querySelector(`.js-paging__elm:nth-of-type(${willMoveIndex})`),
-      'paging__elm--actived'
+      'paging__elm--activated'
     );
   };
   

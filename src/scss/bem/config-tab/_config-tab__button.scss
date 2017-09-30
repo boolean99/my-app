@@ -1,0 +1,12 @@
+.config-tab__button {
+  color: #fff;
+  background: #101010;
+  height: 30px;
+  transition: 0.2s background linear;
+  
+  @extend %fl;
+  
+  &:hover {
+    background: tint(#101010, 10);
+  }
+}

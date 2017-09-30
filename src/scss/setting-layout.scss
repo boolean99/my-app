@@ -1,0 +1,14 @@
+@if($compile-standard == 'layout-list') {
+  .article-list--layout-list {
+    .contents-section__item {
+
+    }
+  }
+
+}@else if($compile-standard == 'layout-grid') {
+  .article-list--layout-grid {
+    .contents-section__item {
+      width: 50%;
+    }
+  }
+}

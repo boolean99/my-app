@@ -1,0 +1,11 @@
+.config-tab__title {
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #101010;
+  margin-bottom: 10px;
+  
+  @extend %wide-auto;
+  @include vertical-rythme(rem(14px));
+}

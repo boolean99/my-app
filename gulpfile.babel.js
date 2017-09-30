@@ -91,7 +91,11 @@ gulp.task('html-minify', () => {
 
 //[*]+---------------[[ SCSS 컴파일 ]]---------------+[*]\\
 gulp.task('scss-compile', () => {
-  return gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.SCSS + '/**/*.scss')
+  gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.SCSS + '/!(index).scss')
+    .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DEV + '/css'))
+    .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DIST + '/css'));
+  
+  return gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.SCSS + '/index.scss')
       .pipe(scssGlob())
       .pipe(plumber())
       .pipe(sourcemaps.init())
@@ -126,6 +130,10 @@ gulp.task('css-strong', () => {
 
 //[*]+---------------[[ Webpack 컴파일 ]]---------------+[*]\\
 gulp.task('webpack-compile', () => {
+  gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/!(${GLOBALCONFIG.WEBPACK.FILENAME})*.js`)
+  .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DIST + '/js'))
+  .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DEV + '/js'));
+  
   return gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK)
       .pipe(plumber())
       .pipe(gulpIf(

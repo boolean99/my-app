@@ -1,5 +1,6 @@
 .side-bar-panel__paragraph {
   margin: 15px 0 10px 0;
+  text-align: left;
   
   @extend %container;
   @include vertical-rythme(rem(15px), rem(18px));

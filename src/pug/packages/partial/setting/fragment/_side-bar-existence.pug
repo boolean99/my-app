@@ -1,0 +1,17 @@
++b('sidebar-existence', { t: 'div', b: 'config-tab' })
+  +e('title', { t: 'span', e: 'config-tab' })
+    |Side bar
+  +b('button', {
+    t: 'button',
+    b: 'js-config-tab__button',
+    e: ['config-tab|selected.size-half', '&'] })(
+      data-modifier-target='contents-section__container',
+      data-modifier-value='sidebar-activated'
+    ) Activated
+  +b('button', {
+    t: 'button',
+    b: 'js-config-tab__button',
+    e: ['config-tab|size-half', '&'] })(
+      data-modifier-target='contents-section__container',
+      data-modifier-value='sidebar-deactivated'
+    ) Deactivated

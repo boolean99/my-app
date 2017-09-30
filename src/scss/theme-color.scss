@@ -1,5 +1,10 @@
-$main-color: rgb(35, 174, 244);
-//$main-color: hsl(300, 76%, 72%);
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}
+
+@function shade($color, $percent) {
+  @return mix(#000, $color, $percent);
+}
 
 .handler__author {
   color: $main-color;
@@ -7,12 +12,6 @@ $main-color: rgb(35, 174, 244);
 
 .handler__heading {
   border-bottom-color: $main-color;
-}
-
-.hamberger {
-  span {
-    background: $main-color;
-  }
 }
 
 .progress-bar span {
@@ -156,7 +155,7 @@ html, body, div, span, applet, object, iframe,
 }
 
 .toggle-button-input {
-  @include breaking($bp1020, below) {
+  @media all and (max-width:1020px) {
     &:checked {
       & + .toggle-button-label {
         color: $main-color !important;
@@ -167,4 +166,12 @@ html, body, div, span, applet, object, iframe,
 
 .other-articles {
   background: tint($main-color, 90);
+}
+
+.side-bar-panel {
+  &:hover {
+    .side-bar-panel__heading {
+      border-color: $main-color;
+    }
+  }
 }

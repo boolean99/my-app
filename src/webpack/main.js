@@ -23,7 +23,7 @@ import index from './helpers/index';
 //import readingZero from './helpers/reading-zero';
 import scrollTop from './helpers/smooth-scrolling';
 //import toggleBoolean from './helpers/toggle-boolean';
-import toggleModifier from './helpers/toggle-modifier';
+import modifier from './helpers/modifier';
 //import splitSearch from '../../app_helpers/split-search';
 
 // 프로젝트 모듈 호출
@@ -34,6 +34,7 @@ import gallery from './project/gallery';
 import progressBar from './project/progress-bar';
 import mainVisualScrollOpacity from './project/main-visual-scroll-opacity';
 import colorPickerModule from './project/color-picker';
+import settingPanel from './project/setting-panel';
 
 // 전역변수 선언
 let socket;
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTop(document.body, window.innerHeight, 300);
         break;
       case 'js-hamberger' :
-        toggleModifier(eventTarget.target, 'hamberger--actived')
+        modifier('toggle', eventTarget.target, 'hamberger--activated');
         break;
       case 'js-handler--left' :
         Gallery.containerMove('left');
@@ -81,18 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
         Gallery.currentDot(index(eventTarget.target) + 1);
         break;
       case 'js-setting-icon' :
-        toggleModifier(
+        modifier(
+          'toggle',
           eventTarget.target.parentElement,
-          'color-picker--actived'
+          'setting--activated'
         );
         break;
-      case 'js-clickable' :
-//        console.log(index(eventTarget.target));
-//        toggleModifier(
-//          eventTarget.target,
-//          'container__element--actived',
-//          ['container__element--theme-flat', 'container__element--theme-normal']
-//        );
+      case 'js-config-tab__button' :
+        settingPanel(eventTarget.target);
         break;
       default :
         return false;

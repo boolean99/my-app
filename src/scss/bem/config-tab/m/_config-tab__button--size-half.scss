@@ -1,0 +1,7 @@
+.config-tab__button--size-half {
+  width: calc(50% - 5px);
+  
+  &:first-of-type {
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,3 @@
+.config {
+  @include position(fixed, calc(15vh + 52px) null null -200px);
+}

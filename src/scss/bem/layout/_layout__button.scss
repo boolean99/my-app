@@ -1,0 +1,7 @@
+.layout__button {
+  margin-right: 10px;
+  width: calc(33.33% - 6.67px);
+  
+  @extend %material-icons;
+  @include except(margin-right, last);
+}

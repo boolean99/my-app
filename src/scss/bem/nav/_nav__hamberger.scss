@@ -1,12 +1,10 @@
 .nav__hamberger {
-  right: 20px;
-  
   @include center(false, true, relative);
-  @include mirror(float right);
+  @include mirror(float right, right 20px);
   @include hamberger-size(40px, 25px);
   
-  &.hamberger--actived {
-    @include hamberger--actived-size(40px, 25px);
+  &.hamberger--activated {
+    @include hamberger--activated-size(40px, 25px);
   }
   
   > span {

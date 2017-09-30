@@ -1,0 +1,8 @@
+.loader__svg {
+  transform: rotate(-90deg);
+  stroke-linecap: round;
+  stroke-width: 6;
+  fill: none;
+  
+  @extend %wide-wide;
+}

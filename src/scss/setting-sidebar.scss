@@ -1,0 +1,16 @@
+@if($compile-standard == 'sidebar-deactivated') {
+  .contents-section__container--sidebar-deactivated {
+    .article-list {
+      width: 100%;
+    }
+
+    .side-bar {
+      display: none;
+    }
+
+    .independent-article {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}

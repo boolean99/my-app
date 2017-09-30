@@ -25,7 +25,7 @@
           숫자를 사용해도 좋으나 첫번째와 마지막은 first, last
           키워드를 지원합니다.
             ex) @include except(margin-left, last);
-                @include except(clear, 3);
+                @include except(clear float border-bottom, 3);
         }
     ";
 }

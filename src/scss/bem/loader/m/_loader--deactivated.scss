@@ -1,0 +1,5 @@
+.loader--deactivated {
+  transform-origin: center center;
+  
+  @include size(0);
+}

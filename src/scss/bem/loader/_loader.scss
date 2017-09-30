@@ -1,0 +1,7 @@
+.loader {
+  z-index: 5;
+  transition: 0.4s all linear;
+  
+  @include size(40px);
+  @include center(true, true);
+}

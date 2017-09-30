@@ -2,6 +2,9 @@
 // scss 변수 모듈 호출
 @import "config";
 
+// 테마 scss 호출
+@import "theme-color";
+
 // css 초기화 모듈 호출
 @import "base/reset/**/*";
 @import "base/common/**/*";
@@ -22,4 +25,5 @@
 @import "setting/**/*";
 
 // layout 모듈 호출
-@import "bem/**/*";
+@import "bem/*/!(m)*";
+@import "bem/**/m/*";

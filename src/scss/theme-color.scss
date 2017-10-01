@@ -175,3 +175,7 @@ html, body, div, span, applet, object, iframe,
     }
   }
 }
+
+.button-controller, .move-viewport__children-button {
+  background: darken($main-color, 30);
+}

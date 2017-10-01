@@ -1,14 +1,100 @@
 @if($compile-standard == 'layout-list') {
   .article-list--layout-list {
     .contents-section__item {
-
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #e8e8e8;
+      
+      &:nth-of-type(2), &:nth-of-type(2) ~ .contents-section__item {
+        padding-top: 0;
+      }
+      
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    
+    .independent-article__category{
+      order: 1;
+      width: 50%;
+      text-align: right;
+      padding-right: 10px;
+    }
+    
+    .independent-article__title {
+      order: 3;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .independent-article__date{
+      order: 2;
+      width: 50%;
+      text-align: left;
+      padding-left: 10px;
+    }
+    
+    .independent-article__figure {
+      order: 4;
+      margin: 0;
+    }
+    
+    .figure__img {
+      float: left;
+      max-width: 350px;
+      margin-bottom: 0;
+      height: 100%;
+      margin-right: 35px;
+      
+      &::before {
+        height: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        content: '';
+      }
+      
+      > img {
+        vertical-align: middle;
+        float: none;
+      }
+      
+      + .contents-section__figcaption {
+        width: calc(100% - 385px);
+        text-align: left;
+      }
+    }
+    
+    .contents-section__figcaption {
+      float: left;
+      height: 100%;
+      max-height: 250px;
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .button, .share {
+      display: none;
     }
   }
 
 }@else if($compile-standard == 'layout-grid') {
   .article-list--layout-grid {
+    position: relative;
+    
     .contents-section__item {
       width: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}@else if($compile-standard == 'layout-standard') {
+  .article-list--layout-standard {
+    .contents-section__item {
     }
   }
 }

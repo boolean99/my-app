@@ -6,8 +6,8 @@ $share-transition: 0.5s all $ease-out-cubic;
   transition: $share-transition;
   
   @include size(50px, 40px);
-  
-  &:hover {
+  @include breaking($bp480, below) {
+    @include size(40px, 30px);
   }
   
   div {

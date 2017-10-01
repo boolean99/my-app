@@ -1,0 +1,20 @@
+.move-viewport__children-button {
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  display: inline-block;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 1;
+  
+  @include size(60px);
+  @include vertical-rythme(40px);
+  @extend %material-icons;
+  @extend %none-select;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  @include size(60px);
+  @include position(0 0 null null);
+}

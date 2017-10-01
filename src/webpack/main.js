@@ -6,6 +6,9 @@ import globalConfig from './helpers/global-config';
 
 // npm 모듈 호출
 import mobileDetect from 'mobile-detect';
+import scroll from 'scroll';
+import ease from 'ease-component';
+import scrollPageDetectObj from 'scroll-doc';
 
 // devTools 호출
 import devTools from './devtools/dev-tools';
@@ -21,7 +24,6 @@ import catchEventTarget from './helpers/catch-event-target';/**/
 import index from './helpers/index';
 //import parents from './helpers/parents';
 //import readingZero from './helpers/reading-zero';
-import scrollTop from './helpers/smooth-scrolling';
 //import toggleBoolean from './helpers/toggle-boolean';
 import modifier from './helpers/modifier';
 //import splitSearch from '../../app_helpers/split-search';
@@ -32,28 +34,29 @@ import modifier from './helpers/modifier';
 //import returnXHttpObj from './project/xhttp';
 import gallery from './project/gallery';
 import progressBar from './project/progress-bar';
-import mainVisualScrollOpacity from './project/main-visual-scroll-opacity';
 import colorPickerModule from './project/color-picker';
 import settingPanel from './project/setting-panel';
+import detectPostBoundaryLine from './project/boundary-line';
 
 // 전역변수 선언
-let socket;
+//let socket;
 
 document.addEventListener('DOMContentLoaded', () => {
   // 돔 로드완료 이벤트
   const WIN = window,
         DOC = document,
         MD = new mobileDetect(WIN.navigator.userAgent),
-        Gallery = new gallery('main-visual');
+        Gallery = new gallery('main-visual'),
+        scrollPageDetect = scrollPageDetectObj();
   
   if(MD.mobile()) console.log(`mobile DOM's been loaded`);
   else console.log(`DOM's been loaded`);
   
+  // JS 사용 가능한 환경 확인
+  DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
+  
   // 갤러리 초기화 호출
   Gallery.styleInit();
-  
-  // 메인비쥬얼 플로팅 요소 스크롤에따른 스크롤 조절(모바일 별도작업 필요)
-  mainVisualScrollOpacity();
   
   // 컬러픽커 모듈 호출
   colorPickerModule();
@@ -61,13 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링
-    const eventTarget = catchEventTarget(e.target || e.srcElement);
+    const eventTarget = catchEventTarget(e.target || e.srcElement),
+          updatedScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
     
 //    console.log(eventTarget.target, eventTarget.findJsString);
     
     switch(eventTarget.findJsString) {
       case 'js-scroll-to-contents' :
-        scrollTop(document.body, window.innerHeight, 300);
+        scroll.top(scrollPageDetect, window.innerHeight, { duration: 1000, ease: ease.inOutCirc });
         break;
       case 'js-hamberger' :
         modifier('toggle', eventTarget.target, 'hamberger--activated');
@@ -80,6 +84,25 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
       case 'js-paging__elm' :
         Gallery.currentDot(index(eventTarget.target) + 1);
+        break;
+      case 'js-toggle-viewport-controller' :
+        modifier(
+          'toggle',
+          eventTarget.target.parentElement,
+          'move-viewport--activated'
+        );
+        break;
+      case 'js-prev-post' :
+        detectPostBoundaryLine(updatedScrollTop, 'prev');
+        break;
+      case 'js-next-post' :
+        detectPostBoundaryLine(updatedScrollTop, 'next');
+        break;
+      case 'js-scroll-to-top' :
+        scroll.top(scrollPageDetect, 0, { duration: 1000, ease: ease.inOutCirc });
+        break;
+      case 'js-scroll-to-bottom' :
+        scroll.top(scrollPageDetect, DOC.body.scrollHeight, { duration: 1000, ease: ease.inOutCirc });
         break;
       case 'js-setting-icon' :
         modifier(
@@ -101,25 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
     Gallery.autoRolling(Gallery.galleryAutorollingDuration * 1000);
     progressBar('running', Gallery.galleryAutorollingDuration);
     
-  DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
-    
-    
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);
   else console.log(`WINDOW's been loaded`);
 //    socket = io();
 //    socketFunc(socket);
-    
-    /*  xhttp 호출 예제
-    function testFunc(value) {
-      console.log(value.responseText);
-    }
-    
-    let xHttpObj = returnXHttpObj(testFunc);
-    
-    xHttpObj.open('GET', 'index.html', true);
-    xHttpObj.send(null);
-    
-    */
   });
   
   WIN.addEventListener('resize', () => {
@@ -139,15 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  DOC.addEventListener('wheel', (e) => {
-    const eventTarget = catchEventTarget(e.target || e.srcElement);
-    
-    mainVisualScrollOpacity();
+  DOC.addEventListener('scroll', (e) => {
+    const ifDocumentTargetIsDocument = e.target || e.srcElement === document ? document.body : e.target || e.srcElement,
+          eventTarget = catchEventTarget(ifDocumentTargetIsDocument);
     
     switch(eventTarget.findJsString) {
       case 'js-test':
-        console.log(eventTarget.target);
-//        goToTop(e, scrolledElement);
         break;
       default :
         return false;

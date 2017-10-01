@@ -1,0 +1,23 @@
+.button-controller {
+  transition-duration: 0.4s;
+  transition-timing-function: $ease-out-back;
+  transform: scale(1, 1) translate3d(0, 0, 0);
+  display: inline-block;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+  
+  @include size(60px);
+  @include vertical-rythme(40px);
+  @extend %material-icons;
+  @extend %none-select;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &:hover {
+    transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+  }
+}

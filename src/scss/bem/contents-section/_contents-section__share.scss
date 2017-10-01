@@ -3,7 +3,7 @@
   
   > div {
     z-index: 2;
-    
-    @include center(true, true);
+    position: relative;
+//    @include center(true, true);
   }
 }

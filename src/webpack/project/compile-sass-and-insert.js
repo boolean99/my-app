@@ -1,4 +1,5 @@
 import modifier from '../helpers/modifier';
+import makeLayout from './make-layout';
 
 export default function compileSassAndInsert(XHttpResult, param) {
   let scssString = XHttpResult.responseText;
@@ -6,12 +7,11 @@ export default function compileSassAndInsert(XHttpResult, param) {
         sass = new Sass();
   
   scssString = `$${param.variable[0]}: ${param.variable[1]}; ${scssString}`;
-
+  
   sass.compile(scssString, function(compiledScssString) {
     if(!DOC.getElementById(param.id)) DOC.head.insertAdjacentHTML('beforeend', `<style id="${param.id}"></style>`);
     
     DOC.getElementById(param.id).innerHTML = compiledScssString.text;
-    
     
     if(param.id !== 'theme-color') {
       modifier(
@@ -26,5 +26,7 @@ export default function compileSassAndInsert(XHttpResult, param) {
         'loader--deactivated'
       );
     }
+    
+    if(param.callbackParam !== undefined) makeLayout(param.callbackParam);
   });
 }

@@ -27,7 +27,8 @@ export default function settingPanel(evtTarget) {
           compileSassAndInsert,
           {
             variable: ['compile-standard', modifierValue],
-            id
+            id,
+            callbackParam: modifierValue.slice(modifierValue.indexOf('-') + 1)
           }
         );
     
@@ -39,6 +40,8 @@ export default function settingPanel(evtTarget) {
     
     xHttpObj.open('GET', `css/setting-${id}.scss`, true);
     xHttpObj.send(null);
+    
+    DOC.querySelector('.contents-section__article-list').setAttribute('style', 'opacity: 0; transition: 0.6s all linear');
 
     for(let i = 1, ilen = evtTarget.parentElement.childElementCount; i < ilen; i++) {
       modifier(

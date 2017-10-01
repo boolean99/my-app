@@ -1,0 +1,8 @@
+.move-viewport__children-button--prev_article, .move-viewport__children-button--next_article {
+  transform: rotateZ(90deg);
+}
+
+.move-viewport__children-button--the_top,
+.move-viewport__children-button--close {
+  transform: rotateZ(-90deg);
+}

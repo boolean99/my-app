@@ -8,9 +8,23 @@
       display: none;
     }
 
-    .independent-article {
-      padding-right: 0;
-      padding-left: 0;
+    .article-list--layout-standard {
+      .independent-article {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+    
+    .article-list--layout-grid {
+      .independent-article {
+        &:nth-of-type(2n-1) {
+          padding-left: 0;
+        }
+
+        &:nth-of-type(2n) {
+          padding-right: 0;
+        }
+      }
     }
   }
 }

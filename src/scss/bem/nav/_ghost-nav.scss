@@ -1,0 +1,23 @@
+#ghost-nav {
+  animation-name: ghost-nav;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  
+  .nav__sub .nav__item {
+    background: rgba(255, 255, 255, 0.6);
+    
+    &:hover {
+      background: transparentize($main-color, 0.4);
+    }
+  }
+  
+}
+
+@keyframes ghost-nav {
+  0% {
+    top: -60px;
+  }
+  100% {
+    top: 0;
+  }
+}

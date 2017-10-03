@@ -30,9 +30,13 @@ export default function makeLayout(sort) {
     removeAllStyle();
   }
   
-  
-  
-  
+  if(sort !== 'standard') {
+    DOC.querySelector('.js-prev-post').setAttribute('disabled', 'true');
+    DOC.querySelector('.js-next-post').setAttribute('disabled', 'true');
+  }else {
+    DOC.querySelector('.js-prev-post').removeAttribute('disabled');
+    DOC.querySelector('.js-next-post').removeAttribute('disabled');
+  }
   
   DOC.querySelector('.contents-section__article-list').style.opacity = 1;
 

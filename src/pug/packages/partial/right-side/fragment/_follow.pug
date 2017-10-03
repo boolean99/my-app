@@ -1,7 +1,8 @@
 +b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'follow' })
   +e('heading', { t: 'h1', m: 'type-outer' }) FOLLOW ME
   +b('toggle-button-input', { t: 'input' })(type='checkbox' id='follow')
-  +b('toggle-button-label', { t: 'label' })(for='follow') menu
+  +b('toggle-button-label', { t: 'label' })(for='follow')
+    include ../../hamburger/_hamburger
   +e('wrapper', { t: 'div' })
     +b('share', { t: 'section', e: '&'})
       +e('list', { t: 'ul' })

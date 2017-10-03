@@ -200,7 +200,7 @@ gulp.task('webpack-compile', () => {
 
 //[*]+---------------[[ JS 압축 ]]---------------+[*]\\
 gulp.task('js-compress', (cb) => {
-  return gulp.src(GLOBALCONFIG.DIRECTION.DEV + '/js/**/*.js')
+  return gulp.src(GLOBALCONFIG.DIRECTION.DEV + '/js/main.bundle.js')
       .pipe(uglifyJs())
       .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DIST + '/js'))
       .pipe(gulpIf(GLOBALCONFIG.SERVERDEV, gulp.dest(GLOBALCONFIG.DIRECTION.SERVER + '/js')));
@@ -307,7 +307,7 @@ gulp.task('server-run', () => {
   gulp.watch(GLOBALCONFIG.DIRECTION.IMAGE + 'sprites/*', ['img-sprite']);
   gulp.watch(GLOBALCONFIG.DIRECTION.DEV + '/**/*.{html, htm}', ['html-minify']);
   gulp.watch(GLOBALCONFIG.DIRECTION.DEV + '/css/**/*.css', ['css-strong']);
-//  gulp.watch(GLOBALCONFIG.DIRECTION.DEV + '/js/**/*.js', ['js-compress']);
+  gulp.watch(GLOBALCONFIG.DIRECTION.DEV + '/js/main.bundle.js', ['js-compress']);
 });
 //[*]+---------------[[ 로컬서버 실행 후 파일 변경 감지 ]]---------------+[*]\\
 
@@ -345,7 +345,7 @@ gulp.task('build', () => {
     'font-convert',
     ['pug-compile', 'scss-compile', 'webpack-compile'],
     ['img-sprite', 'img-min', 'file-copy'],
-//    ['css-strong', 'js-compress', 'html-minify']
+    ['css-strong', 'js-compress', 'html-minify']
     ['css-strong', 'html-minify']
   );
 });
@@ -355,7 +355,7 @@ gulp.task('default', () => {
     'font-convert',
     ['pug-compile', 'scss-compile', 'webpack-compile'],
     ['img-sprite', 'img-min', 'file-copy'],
-//    ['css-strong', 'html-minify', 'js-compress'],
+    ['css-strong', 'html-minify', 'js-compress'],
     ['css-strong', 'html-minify'],
     'server-run'
   );

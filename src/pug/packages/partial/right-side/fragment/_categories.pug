@@ -1,9 +1,14 @@
 +b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'categories' })
   +e('heading', { t: 'h1', m: 'type-outer' }) CATEGORIES
   +b('toggle-button-input', { t: 'input' })(type='checkbox' id='categories')
-  +b('toggle-button-label', { t: 'label' })(for='categories') menu
+  +b('toggle-button-label', { t: 'label' })(for='categories')
+    include ../../hamburger/_hamburger
   +e('wrapper', { t: 'div' })
     +b('category-list', { t: 'ul', e: 'side-bar' })
       -for(var i = 0; i < navList.length; i++)
-        +e('list', { t: 'li' })
-          a(href='#')= navList[i]
+        if(i == 2)
+          +e('list', { t: 'li' })
+            a(href='#')= navList[i][0]
+        else
+          +e('list', { t: 'li' })
+            a(href='#')= navList[i]

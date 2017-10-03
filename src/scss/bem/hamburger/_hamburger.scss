@@ -1,4 +1,4 @@
-@mixin hamberger-size($width, $height) {
+@mixin hamburger-size($width, $height) {
   @include size($width, $height);
   
   > span {
@@ -18,7 +18,7 @@
   }
 }
 
-.hamberger {
+.hamburger {
   position: relative;
   transform: rotate(0deg);
   transition: .5s ease-in-out;

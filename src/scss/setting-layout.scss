@@ -1,3 +1,6 @@
+//$compile-standard: 'layout-list';
+$bp700: 700px;
+
 @if($compile-standard == 'layout-list') {
   .article-list--layout-list {
     .contents-section__item {
@@ -28,6 +31,10 @@
       order: 3;
       text-align: center;
       width: 100%;
+      
+      @media all and (max-width: $bp700) {
+        font-size: 1.3rem;
+      }
     }
     
     .independent-article__date{
@@ -49,6 +56,11 @@
       height: 100%;
       margin-right: 35px;
       
+      @media all and (max-width: $bp700) {
+        width: 40%;
+        margin-right: 5%;
+      }
+      
       &::before {
         height: 100%;
         vertical-align: middle;
@@ -64,6 +76,10 @@
       + .contents-section__figcaption {
         width: calc(100% - 385px);
         text-align: left;
+        
+        @media all and (max-width: $bp700) {
+          width: 55%;
+        }
       }
     }
     
@@ -90,6 +106,20 @@
       position: absolute;
       top: 0;
       left: 0;
+    }
+    
+    .independent-article__title {
+      @media all and (max-width: $bp700) {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .independent-article__figure {
+      margin-bottom: 0;
+    }
+    
+    .button, .share {
+      display: none;
     }
   }
 }@else if($compile-standard == 'layout-standard') {

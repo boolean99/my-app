@@ -1,0 +1,13 @@
+.toggle-button-label__hamburger {
+  @include center(false, true, relative);
+  @include mirror(float right);
+  @include hamburger-size(25px, 18px);
+  
+  top: auto;
+  transform: none;
+  right: auto;
+  
+  &.hamburger--activated {
+    @include hamburger--activated-size(25px, 18px);
+  }
+}

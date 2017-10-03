@@ -179,3 +179,26 @@ html, body, div, span, applet, object, iframe,
 .button-controller, .move-viewport__children-button {
   background: darken($main-color, 30);
 }
+
+.nav__sub .nav__item  {
+  border-left: 1px solid $main-color;
+  border-right: 1px solid $main-color;
+  
+  &:last-of-type {
+    border-bottom: 1px solid $main-color;
+  }
+  
+  &:hover {
+    background: tint($main-color, 40);
+  }
+}
+
+.toggle-button-label__hamberger {
+  > span {
+    background: $main-color;
+  }
+}
+
+#ghost-nav {
+  background: transparentize($main-color, 0.4);
+}

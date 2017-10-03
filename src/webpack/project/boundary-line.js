@@ -14,34 +14,31 @@ export default function detectPostBoundaryLine (currentScrollTop, method) {
     boundaryLineArry[i] = basicOffsetTop + allExistentPosts[i].offsetTop;
   }
   
-  console.log(boundaryLineArry);
-  
-//  for(let i = 0, ilen = boundaryLineArry.length; i < ilen; i++) {
-//    if(currentScrollTop < boundaryLineArry[i]) {
-//      if(method === 'prev') {
-//        if(currentScrollTop <= boundaryLineArry[0]) {
-//          document.body.scrollTop = boundaryLineArry[0];
-//          break;
-//        }
-//        if(currentScrollTop === boundaryLineArry[i - 1]) {
-//          document.body.scrollTop = boundaryLineArry[i - 2];
-//          break;
-//        }
-//        document.body.scrollTop = boundaryLineArry[i - 1];
-//      }else if(method === 'next') {
-//        console.log('next');
-//        document.body.scrollTop = boundaryLineArry[i];
-//        break;
-//      }
-//    }else {
-////      console.log('else');
-//      if(i === ilen - 1) {
-//        document.body.scrollTop = boundaryLineArry[ilen - 1];
-//        break;
-//      }
-//    }
-//  }
-  
-  console.log(currentScrollTop);
-  
+  for(let i = 0, ilen = boundaryLineArry.length; i < ilen; i++) {
+    if(currentScrollTop < boundaryLineArry[0]) {
+      // 첫번째 포스트 이전일 때
+      scroll.top(scrollPageDetect, boundaryLineArry[0], { duration: 1000, ease: ease.inOutCirc });
+      break;
+    }else if(boundaryLineArry[ilen - 1] < currentScrollTop) {
+      // 마지막 포스트 이후일때
+      scroll.top(scrollPageDetect, boundaryLineArry[ilen - 1], { duration: 1000, ease: ease.inOutCirc });
+      break;
+    }
+    
+    if(method === 'next') {
+      // 유효범위 내에서의 다음 포스트
+      if(currentScrollTop < boundaryLineArry[i] &&
+         boundaryLineArry[i - 1] <= currentScrollTop ) {
+        scroll.top(scrollPageDetect, boundaryLineArry[i], { duration: 1000, ease: ease.inOutCirc });
+        break;
+       }
+    }else if(method == 'prev') {
+      // 유효범위 내에서의 이전 포스트
+      if(currentScrollTop <= boundaryLineArry[i] &&
+         boundaryLineArry[i - 1] < currentScrollTop ) {
+        scroll.top(scrollPageDetect, boundaryLineArry[i - 1], { duration: 1000, ease: ease.inOutCirc });
+        break;
+      }
+    }
+  }
 }

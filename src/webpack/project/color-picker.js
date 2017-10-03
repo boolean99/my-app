@@ -16,7 +16,7 @@ export default function colorPickerModule() {
   colorPicker.setColor('#23aef4');
   
   function onChangeInnerFunc(changedHexString) {
-    let changedRGBString = `rgb(${colorPicker.getRGB().r}, ${colorPicker.getRGB().g}, ${colorPicker.getRGB().b})`,
+    let changedRGBString = `rgba(${colorPicker.getRGB().r}, ${colorPicker.getRGB().g}, ${colorPicker.getRGB().b}, ${colorPicker.getRGB().a})`,
         xHttpObj = returnXHttpObj(
           compileSassAndInsert,
           {

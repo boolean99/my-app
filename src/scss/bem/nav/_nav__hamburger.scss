@@ -1,0 +1,17 @@
+.nav__hamburger {
+  @include center(false, true, relative);
+  @include mirror(float right, right 20px);
+  @include hamburger-size(40px, 25px);
+  
+  &.hamburger--activated {
+    @include hamburger--activated-size(40px, 25px);
+  }
+  
+  > span {
+    background: #fff;
+  }
+  
+  @include breaking($bp800, over) {
+    display: none;
+  }
+}

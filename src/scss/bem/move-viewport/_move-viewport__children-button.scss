@@ -17,4 +17,12 @@
   
   @include size(60px);
   @include position(0 0 null null);
+  
+  &[disabled] {
+    background: #4a4a4a;
+    
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
 }

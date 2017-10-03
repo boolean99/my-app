@@ -1,7 +1,8 @@
 +b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'about' })
   +e('heading', { t: 'h1', m: 'type-outer' }) ABOUT ME
   +b('toggle-button-input', { t: 'input' })(type='checkbox' id='about')
-  +b('toggle-button-label', { t: 'label' })(for='about') menu
+  +b('toggle-button-label', { t: 'label' })(for='about')
+    include ../../hamburger/_hamburger
   +e('wrapper', { t: 'div' })
     +e('img', { t: 'img' })(src='http://placehold.it/300x300?text=About me')
     +e('paragraph', { t: 'p' })

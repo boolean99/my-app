@@ -1,21 +1,22 @@
 .nav__list {
-  color: #fff;
+  color: #000;
   font-family: $font-Overpass;
   display: inline-block;
   height: 100%;
-  padding: 0 10px;
   margin: 0 5px;
   transition: 0.2s all $ease-in-out-cubic;
+  position: relative;
   
   @extend %none-select;
   @include vertical-rythme(rem(16px));
-  @include item-center('elm');
-  
-  &:hover {
-    opacity: 0.6;
-  }
   
   @include breaking($bp800, below) {
     display: none;
+  }
+  
+  &:hover {
+    .nav__sub {
+      display: block;
+    }
   }
 }

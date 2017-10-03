@@ -1,4 +1,4 @@
-@mixin hamberger--activated-size($width, $height) {
+@mixin hamburger--activated-size($width, $height) {
   > span {
     &:nth-child(1) {
       top: 50%;

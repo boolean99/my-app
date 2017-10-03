@@ -1,4 +1,15 @@
 +b('nav', { t: 'nav', e: 'contents-section' })
   -for(var i = 0; i < navList.length; i++)
-    +e('list', { t: 'a' })(href=`/${i === 0 ? '' : navList[i]}`)= navList[i]
-  include ../hamberger/_hamberger
+    if(navList[i].constructor.toString().toLowerCase().indexOf('array') > -1)
+      +e('list', { t: 'li' })
+        +e('item', { t: 'a' })(href=`/${i === 0 ? '' : navList[i][0]}`)= navList[i][0]
+          span arrow_drop_down
+        +e('sub', { t: 'ul' })
+          -for(var j = 1; j < navList[i].length; j++)
+            +e('list', { t: 'li' })
+              +e('item', { t: 'a' })(href=`/${navList[i][j]}`)= navList[i][j]
+    else
+      +e('list', { t: 'li' })
+        +e('item', { t: 'a' })(href=`/${i === 0 ? '' : navList[i]}`)= navList[i]
+          span arrow_drop_down
+  include ../hamburger/_hamburger

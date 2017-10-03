@@ -1,0 +1,29 @@
+.nav__item {
+  color: inherit;
+  padding-left: 10px;
+  padding-right: 30px;
+  height: 100%;
+  line-height: 60px;
+  transition: 0.3s all $ease-out-cubic;
+  direction: ltr;
+  
+  @extend %fl;
+  
+  &:hover {
+    opacity: 0.6;
+  }
+  
+  > span {
+    right: 0;
+    display: none;
+    
+    @extend %material-icons;
+    @include center(false, true);
+  }
+  
+  &:not(:only-child) {
+    > span {
+      display: inline-block;
+    }
+  }
+}

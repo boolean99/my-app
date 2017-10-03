@@ -1,7 +1,8 @@
 +b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'latest-post' })
   +e('heading', { t: 'h1', m: 'type-outer' }) LATEST POSTS
   +b('toggle-button-input', { t: 'input' })(type='checkbox' id='latest-post')
-  +b('toggle-button-label', { t: 'label' })(for='latest-post') menu
+  +b('toggle-button-label', { t: 'label' })(for='latest-post')
+    include ../../hamburger/_hamburger
   +e('wrapper', { t: 'div' })
     -for(var i = 0; i < 4; i++)
       +b('latest-post', { t: 'article', e: '&' })

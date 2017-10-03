@@ -1,0 +1,27 @@
+.nav__sub {
+  width: 200px;
+  display: none;
+  
+  @include position(60px null null 0);
+  
+  .nav__list {
+    margin: 0;
+    text-align: left;
+    
+    @extend %container;
+  }
+  
+  .nav__item {
+    background: #fff;
+    padding: 12px 10px;
+    font-size: 0.9em;
+    transition: 0.4s all $ease-out-expo;
+    line-height: 100%;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @extend %container;
+  }
+}

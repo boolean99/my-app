@@ -37,6 +37,7 @@ import progressBar from './project/progress-bar';
 import colorPickerModule from './project/color-picker';
 import settingPanel from './project/setting-panel';
 import detectPostBoundaryLine from './project/boundary-line';
+import whenScrollFixElement from './project/when-scroll-fix-element';
 
 // 전역변수 선언
 //let socket;
@@ -61,20 +62,35 @@ document.addEventListener('DOMContentLoaded', () => {
   // 컬러픽커 모듈 호출
   colorPickerModule();
   
+  let test2 = DOC.createElement('div');
+  test2.id = 'temporary-another-body';
+  
+  document.body.style.filter = 'blur(20px)';
+  
+  document.documentElement.insertBefore(document.body.querySelector('.temporary-another-body'), document.body);
+  
+  
+  
+  
+  
+  
+  
+  
   
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링
     const eventTarget = catchEventTarget(e.target || e.srcElement),
-          updatedScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+          updatedScrollTop = DOC.body.scrollTop || DOC.documentElement.scrollTop;
     
 //    console.log(eventTarget.target, eventTarget.findJsString);
+    
     
     switch(eventTarget.findJsString) {
       case 'js-scroll-to-contents' :
         scroll.top(scrollPageDetect, window.innerHeight, { duration: 1000, ease: ease.inOutCirc });
         break;
-      case 'js-hamberger' :
-        modifier('toggle', eventTarget.target, 'hamberger--activated');
+      case 'js-hamburger' :
+        modifier('toggle', eventTarget.target, 'hamburger--activated');
         break;
       case 'js-handler--left' :
         Gallery.containerMove('left');
@@ -123,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 윈도우 로드완료 이벤트
     Gallery.autoRolling(Gallery.galleryAutorollingDuration * 1000);
     progressBar('running', Gallery.galleryAutorollingDuration);
+//    whenScrollFixElement();
     
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);
   else console.log(`WINDOW's been loaded`);
@@ -151,6 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ifDocumentTargetIsDocument = e.target || e.srcElement === document ? document.body : e.target || e.srcElement,
           eventTarget = catchEventTarget(ifDocumentTargetIsDocument);
     
+    whenScrollFixElement();
+    
     switch(eventTarget.findJsString) {
       case 'js-test':
         break;
@@ -172,6 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-    
 
 
+
+
+var StackBlur = require("stackblur-canvas");

@@ -1,6 +1,7 @@
 .main-visual {
   overflow: hidden;
   z-index: 1;
+  position: fixed;
   
   @extend %fl;
   @include size(100%, 100vh);

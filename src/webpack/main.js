@@ -38,6 +38,7 @@ import colorPickerModule from './project/color-picker';
 import settingPanel from './project/setting-panel';
 import detectPostBoundaryLine from './project/boundary-line';
 import whenScrollFixElement from './project/when-scroll-fix-element';
+import mobileNav from './project/mobile-nav';
 
 // 전역변수 선언
 //let socket;
@@ -62,21 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 컬러픽커 모듈 호출
   colorPickerModule();
   
-  let test2 = DOC.createElement('div');
-  test2.id = 'temporary-another-body';
-  
-  document.body.style.filter = 'blur(20px)';
-  
-  document.documentElement.insertBefore(document.body.querySelector('.temporary-another-body'), document.body);
-  
-  
-  
-  
-  
-  
-  
-  
-  
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링
     const eventTarget = catchEventTarget(e.target || e.srcElement),
@@ -84,13 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
 //    console.log(eventTarget.target, eventTarget.findJsString);
     
-    
     switch(eventTarget.findJsString) {
       case 'js-scroll-to-contents' :
         scroll.top(scrollPageDetect, window.innerHeight, { duration: 1000, ease: ease.inOutCirc });
         break;
       case 'js-hamburger' :
-        modifier('toggle', eventTarget.target, 'hamburger--activated');
+        mobileNav(eventTarget.target);
         break;
       case 'js-handler--left' :
         Gallery.containerMove('left');
@@ -139,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 윈도우 로드완료 이벤트
     Gallery.autoRolling(Gallery.galleryAutorollingDuration * 1000);
     progressBar('running', Gallery.galleryAutorollingDuration);
-//    whenScrollFixElement();
+    whenScrollFixElement();
     
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);
   else console.log(`WINDOW's been loaded`);
@@ -190,9 +175,3 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchObj = e.changedTouches[0];
   });
 });
-
-
-
-
-
-var StackBlur = require("stackblur-canvas");

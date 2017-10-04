@@ -7,15 +7,15 @@ export default function whenScrollFixElement() {
         mainVisualOffsetHeight = win.innerHeight,
         MD = new mobileDetect(win.navigator.userAgent);
   
-  let ghostNav = doc.getElementById('ghost-nav');
+  let ghostNav = doc.body.querySelector('#ghost-nav');
     
   if(mainVisualOffsetHeight + doc.querySelector('.nav').offsetHeight < currentScrollTop) {
     if(!ghostNav) {
-      let cloneNav = doc.querySelector('.nav').outerHTML;
+      let cloneNav = doc.body.querySelector('.nav').outerHTML;
 
       doc.body.insertAdjacentHTML('afterbegin', cloneNav);
-      doc.querySelector('.nav').setAttribute('id', 'ghost-nav');
-      doc.getElementById('ghost-nav').setAttribute('style', `position: fixed; top: 0; left: 0; right: 0; z-index: 3;`);
+      doc.body.querySelector('.nav').setAttribute('id', 'ghost-nav');
+      doc.body.querySelector('#ghost-nav').setAttribute('style', `position: fixed; top: 0; left: 0; right: 0; z-index: 3;`);
     }
   }else {
     if(!!ghostNav) {
@@ -26,6 +26,8 @@ export default function whenScrollFixElement() {
   if(!MD.mobile()) {
     // 데스크탑 일때
     const sideBar = doc.querySelector('.side-bar');
+    
+    if(!sideBar) return false;
     
     if(!sideBar.getAttribute('data-offset-top')) {
       sideBar.setAttribute('data-offset-top', mainVisualOffsetHeight + sideBar.offsetTop);

@@ -1,5 +1,7 @@
 .nav {
   text-align: center;
+  position: relative;
+  z-index: 1;
   
   @include size(100%, 60px);
 }

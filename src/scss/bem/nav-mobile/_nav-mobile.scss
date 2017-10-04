@@ -2,26 +2,18 @@
 
 $mobile-bg: #4c4c4c;
 
-.temporary-another-body {
+#temporary-another-body {
   background: transparent;
   z-index: 9999;
   
   @include position(fixed, 0 0 0 0);
   
   .nav__hamburger {
-    @include hamburger-size(40px, 25px);
-
     top: auto;
     transform: none;
-    right: 20px;
     bottom: 20px;
-    display: block;
     position: absolute;
 
-    &.hamburger--activated {
-      @include hamburger--activated-size(25px, 18px);
-    }
-    
     > span {
       background: $mobile-bg;
     }
@@ -29,9 +21,49 @@ $mobile-bg: #4c4c4c;
   
   .nav {
     height: 100%;
-    padding-top: 30px;
+    padding-top: 10vh;
     
-    background-color: transparent !important;
+    background-color: transparent;
+
+    > .nav__list {
+      &:first-of-type {
+        > .nav__item {
+          margin-top: 0;
+          animation-name: home;
+          left: 50%;
+          transform: translateX(-50%);
+          top: -15vh;
+        }
+      }
+    }
+    
+    @for $i from 1 through 11 {
+      @if($i > 3 and $i < 9) {
+        .nav__sub {
+          .nav__list:nth-of-type(#{$i - 3}) {
+            .nav__item {
+              animation-delay: ($i*0.15)+s;
+            }
+          }
+        }
+      }@else {
+        > .nav__list {
+          @if($i >= 9) {
+            &:nth-of-type(#{$i - 5}) {
+              > .nav__item {
+                animation-delay: ($i*0.15)+s;
+              }
+            }
+          }@else {
+            &:nth-of-type(#{$i}) {
+              > .nav__item {
+                animation-delay: ($i*0.15)+s;
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
   .nav__list {
@@ -39,16 +71,10 @@ $mobile-bg: #4c4c4c;
     height: auto;
     clear: left;
     float: left;
-    margin-top: 15px;
+    width: 100%;
     
-    @include except(margin-top, first);
-    @include center(true, false, relative);
     @include breaking($bp800, below) {
       display: block;
-    }
-    
-    > .nav__item {
-      @include center(true, false, relative);
     }
   }
   
@@ -57,8 +83,15 @@ $mobile-bg: #4c4c4c;
     color: #fff;
     border-radius: 20px;
     line-height: 100%;
-    padding: 12px 18px;
-    width: auto;
+    min-width: 250px;
+    padding: 10px 0;
+    height: auto;
+    left: -250px;
+    position: relative;
+    animation-duration: 0.3s;
+    animation-name: slide;
+    animation-fill-mode: both;
+    margin-top: 10px;
     
     > span {
       display: none !important;
@@ -67,42 +100,34 @@ $mobile-bg: #4c4c4c;
   
   .nav__sub {
     display: block;
-    padding: 0;
-    color: inherit;
-    background: inherit;
     position: static;
     float: left;
     clear: both;
-    width: auto;
-    
-    .nav__list {
-      margin-top: 10px;
-      left: 0;
-      transform: none;
-      width: auto;
-      
-      @include center(true, false, relative);
-    }
+    width: 100%;
+    top: 0;
     
     .nav__item {
-      background: tint($mobile-bg, 10) !important;
-      color: #fff;
+      background: tint($mobile-bg, 10);
       border: none !important;
       font-size: 0.8em;
+      width: 200px;
+      min-width: auto;
+      text-align: center;
     }
   }
-  
-  
-  
-  
-  
 }
 
+@keyframes home {
+  100% {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
-
-
-
-
-
-
-
+@keyframes slide {
+  100% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

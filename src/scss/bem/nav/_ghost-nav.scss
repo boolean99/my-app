@@ -4,13 +4,14 @@
   animation-fill-mode: both;
   
   .nav__sub .nav__item {
-    background: rgba(255, 255, 255, 0.6);
-    
-    &:hover {
-      background: transparentize($main-color, 0.4);
+    @include breaking($bp800, over) {
+      background: rgba(255, 255, 255, 0.6);
+
+      &:hover {
+        background: transparentize($main-color, 0.4);
+      }
     }
   }
-  
 }
 
 @keyframes ghost-nav {

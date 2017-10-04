@@ -27,7 +27,7 @@ include _common-config
 //----------[*]- SNS META 태그 설정 -[*]----------\\
 
 //- body class 설정
-- var bodyClass= 'index'
+- var bodyClass= 'contact'
 
 //- bottom 설정
 - var js= true
@@ -43,9 +43,12 @@ include _common-config
     [
       //'/socket.io/socket.io.js',
       //'/reload/reload.js',
-      'js/sass.js',
+      //'js/sass.js',
       //'sass.worker.js',
-      'js/main.bundle.js'
+      'js/sass.js',
+      'js/main.bundle.js',
+      'js/google-map.js',
+      ['https://maps.googleapis.com/maps/api/js?key=AIzaSyBx9FDsGN7QWo91AuyHmI2dImfblzaNfIA&callback=initMap', 'async:true', 'defer:false']
     ]
 
 //- 배포시 수정될 파일명 & img 경로를 바꿔준다

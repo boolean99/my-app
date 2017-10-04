@@ -18,3 +18,30 @@
     left: 0;
   }
 }
+
+#test2 {
+  float: left;
+  width: 15.38%;
+  height: 200px;
+  background: lightgreen;
+  margin-bottom: 100px;
+  height: 0;
+  padding-top: 30.77%;
+}
+
+#test {
+  float: left;
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-top: 56.25%;
+  
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+

@@ -2,7 +2,7 @@ include config/_contact-config
 doctype html
 +b('no-js', { t: 'html' })(lang=docLang)
   include packages/basic/_top
-  +b(bodyClass, { t: 'body' })
+  +b('contact', { t: 'body' })
     include packages/basic/_skip-navigation
     include packages/partial/_contact
     include packages/basic/_bottom

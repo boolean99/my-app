@@ -1,6 +1,6 @@
 {
   "DISTRIBUTION": false,
-  "SERVERDEV": false,
+  "SERVERDEV": true,
   "DIRECTION": {
     "SRC": "src",
     "DEV": "dev",
@@ -9,7 +9,7 @@
     "SCSS": "/scss",
     "PUG": "/pug",
     "WEBPACK": "/webpack",
-    "JSON": "/json",
+    "JSON": "/db",
     "IMAGE": "/images",
     "FONT": "/fonts"
   },

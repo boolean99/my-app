@@ -11,16 +11,16 @@ import ease from 'ease-component';
 import scrollPageDetectObj from 'scroll-doc';
 
 // devTools 호출
-import devTools from './devtools/dev-tools';
-import mirror from './devtools/mirror';
+//import devTools from './devtools/dev-tools';
+//import mirror from './devtools/mirror';
 //import preview from './devtools/preview';
 
 // 헬퍼 모듈 호출
-import catchEventTarget from './helpers/catch-event-target';/**/
+import catchEventTarget from './helpers/catch-event-target';
 //import clipboardFunc from './helpers/clipboard-function';
 //import cloneObj from './helpers/clone-obj';
 //import colorAdjust from './helpers/color-adjust';
-//import delayEvent from './helpers/delay-event';
+import delayEvent from './helpers/delay-event';
 import index from './helpers/index';
 //import parents from './helpers/parents';
 //import readingZero from './helpers/reading-zero';
@@ -34,14 +34,13 @@ import modifier from './helpers/modifier';
 //import returnXHttpObj from './project/xhttp';
 import gallery from './project/gallery';
 import progressBar from './project/progress-bar';
-import colorPickerModule from './project/color-picker';
+//import colorPickerModule from './project/color-picker';
 import settingPanel from './project/setting-panel';
 import detectPostBoundaryLine from './project/boundary-line';
 import whenScrollFixElement from './project/when-scroll-fix-element';
 import mobileNav from './project/mobile-nav';
-
-// 전역변수 선언
-//let socket;
+import makeLayout from './project/make-layout';
+import makeExtraElement from './project/make-extra-element';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 돔 로드완료 이벤트
@@ -57,14 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // JS 사용 가능한 환경 확인
   DOC.documentElement.className = DOC.documentElement.className.replace('no-js ', '');
   
+  // 추가요소 HTML 생성
+  makeExtraElement();
+  
   // 갤러리 초기화 호출
   Gallery.styleInit();
   
-  // 컬러픽커 모듈 호출
-  colorPickerModule();
-  
   DOC.addEventListener('click', (e) => {
     // 클릭 이벤트 버블링
+    if(e.target.getAttribute('href') === '#') e.preventDefault();
+    
     const eventTarget = catchEventTarget(e.target || e.srcElement),
           updatedScrollTop = DOC.body.scrollTop || DOC.documentElement.scrollTop;
     
@@ -122,8 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
+    
+    // 갤러리 자동회전 시작
     Gallery.autoRolling(Gallery.galleryAutorollingDuration * 1000);
+    
+    // 갤러리와함께 프로그레스바 동작 시작
     progressBar('running', Gallery.galleryAutorollingDuration);
+    
+    // 스크롤할때 헤더를 상단에 붙이는 모듈 호출
     whenScrollFixElement();
     
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);
@@ -134,7 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   WIN.addEventListener('resize', () => {
     // 윈도우 리사이즈 이벤트
-//    delayEvent(/*second*/, /*func*/);
+    delayEvent(1000, makeLayout, 'grid');
+    Gallery.updateEssentialValue.leftValue();
+    Gallery.updateEssentialValue.galleryWidth();
   });
   
   WIN.addEventListener('keypress', (e) => {

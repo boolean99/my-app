@@ -1,0 +1,8 @@
+{
+  "category": "HTML5",
+  "date": "2017-04-21T07:35:38.957Z",
+  "display_date": "2017-03-21 16:35:38",
+  "title": "address",
+  "thumbnail": "",
+  "article_text_contents": "# <address>\r\n\r\n## 정의\r\n\r\n&lt;address&gt; 태그는 가장 가까이에 있는 &lt;article&gt; 태그나 &lt;body&gt; 태그에 저자/소유자의 연락처에 대한 정보를 제공합니다. body에 대한 정보를 제공할경우 전체 문서에 적용됩니다.\r\n\r\n## 속성\r\n이 요소의 속성은 global attributes만을 포함합니다.\r\n\r\n## 참고사항\r\n  * 각각의 &lt;article&gt;은 일반적으로 헤딩태그(&lt;h1&gt; ~ &lt;h6&gt;)를 자식 요소로소 포함함으로서 식별되어야 합니다.\r\n  * &lt;article&gt; 태그가 중첩 되었을 때, 내부의 &lt;article&gt;은 외부의 &lt;article&gt;에 관련된 내용을 담고 있습니다. 예를 들면 현재 address 태그를 설명하고 있는 이 &lt;article&gt; 태그는 블로그 전체 포스트를 나타내는 &lt;article&gt; 태그의 자식요소가 될 수 있습니다.\r\n  * &lt;article&gt; 태그의 저자의 정보는 &lt;address&gt; 태그를 통해 제공 될 수 있습니다. 이때 하위에 중첩된 &lt;article&gt; 요소에게도 저자 정보가 적용되진 않습니다.\r\n  * &lt;article&gt; 태그의 발행일 과 발행시간은 &lt;time&gt; 태그의 datetime 속성을 사용함으로서 제공 되어질 수 있습니다.\r\n  * &lt;address&gt; 태그는 연락 정보의 일부분이 아닌 한 우편주소를 설명하기 위해 사용되어서는 안 됩니다.\r\n  * &lt;address&gt; 태그는 일반적으로 &lt;footer&gt; 태그에 다른 정보들과 함께 포함되어질 것입니다.\r\n\r\n## 예제\r\n```\r\n<address>\r\nWritten by <a href=\"mailto:boolean99@naver.com\">boolean99<\/a>.<br> \r\nVisit us at:<br>\r\nExample.com<br>\r\nBox 564, Disneyland<br>\r\nUSA\r\n<\/address>\r\n```\r\n```\r\n<address>\r\nWritten by <a href=\"mailto:boolean99@naver.com\">boolean99<\/a>.<br> \r\nVisit us at:<br>\r\nExample.com<br>\r\nBox 564, Disneyland<br>\r\nUSA\r\n<\/address>\r\n```\r\n\r\n\r\n## 브라우저 호환\r\n [caniuse > address 태그][1]\r\n \r\n## 참고 사이트\r\n1. [MDN 사이트 > address 태그][2]\r\n2. [w3school > address 태그][3]\r\n\r\n[1]: http://caniuse.com/#search=address\r\n[2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address\r\n[3]: https://www.w3schools.com/tags/tag_address.asp"
+}

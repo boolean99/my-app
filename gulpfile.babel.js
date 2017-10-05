@@ -54,6 +54,9 @@ const browserSync = require('browser-sync').create(),
 
 //[*]+---------------[[ PUG 컴파일 ]]---------------+[*]\\
 gulp.task('pug-compile', () => {
+  gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.PUG + '**/**/*')
+      .pipe(gulpIf(GLOBALCONFIG.SERVERDEV, gulp.dest(GLOBALCONFIG.DIRECTION.SERVER)));
+  
   return gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.PUG + '/**/!(_)*.pug')
       .pipe(plumber())
       .pipe(pug({
@@ -91,7 +94,7 @@ gulp.task('html-minify', () => {
 
 //[*]+---------------[[ SCSS 컴파일 ]]---------------+[*]\\
 gulp.task('scss-compile', () => {
-  gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.SCSS + '/!(index).scss')
+  gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.SCSS + '/!(_*|index).scss')
     .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DEV + '/css'))
     .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DIST + '/css'));
   
@@ -113,7 +116,10 @@ gulp.task('scss-compile', () => {
 
 //[*]+---------------[[ CSS 정리 ]]---------------+[*]\\
 gulp.task('css-strong', () => {
-  return gulp.src(GLOBALCONFIG.DIRECTION.DEV + '/css/**/*.css')
+  gulp.src(GLOBALCONFIG.DIRECTION.DEV + '/css/*.scss')
+      .pipe(gulpIf(GLOBALCONFIG.SERVERDEV, gulp.dest(GLOBALCONFIG.DIRECTION.SERVER + '/css')));
+  
+  return gulp.src(GLOBALCONFIG.DIRECTION.DEV + '/css/index.css')
       .pipe(plumber())
       .pipe(postcss([
         autoprefixer(),
@@ -200,7 +206,11 @@ gulp.task('webpack-compile', () => {
 
 //[*]+---------------[[ JS 압축 ]]---------------+[*]\\
 gulp.task('js-compress', (cb) => {
-  return gulp.src(GLOBALCONFIG.DIRECTION.DEV + '/js/main.bundle.js')
+  gulp.src(GLOBALCONFIG.DIRECTION.DEV + '/js/sass.worker.js')
+      .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DIST + '/js'))
+      .pipe(gulpIf(GLOBALCONFIG.SERVERDEV, gulp.dest(GLOBALCONFIG.DIRECTION.SERVER + '/js')));
+  
+  return gulp.src(GLOBALCONFIG.DIRECTION.DEV + '/js/!(sass.worker).js')
       .pipe(uglifyJs())
       .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DIST + '/js'))
       .pipe(gulpIf(GLOBALCONFIG.SERVERDEV, gulp.dest(GLOBALCONFIG.DIRECTION.SERVER + '/js')));
@@ -340,13 +350,21 @@ gulp.task('supervisor', ['build-server'], () => {
 //[*]+---------------[[ 서버앱 개발시 자동 리다이렉트 ]]---------------+[*]\\
 
 //[*]+---------------[[ GULP 기본, 빌드 명령어 실행 ]]---------------+[*]\\
+gulp.task('build-server', () => {
+  runSequence(
+    'font-convert',
+    ['pug-compile', 'scss-compile', 'webpack-compile'],
+    ['img-sprite', 'img-min', 'file-copy'],
+    ['css-strong', 'js-compress']
+  );
+});
+
 gulp.task('build', () => {
   runSequence(
     'font-convert',
     ['pug-compile', 'scss-compile', 'webpack-compile'],
     ['img-sprite', 'img-min', 'file-copy'],
     ['css-strong', 'js-compress', 'html-minify']
-    ['css-strong', 'html-minify']
   );
 });
 
@@ -355,8 +373,7 @@ gulp.task('default', () => {
     'font-convert',
     ['pug-compile', 'scss-compile', 'webpack-compile'],
     ['img-sprite', 'img-min', 'file-copy'],
-    ['css-strong', 'html-minify', 'js-compress'],
-    ['css-strong', 'html-minify'],
+    ['css-strong', 'js-compress', 'html-minify'],
     'server-run'
   );
 });

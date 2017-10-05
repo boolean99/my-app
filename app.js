@@ -11,7 +11,7 @@ import http from 'http';
 
 // HELPERS
 import {consoleError} from './app_helpers/console-color';
-import {socketServerEvt} from './app_helpers/socket-server-evt';
+//import {socketServerEvt} from './app_helpers/socket-server-evt';
 
 // COMPILER
 //import pug from 'pug';
@@ -29,6 +29,7 @@ import {allPostRouter} from './router/post';
 // 파일제공 및 use 메서드 사용
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC)));
+app.use('/posts/:id', express.static(path.join(__dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC)));
 app.use(router);
 
 // 서버와 웹소켓 생성
@@ -36,7 +37,7 @@ const server = http.createServer(app),
       io = require('socket.io')(server);
 
 // 리로드 소스
-reload(server, app);
+reload(app);
 
 // 서버 실행
 server.listen(app.get('port') , (err) => {
@@ -48,7 +49,7 @@ server.listen(app.get('port') , (err) => {
     // 라우팅
     allGetRouter(router, dirname, io);
     allPostRouter(router, dirname, io);
-
+/*
     io.on('connection', (socket) => {
       // 소켓서버 연결후 이벤트
       consoleError(`Socket Server is successfully connected`, 'right');
@@ -61,5 +62,7 @@ server.listen(app.get('port') , (err) => {
         consoleError(`Socket Server is successfully disconnected`, 'wrong');
       });
     });
+    
+*/
   }
 });

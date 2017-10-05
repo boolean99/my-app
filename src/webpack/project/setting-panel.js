@@ -1,7 +1,7 @@
 import returnXHttpObj from './xhttp';
 import compileSassAndInsert from './compile-sass-and-insert.js';
-
 import modifier from '../helpers/modifier';
+import makeLayout from './make-layout';
 
 export default function settingPanel(evtTarget) {
   const DOC = document,
@@ -41,7 +41,7 @@ export default function settingPanel(evtTarget) {
     xHttpObj.open('GET', `css/setting-${id}.scss`, true);
     xHttpObj.send(null);
     
-    DOC.querySelector('.contents-section__article-list').setAttribute('style', 'opacity: 0; transition: 0.6s all linear');
+    DOC.querySelector('.contents-section__container').setAttribute('style', 'opacity: 0; transition: 0.6s all linear');
 
     for(let i = 1, ilen = evtTarget.parentElement.childElementCount; i < ilen; i++) {
       modifier(
@@ -60,12 +60,4 @@ export default function settingPanel(evtTarget) {
     // direction 만 동작 예외
     DOC.documentElement.dir = modifierValue;
   }
-  
-  
-  
-  
-  
-  
-  
-  
 }

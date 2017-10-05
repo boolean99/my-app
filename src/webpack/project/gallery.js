@@ -30,6 +30,7 @@ function gallery(targetQuery) {
     },
     galleryWidth() {
       this._this.containerWidth = +this._this.container.offsetWidth;
+      this._this.maxLeftDistance = (this._this.galleryLength - 1) * 100;
     }
   };
 
@@ -44,24 +45,21 @@ function gallery(targetQuery) {
     this.paging.insertAdjacentHTML('beforeend', pagingHtml);
     this.updateEssentialValue.leftValue();
     this.updateEssentialValue.galleryWidth();
-    this.maxLeftDistance = (this.galleryLength - 1) * this.containerWidth;
   }
   
   // 갤러리 움직임 이벤트
   this.containerMove = function(direction) {
-//    let nextIndex;
-    
     if(direction === 'left') {
       // 좌측 핸들러 클릭 === 이전이미지 보기
       if(this.containerLeftValue) {
         // left의 값이 0 이 아닐때
         this.currentDot('prev');
-        this.container.style.left = `${this.containerLeftValue + this.containerWidth}px`;
+        this.container.style.left = `${this.containerLeftValue + 100}%`;
         this.updateEssentialValue.leftValue();
       }else {
         // left의 값이 0 일때 => 마지막 이미지 노출
         this.currentDot(this.galleryLength);
-        this.container.style.left = `-${this.maxLeftDistance}px`;
+        this.container.style.left = `-${this.maxLeftDistance}%`;
         this.updateEssentialValue.leftValue();
       }
     }else if(direction === 'right') {
@@ -69,7 +67,7 @@ function gallery(targetQuery) {
       if(!this.containerLeftValue) {
         // left의 값이 0 일때
         this.currentDot('next');
-        this.container.style.left = `-${this.containerWidth}px`;
+        this.container.style.left = `-100%`;
         this.updateEssentialValue.leftValue();
       }else {
         // left의 값이 0 이 아닐때
@@ -77,12 +75,12 @@ function gallery(targetQuery) {
           // (갤러리 이미지의 갯수 - 1) * 갤러리 이미지의 너비
           // 보다 작을경우
           this.currentDot('next');
-          this.container.style.left = `${this.containerLeftValue - this.containerWidth}px`;
+          this.container.style.left = `${this.containerLeftValue - 100}%`;
           this.updateEssentialValue.leftValue();
         }else {
           // 마지막 섹션
           this.currentDot(1);
-          this.container.style.left = `0px`;
+          this.container.style.left = `0%`;
           this.updateEssentialValue.leftValue();
         }
       }

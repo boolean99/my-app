@@ -1,0 +1,26 @@
+.contact__contents-section {
+  .contents-section__container {
+    padding: 0 20px;
+  }
+  
+  .contents-section__comment {
+    padding-right: 0;
+    padding-left: 0;
+    
+    .comment__input {
+      width: calc(50% - 15px);
+      
+      @include breaking($bp600, below) {
+        clear: left;
+        width: 100%;
+//        @include breaking-space()
+      }
+    }
+    
+    .input--text-area {
+      @include breaking($bp600, below) {
+        margin-top: 0px;
+      }
+    }
+  }
+}

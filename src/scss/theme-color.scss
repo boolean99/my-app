@@ -202,3 +202,12 @@ html, body, div, span, applet, object, iframe,
 #ghost-nav {
   background: transparentize($main-color, 0.4);
 }
+
+.page-title {
+  color: $main-color;
+  border-bottom: 1px solid $main-color;
+
+  &:first-letter {
+    background: $main-color;
+  }
+}

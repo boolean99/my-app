@@ -1,8 +1,8 @@
-include config/_index-config
+include config/_article-view-config
 doctype html
 +b('no-js', { t: 'html' })(lang=docLang)
   include packages/basic/_top
-  +b('index', { t: 'body' })
+  +b('article-view', { t: 'body' })
     include packages/basic/_skip-navigation
-    include packages/partial/_index
+    include packages/partial/_article-view
     include packages/basic/_bottom

@@ -17,7 +17,7 @@
       "JS":      "/js"
     },
     "OTHER": {
-      "JSON":  "/json",
+      "JSON":  "/db",
       "FONT":  "/fonts",
       "IMAGE": "/images"
     }

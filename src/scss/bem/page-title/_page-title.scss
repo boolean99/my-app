@@ -1,0 +1,20 @@
+.page-title {
+  letter-spacing: 0;
+  font-family: $font-Overpass;
+  letter-spacing: -0.06em;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  color: #737180;
+  
+  &:first-letter {
+    font-weight: bolder;
+    color: #fff;
+    padding: 11px 10px 0 7px;
+    margin-right: 2px;
+  }
+  
+  @include vertical-rythme(rem(45px));
+  @include breaking($bp600, below) {
+    @include breaking-space(font-size 45 $bp600);
+  }
+}

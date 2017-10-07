@@ -4,8 +4,8 @@ $share-transition: 0.5s all $ease-out-cubic;
   border: 1px solid #e5e5e5;
   transform: skewX(-25deg);
   transition: $share-transition;
-  margin-left: 10px;
   
+  @include mirror(margin-left 10px);
   @include except(margin-left, first);
   @include size(50px, 40px);
   @include breaking($bp480, below) {

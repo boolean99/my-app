@@ -1,7 +1,15 @@
 .other-articles__link {
   display: inline-block;
-  width: 100%;
   text-align: center;
+  position: relative;
+  padding-top: 67%;
   
   @extend %flcl;
+  @include size(100%, 0);
+  
+  &:last-of-type {
+    padding-top: 0;
+    height: auto;
+  }
 }
+

@@ -1,7 +1,7 @@
 .other-articles__list-item {
   margin-right: 30px;
 
-  @extend %fl;
+  @include mirror(float left);
   @include except(margin-right, last);
   @include breaking($bp1200, below) {
     width: 33.33%;
@@ -13,5 +13,9 @@
     margin-top: 20px;
     
     @include except(margin-top, first);
+    
+    &:nth-of-type(3), &:nth-of-type(3) ~ li {
+      display: none;
+    }
   }
 }

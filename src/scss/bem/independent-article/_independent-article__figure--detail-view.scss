@@ -1,7 +1,16 @@
 .independent-article__figure--detail-view {
   @include responsive-img;
   
+  > img {
+    margin-bottom: 30px;
+  }
+  
   .contents-section__figcaption {
-    @include vertical-rythme(rem(22px));
+    @include vertical-rythme(rem(18px), rem(34px));
+    
+    @include breaking($bp600, below) {
+      @include breaking-space(font-size 18 600, line-height 34 600);
+    }
   }
 }
+

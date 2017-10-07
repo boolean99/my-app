@@ -1,0 +1,5 @@
+.contents-section__iframe {
+  margin-bottom: 40px;
+  
+  @include responsive-youtube();
+}

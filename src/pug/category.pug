@@ -1,0 +1,8 @@
+include config/_category-config
+doctype html
++b('no-js', { t: 'html' })(lang=docLang)
+  include packages/basic/_top
+  +b('category', { t: 'body' })
+    include packages/basic/_skip-navigation
+    include packages/partial/_category
+    include packages/basic/_bottom

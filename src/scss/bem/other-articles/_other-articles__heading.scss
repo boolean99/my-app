@@ -3,6 +3,11 @@
   font-family: $font-yanone;
   letter-spacing: 0.2em;
   text-align: center;
+  direction: ltr;
   
   @include vertical-rythme(rem(16px));
+  
+  @include breaking($bp600, below) {
+    margin-bottom: 25px;
+  }
 }

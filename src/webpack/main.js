@@ -17,7 +17,7 @@ import scrollPageDetectObj from 'scroll-doc';
 
 // 헬퍼 모듈 호출
 import catchEventTarget from './helpers/catch-event-target';
-//import clipboardFunc from './helpers/clipboard-function';
+import clipboardFunc from './helpers/clipboard-function';
 //import cloneObj from './helpers/clone-obj';
 //import colorAdjust from './helpers/color-adjust';
 import delayEvent from './helpers/delay-event';
@@ -29,7 +29,7 @@ import modifier from './helpers/modifier';
 //import splitSearch from '../../app_helpers/split-search';
 
 // 프로젝트 모듈 호출
-//import {socketFunc} from './project/socket';
+import {socketFunc} from './project/socket';
 //import * as kbs from './project/kbs';
 //import returnXHttpObj from './project/xhttp';
 import gallery from './project/gallery';
@@ -41,6 +41,8 @@ import whenScrollFixElement from './project/when-scroll-fix-element';
 import mobileNav from './project/mobile-nav';
 import makeLayout from './project/make-layout';
 import makeExtraElement from './project/make-extra-element';
+
+let socket;
 
 document.addEventListener('DOMContentLoaded', () => {
   // 돔 로드완료 이벤트
@@ -121,6 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, false);
   
+  if(!!DOC.querySelector('.js-copy-link')) {
+    DOC.querySelector('.js-copy-link').addEventListener('click', () => {
+      clipboardFunc('js-copy-link');
+    });
+  }
+  
   WIN.addEventListener('load', () => {
     // 윈도우 로드완료 이벤트
     
@@ -131,12 +139,28 @@ document.addEventListener('DOMContentLoaded', () => {
     progressBar('running', Gallery.galleryAutorollingDuration);
     
     // 스크롤할때 헤더를 상단에 붙이는 모듈 호출
-    whenScrollFixElement();
+//    whenScrollFixElement();
     
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);
   else console.log(`WINDOW's been loaded`);
-//    socket = io();
-//    socketFunc(socket);
+    
+    // 소켓 초기화
+    socket = io(location.href);
+    
+    socket.on('connect', () => {
+      // 소켓에 접속되면 소켓 함수 방출
+      socketFunc(socket);
+      
+      DOC.querySelector('.js-load-more').addEventListener('click', () => {
+        // 포스트 불러오기 관련 서버단 이벤트 호출
+        socket.emit('loadMorePostsInServer',
+                    {
+          id: socket.id,
+          existPostsLength: DOC.querySelectorAll('.contents-section__item').length
+                    }
+                   );
+      });
+    });
   });
   
   WIN.addEventListener('resize', () => {

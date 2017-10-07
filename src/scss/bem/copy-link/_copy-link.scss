@@ -1,0 +1,14 @@
+.copy-link {
+  background: #a1a1a1;
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s all linear;
+  
+  @include vertical-rythme(rem(14px));
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}

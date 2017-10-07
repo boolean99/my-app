@@ -1,21 +1,21 @@
 +e('article-list', { t: 'main', b: 'article-list' })
-  -for(var i = 0; i < 12; i++)
+  -for(var i = 0; i < postArry.length; i++)
     +e('item', { t: 'article', b: 'independent-article'})
-      +e('category', { t: 'span', p: 'independent-article' }) es2015
+      +e('category', { t: 'span', p: 'independent-article' })= postArry[i].category
       +e('title', { t: 'h1', p: 'independent-article' })
-        a(href='') Basic Inner Workings of Camera
-      +e('date', { t: 'p', p: 'independent-article' }) MAY 9, 2017
+        a(href=`/posts/${postArry[i]._id}`)= postArry[i].title
+      +e('date', { t: 'p', p: 'independent-article' })= postArry[i].display_date
       +e('figure', { t: 'figure', b: 'figure', p: 'independent-article' })
-        if(i < 3)
-          +e('img', { t: 'a', p: 'figure' })(href='#')
-            +img(`article_img_0${i + 1}.jpg`)
-        +e('figcaption', { t: 'figcaption' })
-          |More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous negative one inside gorilla and drew humbly shot tortoise inside opaquely. Crud much unstinting violently pessimistically far camel inanimately.#[br]#[br]Coquettish darn pernicious foresaw therefore much amongst lingeringly shed much due antagonistically alongside so then more and about turgid wrote so stunningly this that much slew.
-      +b('button', { t: 'a', m: 'theme-flat' })(href='#') CONTINUE READING
+        if(!!postArry[i].thumbnail)
+          +e('img', { t: 'a', p: 'figure' })(href=`/posts/${postArry[i]._id}`)
+            +img(`${postArry[i].thumbnail}.jpg`)
+        +e('figcaption', { t: 'figcaption' }) !{postArry[i].contents.slice(0, 250)} ...
+      +b('button', { t: 'a', m: 'theme-flat' })(href=`/posts/${postArry[i]._id}`) CONTINUE READING
       +b('share', { t: 'section', e: '&'})
         div
           -for(var j = 0; j < snsList.length; j++)
             +e('item', { t: 'button' })
               div: span=snsList[j]
         hr
-  +b('button', { t: 'a', m:'load-more-article' })(href='#') LOAD MORE
+  if(!!loadBtn)
+    +b('button', { t: 'button', m:'load-more-article', b: 'js-load-more' })(href='#') LOAD MORE

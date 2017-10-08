@@ -11,7 +11,7 @@
         +e('sub', { t: 'ul' })
           -for(var j = 1; j < navList[i].length; j++)
             +e('list', { t: 'li' })
-              +e('item', { t: 'a' })(href=`/posts/${navList[i][j].toString().toLowerCase()}`)= navList[i][j]
+              +e('item', { t: 'a' })(href=`/category/${navList[i][j].toString().toLowerCase()}`)= navList[i][j]
     else
       +e('list', { t: 'li' })
         +e('item', { t: 'a' })(href=`/${i == 0 ? '' : navList[i].toString().toLowerCase()}`)= navList[i]

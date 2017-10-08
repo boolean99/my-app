@@ -1,6 +1,12 @@
 import modifier from '../helpers/modifier';
 import index from '../helpers/index';
 
+const previewArry = [
+  '1_What is Lorem Ipsum?',
+  '2_Where can I get some?',
+  '3_Where does it come from?'
+]
+
 function gallery(targetQuery) {
   let doc = document,
       win = window;
@@ -45,6 +51,7 @@ function gallery(targetQuery) {
     this.paging.insertAdjacentHTML('beforeend', pagingHtml);
     this.updateEssentialValue.leftValue();
     this.updateEssentialValue.galleryWidth();
+    this.previewUpdate();
   }
   
   // 갤러리 움직임 이벤트
@@ -84,8 +91,27 @@ function gallery(targetQuery) {
           this.updateEssentialValue.leftValue();
         }
       }
+      
+      this.previewUpdate();
     }
   };
+  
+  this.previewUpdate = function() {
+    // 프리뷰 기능
+    
+    let currentCount = index(this.paging.querySelector('.paging__elm--activated')),
+        nextCount = currentCount + 2,
+        prevCount = currentCount;
+    
+    if(nextCount > this.galleryLength) nextCount = 1;
+    if(prevCount <= 0) prevCount = this.galleryLength;
+    
+    this.handerRight.querySelector('.handler__figure').style.background = `${win.getComputedStyle(this.container.querySelector(`.img-background-board__item:nth-of-type(${nextCount})`)).backgroundImage} 50% 50% / cover no-repeat`;
+    this.handerRight.querySelector('.handler__heading').textContent = previewArry[nextCount - 1];
+    
+    this.handerLeft.querySelector('.handler__figure').style.background = `${win.getComputedStyle(this.container.querySelector(`.img-background-board__item:nth-of-type(${prevCount})`)).backgroundImage} 50% 50% / cover no-repeat`;
+    this.handerLeft.querySelector('.handler__heading').textContent = previewArry[prevCount - 1];
+  }
   
   this.autoRolling = function(time) {
     // 갤러리 자동 회전
@@ -132,13 +158,6 @@ function gallery(targetQuery) {
       'paging__elm--activated'
     );
   };
-  
-  /*
-  
-    이미지 넘어갈때 좌우측 핸들러에 다음, 이전 이미지에대한 프리뷰 뿌려주는 기능 필요함
-  
-  */
-  
 };
 
 export default gallery;

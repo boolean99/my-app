@@ -5,10 +5,6 @@
     include ../../hamburger/_hamburger
   +e('wrapper', { t: 'div' })
     +b('category-list', { t: 'ul', e: 'side-bar' })
-      -for(var i = 0; i < navList.length; i++)
-        if(i == 2)
-          +e('list', { t: 'li' })
-            a(href='#')= navList[i][0]
-        else
-          +e('list', { t: 'li' })
-            a(href='#')= navList[i]
+      -for(var i = 0; i < navList[2].length; i++)
+        +e('list', { t: 'li' })
+          +e('item', { t: 'a' })(href=`/posts/${navList[2][i].toString().toLowerCase()}`)= navList[2][i]

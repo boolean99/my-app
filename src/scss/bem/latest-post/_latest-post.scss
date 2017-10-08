@@ -2,8 +2,10 @@
   height: 120px;
   margin-top: 8px;
   position: relative;
-  
-  background: url("#{$css-url}main_visual_03.jpg") #eee 50% 50% / cover no-repeat;
+  background-color: #929292;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
   
   @include item-center('elm');
   @include except(margin-top, 1);

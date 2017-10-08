@@ -1,0 +1,8 @@
+.nothing-found {
+  font-family: $font-yanone;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: #606060;
+  
+  @include vertical-rythme(rem(30px));
+}

@@ -1,16 +1,18 @@
 .handler__figure {
-  @include position(10px null null null);
+  position: absolute;
+  
   @include breaking-space(width 100 310);
+  @include size(38%, 100%);
 }
 
 .handler__preview--left {
   .handler__figure {
-    @include mirror(right 10px);
+    @include mirror(right 0);
   }
 }
 
 .handler__preview--right {
   .handler__figure {
-    @include mirror(left 10px);
+    @include mirror(left 0);
   }
 }

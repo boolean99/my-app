@@ -1,7 +1,6 @@
 // GET 방식 라우터
 import pug from 'pug';
 import path from 'path';
-import marked from 'marked';
 import MongoClient from 'mongodb';
 import GLOBALCONFIG from '../config.server.json';
 import {consoleError} from '../app_helpers/console-color.js';
@@ -9,18 +8,6 @@ import pugIncludeGlob from 'pug-include-glob';
 
 var ObjectId = MongoClient.ObjectID;
  
-// 마크다운 세팅
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: true,
-  smartLists: true,
-  smartypants: false
-});
-
 export function allGetRouter(router, dirname, db) {
   // index 페이지
   let html, cursor;
@@ -33,7 +20,6 @@ export function allGetRouter(router, dirname, db) {
 
       html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/index.pug'), {
         pretty: false,
-        marked: marked,
         postArry: results,
         loadBtn: true,
         plugins: [ pugIncludeGlob({}) ]
@@ -46,16 +32,16 @@ export function allGetRouter(router, dirname, db) {
   router.get('/category/:sort', (req, res) => {
     cursor = db.collection('article');
     
-    console.log(req.params.sort);
+    //console.log(req.params.sort);
     
     cursor.find({ category: req.params.sort.toUpperCase() }).sort({ date: 1 }).toArray((err, results) => {
-      console.log(results);
       if(err) return consoleError(err, 'wrong');
 
       html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/category.pug'), {
         pretty: false,
         plugins: [ pugIncludeGlob({}) ],
         postArry: results,
+        category: req.params.sort.toUpperCase()
       });
 
       res.send(html);
@@ -72,13 +58,13 @@ export function allGetRouter(router, dirname, db) {
       
       cursor.findOne({'_id': ObjectId(req.params.id)}, (err, doc) => {
         if(err) return consoleError(err, 'wrong');
-
+        
         html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/article-view.pug'), {
           pretty: false,
           plugins: [ pugIncludeGlob({}) ],
           selectedPost: doc,
           anotherPostArry: results,
-          thisUrl: req.headers.referer
+          thisUrl: `http://${req.headers.host}${req.originalUrl}`
         });
 
         res.send(html);

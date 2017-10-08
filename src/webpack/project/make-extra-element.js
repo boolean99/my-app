@@ -3,6 +3,7 @@ import colorPickerModule from './color-picker';
 
 export default function makeExtraElement() {
   const doc = document,
+        dobyClassName = doc.body.className,
         containHTMLString = {
     colorPicker: `<aside class="color-picker js-color-picker setting"><div class="loader loader--deactivated"><svg class="loader__svg" viewBox="0 0 120 120"><circle class="loader__internal-circle" cx="60" cy="60" r="30"></circle><circle class="loader__external-circle" cx="60" cy="60" r="50"></circle></svg></div><button class="color-picker__icon js-setting-icon setting__icon">palette</button><div class="color-picker__panel setting__panel"><div class="color-picker__result"><span class="color-picker__color-visual js-color-picker__color-visual"></span><input class="color-picker__color-string js-color-picker__color-string" type="text"></div></div></aside>`,
     config: `<aside class="config js-config setting"><button class="config__icon js-setting-icon setting__icon">settings</button><div class="config__panel setting__panel"><div class="loader loader--deactivated"><svg class="loader__svg" viewBox="0 0 120 120"><circle class="loader__internal-circle" cx="60" cy="60" r="30"></circle><circle class="loader__external-circle" cx="60" cy="60" r="50"></circle></svg></div><div class="direction config-tab"><span class="direction__title config-tab__title">Contents direction</span><button class="button js-config-tab__button config-tab__button config-tab__button--selected config-tab__button--size-half direction__button" data-modifier-target="document.body" data-modifier-value="ltr">LTR</button><button class="button js-config-tab__button config-tab__button config-tab__button--size-half direction__button" data-modifier-target="document.body" data-modifier-value="rtl">RTL</button></div><div class="sidebar-existence config-tab"><span class="sidebar-existence__title config-tab__title">Side bar</span><button class="button js-config-tab__button config-tab__button config-tab__button--selected config-tab__button--size-half sidebar-existence__button" data-modifier-target="contents-section__container" data-modifier-value="sidebar-activated">Activated</button><button class="button js-config-tab__button config-tab__button config-tab__button--size-half sidebar-existence__button" data-modifier-target="contents-section__container" data-modifier-value="sidebar-deactivated">Deactivated</button></div><div class="layout config-tab"><span class="layout__title config-tab__title">Article layout</span><button class="button js-config-tab__button config-tab__button config-tab__button--selected layout__button" data-modifier-target="article-list" data-modifier-value="layout-standard">view_agenda</button><button class="button js-config-tab__button config-tab__button layout__button" data-modifier-target="article-list" data-modifier-value="layout-list">view_list</button><button class="button js-config-tab__button config-tab__button layout__button" data-modifier-target="article-list" data-modifier-value="layout-grid">view_module</button></div></div></aside>`,
@@ -13,9 +14,21 @@ export default function makeExtraElement() {
   doc.body.insertAdjacentHTML('beforeend', containHTMLString.config);
   doc.body.insertAdjacentHTML('beforeend', containHTMLString.moveViewport);
   
-  // 컬러픽커 모듈 호출
-  colorPickerModule();
-  
-  // 메인 페이지일때만 다음||이전 포스트로 이동 버튼 활성화
-  if(doc.body.className === 'index') makeLayout('standard');
+  // 페이지에 따른 설정
+  switch(dobyClassName) {
+    case 'index' :
+      makeLayout('standard');
+      break;
+    case 'category' :
+      let firstBtn = document.querySelectorAll('.sidebar-existence__button')[0],
+          secondBtn = document.querySelectorAll('.sidebar-existence__button')[1];
+      
+      firstBtn.setAttribute('disabled', true);
+      firstBtn.setAttribute('style', 'cursor: not-allowed; background: darkred; border: none;');
+      secondBtn.setAttribute('disabled', true);
+      secondBtn.setAttribute('style', 'cursor: not-allowed; background: darkred; border: none;');
+      break;
+    case 'contact' :
+      break;
+  }
 }

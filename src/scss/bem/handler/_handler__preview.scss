@@ -9,6 +9,10 @@
   
   @include size(310px, 100%);
   @include position(0 null null null);
+  
+  > a {
+    position: relative;
+  }
 }
 
 .handler {

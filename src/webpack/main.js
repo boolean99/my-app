@@ -34,7 +34,7 @@ import {socketFunc} from './project/socket';
 //import returnXHttpObj from './project/xhttp';
 import gallery from './project/gallery';
 import progressBar from './project/progress-bar';
-//import colorPickerModule from './project/color-picker';
+import colorPickerModule from './project/color-picker';
 import settingPanel from './project/setting-panel';
 import detectPostBoundaryLine from './project/boundary-line';
 import whenScrollFixElement from './project/when-scroll-fix-element';
@@ -114,6 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
           eventTarget.target.parentElement,
           'setting--activated'
         );
+        
+        if(DOC.querySelector('.js-setting-icon').className.toString().indexOf('color-picker__icon') > -1 &&
+          DOC.querySelector('.color-picker__panel').childElementCount === 1) {
+          colorPickerModule();
+        }
         break;
       case 'js-config-tab__button' :
         settingPanel(eventTarget.target);

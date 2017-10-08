@@ -26,7 +26,7 @@
       
       @extend %pseudo;
       @include size(0, 1px);
-      @include position(null null 0 0);
+      @include position(null null -4px 0);
     }
   }
 }

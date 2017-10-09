@@ -1,0 +1,19 @@
+mixin nav(...args)
+  nav: ul
+    each key in args
+      li
+        +a(key[0], key[1], key[2])
+    
+//----------[*]- 사용 예 -[*]----------\\
+
+  +nav(['./', 'home', 'gohome'], ['./2', 'home2', 'gohome2'], ['./3', 'home3', 'gohome3'])
+
+//----------[*]- 결과 -[*]----------\\
+  <ul>
+    <li><a href="./" title="gohome" alt="gohome">home</a>
+    </li>
+    <li><a href="./2" title="gohome2" alt="gohome2">home2</a>
+    </li>
+    <li><a href="./3" title="gohome3" alt="gohome3">home3</a>
+    </li>
+  </ul>

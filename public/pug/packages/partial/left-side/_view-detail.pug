@@ -1,0 +1,30 @@
++e('item', { t: 'article', b: 'independent-article'})
+  +b('copy-link', { t: 'span', e: '&', b: 'js-copy-link' })(data-clipboard-text=thisUrl) COPY LINK
+  +b('page-title', { t: 'h1', e: '&'})= selectedPost.category
+  +e('title', { t: 'h1', p: 'independent-article' })
+    a(href='#')= selectedPost.title
+  +e('date', { t: 'p', p: 'independent-article' }) MAY 9, 2017
+  +e('figure', { t: 'figure', b: 'figure', p: 'independent-article', m: 'detail-view' })
+    if(!!selectedPost.thumbnail)
+      +img(`${selectedPost.thumbnail}.jpg`)
+    if(!!selectedPost.youtube)
+      +e('iframe', { t: 'div' })
+        iframe(src=`https://www.youtube.com/embed/${selectedPost.youtube}?rel=0`)
+    +e('figcaption', { t: 'figcaption' })
+      |#{selectedPost.contents}
+  +b('share', { t: 'section', e: '&'})
+    div
+      -for(var j = 0; j < snsList.length; j++)
+        +e('item', { t: 'button' })
+          div: span=snsList[j]
+    hr
++b('other-articles', { t: 'sectin', e: '&' })
+  +e('heading', { t: 'h1' }) YOU MIGHT ALSO LIKE...
+  +e('list-container', { t: 'ul' })
+    -for(var i = 0; i < anotherPostArry.length; i ++)
+      +e('list-item', { t: 'li' })
+        +e('link', { t: 'a' })(href=`/posts/${anotherPostArry[i]._id}`)
+          +e('img', { t: 'img' })(src=`/images/${anotherPostArry[i].thumbnail}.jpg`)
+        +e('link', { t: 'a' })(href=`/posts/${anotherPostArry[i]._id}`)
+          +e('description', { t: 'p' })= anotherPostArry[i].title
+include ../comment/_comment

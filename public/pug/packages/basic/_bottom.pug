@@ -1,0 +1,29 @@
+if jquery
+  if !jqueryMinorIE
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  else
+    //- jQuery 최신 브라우저 지원
+    <!--[if !IE 8]><!-->
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    <!--<![endif]-->
+    //- jQuery 하위 브라우저 지원
+    <!--[if IE 8]>
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    <![endif]-->
+if js
+  each key in jsFileName
+    if(key.constructor.toString().toLowerCase().indexOf('array') > -1)
+      - var attributes = {}
+      
+      -for(var i = 0; i < key.length - 1; i++)
+        - attributes[key[i + 1].slice(0, key[i + 1].indexOf(':'))] = key[i + 1].slice(key[i + 1].indexOf(':') + 1) == 'true' ? true : key[i + 1].slice(key[i + 1].indexOf(':') + 1)
+
+      
+      script(src= key[0] id= key[0].slice(key[0].lastIndexOf('/') + 1, key[0].indexOf('.')))&attributes(attributes)
+    else
+      script(src= key id= key.slice(key.lastIndexOf('/') + 1, key.indexOf('.')))
+if inlineJavascript
+  script
+    include ../others/js/script.js
+noscript
+  |현재 자바스크립트를 지원하지 않는 브라우저를 사용하고 있습니다.#[br]일부 레이아웃 또는 기능이 정상적으로 작동하지 않을 수 있습니다.#[br]

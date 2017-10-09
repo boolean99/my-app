@@ -42,7 +42,8 @@ export function allGetRouter(router, dirname, db) {
         pretty: false,
         plugins: [ pugIncludeGlob({}) ],
         postArry: results,
-        category: req.params.sort.toUpperCase()
+        category: req.params.sort.toUpperCase(),
+        thisUrl: `http://${req.headers.host}${req.originalUrl}`
       });
 
       res.send(html);
@@ -77,7 +78,8 @@ export function allGetRouter(router, dirname, db) {
   router.get('/aboutme', (req, res) => {
     let html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/about-me.pug'), {
       pretty: false,
-      plugins: [ pugIncludeGlob({}) ]
+      plugins: [ pugIncludeGlob({}) ],
+      thisUrl: `http://${req.headers.host}${req.originalUrl}`
     });
 
       res.send(html);
@@ -86,7 +88,8 @@ export function allGetRouter(router, dirname, db) {
   router.get('/contact', (req, res) => {
     let html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/contact.pug'), {
       pretty: false,
-      plugins: [ pugIncludeGlob({}) ]
+      plugins: [ pugIncludeGlob({}) ],
+      thisUrl: `http://${req.headers.host}${req.originalUrl}`
     });
 
       res.send(html);

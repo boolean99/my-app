@@ -1,0 +1,213 @@
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}
+
+@function shade($color, $percent) {
+  @return mix(#000, $color, $percent);
+}
+
+.handler__author {
+  color: $main-color;
+}
+
+.handler__heading {
+  border-bottom-color: $main-color;
+}
+
+.progress-bar span {
+  background: $main-color;
+}
+
+.nav {
+  background: tint($main-color, 40);
+}
+
+.independent-article__category {
+  color: $main-color;
+}
+
+.button--theme-flat:hover {
+  background: $main-color;
+}
+
+.share:hover hr {
+  border-bottom-color: $main-color;
+}
+
+.share__item {
+  div {
+    color: $main-color;
+  }
+  
+  &:hover {
+    border-color: $main-color;
+    
+    div {
+      color: tint($main-color, 40);
+    }
+  }
+}
+
+@keyframes handler-arrow-on {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: $main-color;
+  }
+}
+
+@keyframes handler-arrow-off {
+  0% {
+    background: $main-color;
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+.side-bar-panel__heading--type-outer {
+  border-top: 1px solid $main-color;
+}
+
+.toggle-button-label {
+  color: $main-color;
+}
+
+.side-bar-panel__form-area {
+  .form-area__fieldset {
+    background: tint($main-color, 80);
+  }
+}
+
+.side-bar-panel__share {
+  .share__item:hover {
+    background: $main-color;
+  }
+}
+
+.side-bar-panel__read-more {
+  color: $main-color;
+}
+
+.category-list__list {
+  color: $main-color;
+  
+  &:hover {
+    border-bottom-color: $main-color;;
+  }
+}
+
+.subscribe{
+  background: tint($main-color, 80);
+}
+
+.input--theme-flat_button {
+  background: $main-color;
+  border-color: shade($main-color, 20);
+  
+  &:hover {
+    background: shade($main-color, 20);
+    border-color: shade($main-color, 40);
+  }
+}
+
+.input--shape-text {
+  border-color: tint($main-color, 60);
+  
+  
+  &:focus {
+    box-shadow: 0 0 3px 0 $main-color inset;
+  }
+}
+
+html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    &::selection {
+      background: $main-color;
+      color: #fff;
+    }
+}
+
+.footer__made-by {
+  > span {
+    color: $main-color;
+  }
+}
+
+.button--load-more-article {
+  &:hover {
+    color: $main-color;
+    border-color: $main-color;
+    background: tint($main-color, 90);
+  }
+}
+
+.toggle-button-input {
+  @media all and (max-width:1020px) {
+    &:checked {
+      & + .toggle-button-label {
+        color: $main-color !important;
+      }
+    }
+  }
+}
+
+.other-articles {
+  background: tint($main-color, 90);
+}
+
+.side-bar-panel {
+  &:hover {
+    .side-bar-panel__heading {
+      border-color: $main-color;
+    }
+  }
+}
+
+.button-controller, .move-viewport__children-button {
+  background: darken($main-color, 30);
+}
+
+.nav__sub .nav__item  {
+  border-left: 1px solid $main-color;
+  border-right: 1px solid $main-color;
+  
+  &:last-of-type {
+    border-bottom: 1px solid $main-color;
+  }
+  
+  &:hover {
+    background: tint($main-color, 40);
+  }
+}
+
+.toggle-button-label__hamberger {
+  > span {
+    background: $main-color;
+  }
+}
+
+#ghost-nav {
+  background: transparentize($main-color, 0.4);
+}
+
+.page-title {
+  color: $main-color;
+  border-bottom: 1px solid $main-color;
+
+  &:first-letter {
+    background: $main-color;
+  }
+}

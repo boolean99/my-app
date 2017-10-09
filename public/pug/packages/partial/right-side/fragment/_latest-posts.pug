@@ -1,0 +1,17 @@
++b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'latest-post' })
+  +e('heading', { t: 'h1', m: 'type-outer' }) LATEST POSTS
+  +b('toggle-button-input', { t: 'input' })(type='checkbox' id='latest-post')
+  +b('toggle-button-label', { t: 'label' })(for='latest-post')
+    include ../../hamburger/_hamburger
+  +e('wrapper', { t: 'div' })
+    -for(var i = 0; i < postArry.length - 1; i++)
+      +b('latest-post', { t: 'article', e: '&' })(style=postArry[i].thumbnail.length > 0 ? `background-image: url(images/${postArry[i].thumbnail}.jpg)` : null)
+        +b('hover-rectangle-line-path', { t: 'span' })
+        +b('hover-rectangle-line-path', { t: 'span' })
+        +b('hover-rectangle-line-path', { t: 'span' })
+        +b('hover-rectangle-line-path', { t: 'span' })
+        +e('division', { t: 'div' })
+          +e('category', { t: 'span', p: 'independent-article', e: 'latest-post' })= postArry[i].category
+          +e('title', { t: 'h1', p: 'independent-article', e: 'latest-post' })
+            a(href=`$/posts/${postArry[i]._id}`)= postArry[i].title
+          +e('date', { t: 'p', p: 'independent-article', e: 'latest-post' })= postArry[i].display_date

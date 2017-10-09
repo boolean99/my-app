@@ -1,0 +1,8 @@
+if skipNavigation
+  section.skip-navigation
+    ul
+      each key, index in skipNavigationItem
+        li: a&attributes({
+          'href': key.href,
+          'tabindex': index + 1
+        })= key.text

@@ -1,0 +1,10 @@
++b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'about' })
+  +e('heading', { t: 'h1', m: 'type-outer' }) ABOUT ME
+  +b('toggle-button-input', { t: 'input' })(type='checkbox' id='about')
+  +b('toggle-button-label', { t: 'label' })(for='about')
+    include ../../hamburger/_hamburger
+  +e('wrapper', { t: 'div' })
+    +e('img', { t: 'img' })(src='images/about-me.jpg')
+    +e('paragraph', { t: 'p' })
+      |Boolean99 블로그에 오신 것을 환영합니다.
+    +e('read-more', { t: 'a' })(href='/aboutme') READ MORE

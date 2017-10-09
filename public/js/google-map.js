@@ -1,0 +1,1 @@
+function initMap(){var e={lat:37.503399,lng:126.882017},n=new google.maps.Map(document.getElementById("map"),{zoom:16,center:e});new google.maps.Marker({position:e,map:n})}

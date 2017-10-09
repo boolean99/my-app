@@ -1,0 +1,10 @@
++b('main-visual', { t: 'section', e: 'index' })
+  +e('porgress-bar', {t: 'div', b: 'progress-bar' }): span.js-progress-bar
+  +b('header', { t: 'header', e: '&'})
+    include ../logo/_logo
+    +b('welcome', { t: 'p' }) WELCOME TO MY BLOG
+  include ./fragment/_img-background-board
+  include ./fragment/_paging
+  +b('scroll-notice-icon', { t: 'button', e: '&', b: 'js-scroll-to-contents' })(title='Get Started')
+  include ./fragment/_handler--left
+  include ./fragment/_handler--right

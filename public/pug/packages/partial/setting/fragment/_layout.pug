@@ -1,0 +1,24 @@
++b('layout', { t: 'div', b: 'config-tab' })
+  +e('title', { t: 'span', e: 'config-tab' })
+    |Article layout
+  +b('button', {
+    t: 'button',
+    b: 'js-config-tab__button',
+    e: ['config-tab|selected', '&'] })(
+      data-modifier-target='article-list',
+      data-modifier-value='layout-standard'
+    ) view_agenda
+  +b('button', {
+    t: 'button',
+    b: 'js-config-tab__button',
+    e: ['config-tab', '&'] })(
+      data-modifier-target='article-list',
+      data-modifier-value='layout-list'
+    ) view_list
+  +b('button', {
+    t: 'button',
+    b: 'js-config-tab__button',
+    e: ['config-tab', '&'] })(
+      data-modifier-target='article-list',
+      data-modifier-value='layout-grid'
+    ) view_module

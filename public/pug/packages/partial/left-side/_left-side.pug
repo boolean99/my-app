@@ -1,0 +1,31 @@
+if(bodyClass == 'category')
+  +b('page-title', { t: 'h1', e: '&'})= category
++e('article-list', { t: 'main', b: 'article-list' })
+  if(!!postArry.length)
+    -for(var i = 0; i < postArry.length; i++)
+      +e('item', { t: 'article', b: 'independent-article'})
+        +e('category', { t: 'span', p: 'independent-article' })= postArry[i].category
+        +e('title', { t: 'h1', p: 'independent-article' })
+          a(href=`/posts/${postArry[i]._id}`)= postArry[i].title
+        +e('date', { t: 'p', p: 'independent-article' })= postArry[i].display_date
+        +e('figure', { t: 'figure', b: 'figure', p: 'independent-article' })
+          if(!!postArry[i].thumbnail)
+            +e('img', { t: 'a', p: 'figure' })(href=`/posts/${postArry[i]._id}`)
+              +img(`${postArry[i].thumbnail}.jpg`)
+          +e('figcaption', { t: 'figcaption' }) !{postArry[i].contents.slice(0, 250)} ...
+        +b('button', { t: 'a', m: 'theme-flat' })(href=`/posts/${postArry[i]._id}`) CONTINUE READING
+        +b('share', { t: 'section', e: '&'})
+          div
+            -for(var j = 0; j < snsList.length; j++)
+              case snsList[j]
+                when 'reply'
+                  +e('item', { t: 'a' })(href=`/posts/${postArry[i]._id}#comment`)
+                    div: span=snsList[j]
+                default
+                  +e('item', { t: 'button', b: `js-share-${snsList[j]}` })
+                    div: span=snsList[j]
+          hr
+  else
+    +b('nothing-found', { t: 'h1' }) Nothing found ...
+  if(!!loadBtn)
+    +b('button', { t: 'button', m:'load-more-article', b: 'js-load-more' })(href='#') LOAD MORE

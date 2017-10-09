@@ -1,0 +1,11 @@
+mixin test-img(width, height, text)
+  img(src=`http://placehold.it/${width}x${height}?text=${text}`)
+  
+//----------[*]- 사용 예 -[*]----------\\
+
+  +test-img(500, 300, 'boolean99')
+
+//----------[*]- 결과 -[*]----------\\
+
+  <img src="http://placehold.it/500x300?text=boolean99">
+  

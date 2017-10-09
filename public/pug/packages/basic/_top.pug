@@ -1,0 +1,122 @@
+head
+  meta(charset='UTF-8')
+  if noCache
+    meta&attributes({
+      'http-equiv': 'Cache-Control',
+      'content': 'no-cache, no-store, must-revalidate'
+    })
+    meta&attributes({
+      'http-equiv': 'Pragma',
+      'content': 'no-cache'
+    })
+    meta&attributes({
+      'http-equiv': 'Expires',
+      'content': '0'
+    })
+  meta&attributes({
+    'http-equiv': 'X-UA-Compatible',
+    'content': 'IE=edge,chrome=1'
+  })
+  meta&attributes({
+    'http-equiv': 'Content-Script-Type',
+    'content': 'text/javascript'
+  })
+  meta&attributes({
+    'http-equiv': 'Content-Style-Type',
+    'content': 'text/css'
+  })
+  if viewportWidth
+    meta&attributes({
+      'name': 'viewport',
+      'content': 'width=' + viewportWidth
+    })
+  else
+    meta&attributes({
+      'name': 'viewport',
+      'content': 'initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no'
+    })
+  meta&attributes({
+    'name': 'description',
+    'content': metaDescription
+  })
+  meta&attributes({
+    'name': 'subject',
+    'content': metaSubject
+  })
+  meta&attributes({
+    'name' : 'apple-mobile-web-app-title',
+    'content' : appleMobileWebAppTitle
+  })  
+  //-	페이스북 관련 메타 태그
+  if facebook
+    meta&attributes({
+      'property' : 'fb:app_id',
+      'content' : facebookAppId
+    })
+    meta&attributes({
+      'property' : 'og:title',
+      'content' : facebookTitle
+    })
+    meta&attributes({
+      'property' : 'og:url',
+      'content' : facebookUrl
+    })
+    meta&attributes({
+      'property' : 'og:image',
+      'content' : facebookImage
+    })
+    meta&attributes({
+      'property' : 'og:description',
+      'content' : facebookDescription
+    })
+  //-	트위터 관련 메타 태그
+  if twitter
+    meta&attributes({
+      'name' : 'twitter:title',
+      'content' : twitterTitle
+    })
+    meta&attributes({
+      'name' : 'twitter:url',
+      'content' : twitterUrl
+    })
+    meta&attributes({
+      'name' : 'twitter:image',
+      'content' : twitterImage
+    })
+    meta&attributes({
+      'name' : 'twitter:description',
+      'content' : twitterDescription
+    })
+    meta&attributes({
+      'name' : 'twitter:card',
+      'content' : twitterCard
+    })
+  title #{title}
+  if shortcutIcon
+    link&attributes({
+      'rel' : 'shortcut icon',
+      'type' : 'image/x-icon',
+      'href' : shortcutIcon
+    })
+  //- IE8 HTML5 엘리먼트 인식
+  if html5Shiv
+    <!--[if lt IE 9]>
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js')
+    <![endif]-->
+  each key in cssFileName
+    link&attributes({
+      'rel': 'stylesheet',
+      'href': key
+    })
+  //- IE8 미디어쿼리 지원
+  if respond
+    <!--[if lt IE 9]>
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js')
+    <![endif]-->
+  if fontawesome
+    script(src="https://use.fontawesome.com/5e23f07cdd.js")
+  if materialicon
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+  if inlineStyleSheet
+    style
+      include ../others/css/style.css

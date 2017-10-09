@@ -1,0 +1,10 @@
++b('side-bar-panel', { t: 'section', e: 'side-bar', m: 'categories' })
+  +e('heading', { t: 'h1', m: 'type-outer' }) CATEGORIES
+  +b('toggle-button-input', { t: 'input' })(type='checkbox' id='categories')
+  +b('toggle-button-label', { t: 'label' })(for='categories')
+    include ../../hamburger/_hamburger
+  +e('wrapper', { t: 'div' })
+    +b('category-list', { t: 'ul', e: 'side-bar' })
+      -for(var i = 1; i < navList[2].length; i++)
+        +e('list', { t: 'li' })
+          +e('item', { t: 'a' })(href=`/category/${navList[2][i].toString().toLowerCase()}`)= navList[2][i]

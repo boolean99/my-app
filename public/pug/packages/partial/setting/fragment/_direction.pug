@@ -1,0 +1,17 @@
++b('direction', { t: 'div', b: 'config-tab' })
+  +e('title', { t: 'span', e: 'config-tab' })
+    |Contents direction
+  +b('button', {
+    t: 'button',
+    b: 'js-config-tab__button',
+    e: ['config-tab|selected.size-half', '&'] })(
+      data-modifier-target='document.body',
+      data-modifier-value='ltr'
+    ) LTR
+  +b('button', {
+    t: 'button',
+    b: 'js-config-tab__button',
+    e: ['config-tab|size-half', '&'] })(
+      data-modifier-target='document.body',
+      data-modifier-value='rtl'
+    ) RTL

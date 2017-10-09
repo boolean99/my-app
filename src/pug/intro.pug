@@ -1,0 +1,264 @@
+doctype html
+html(lang='ko')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1, user-scalable=no')
+    title 자기소개서
+    link(href='css/impress-demo.css', rel='stylesheet')
+    link(rel='shortcut icon', href='favicon.png')
+    link(rel='apple-touch-icon', href='apple-touch-icon.png')
+    link(rel='stylesheet', href='css/presentation.css')
+    script(type='text/javascript', src='portfolio/JS/jquery-1.11.2.min.js')
+    script(type='text/javascript', src='portfolio/JS/prefixfree.min.js')
+    script(type='text/javascript', src='js/presentation.js')
+  body.impress-not-supported
+    .fallback-message
+      p
+        b 브라우저에서 impress.js 가 필요로 하는 기능을 지원하지 않습니다
+        |  이 프레젠테이션 의 단순화 된 버전을 보게됩니다
+      p
+        | 완벽한 프레젠테이션을 보고싶으시다면 최신버전의 
+        b Chrome
+        | , 
+        b Safari
+        |  혹은 
+        b Firefox
+        |  브라우저가 필요합니다
+    #impress
+      #bored.step.slide(data-x='-1000', data-y='-1500')
+        img#mianPicture(src='img/picture.gif', alt='choiWonYoung')
+        #tableTop.tableLayout
+          .tableCaption
+            b Profile
+          .tableRow
+            .tableCell
+              b Name
+            .tableCell
+              | 최원영
+          .tableRow
+            .tableCell
+              b Birth
+            .tableCell
+              | 1991.02.08
+          .tableRow
+            .tableCell
+              b Mobile
+            .tableCell
+              | 010.2566.1071
+          .tableRow
+            .tableCell
+              b Address
+            .tableCell
+              | 서울특별시 구로구 신도림로 11가길 36
+              br
+              | 152-771 미성아파트 1동 1002호
+          .tableRow
+            .tableCell
+              b E-mail
+            .tableCell
+              | chei10@naver.com
+          .tableRow
+            .tableCell
+              b School
+            .tableCell
+              | 한양사이버대학교 컴퓨터공학과 1학년 재학중
+          .tableRow
+            .tableCell
+              b Portfolio
+            .tableCell
+              a(href='portfolio/index.html', style='text-shadow:none;') chei10.dothome.co.kr/portfolio/index.html
+        #skillsTable.tableLayout.clear.skillsTable
+          .tableCaption
+            p#skillsIcon.left.skillsIcon.iconCss
+              img(src='img/skillsIcon.png', alt='skillsIcon')
+            p.left.skillTool
+              | SKILLS
+          .tableRow
+            .tableCell
+              | HTML / HTML5
+            .tableCell
+              .graphWrap
+                .graphInner
+          .tableRow
+            .tableCell
+              | CSS / CSS3
+            .tableCell
+              .graphWrap
+                .graphInner
+          .tableRow
+            .tableCell
+              | JAVASCRIPT
+            .tableCell
+              .graphWrap
+                .graphInner
+          .tableRow
+            .tableCell
+              | JQUERY
+            .tableCell
+              .graphWrap
+                .graphInner
+          .tableRow
+            .tableCell
+              | BOOTSTRAP
+            .tableCell
+              .graphWrap
+                .graphInner
+        #toolsTable.tableLayout.toolsTable
+          .tableCaption
+            p#toolsIcon.left.toolsIcon.iconCss
+              img(src='img/toolsIcon.gif', alt='toolsIcon')
+            p.left.skillTool
+              | TOOLS
+          .tableRow
+            .tableCell
+              img(src='img/checkIcon.gif', alt='checkIcon')
+            .tableCell
+              | DREAMWEAVER
+          .tableRow
+            .tableCell
+              img(src='img/checkIcon.gif', alt='checkIcon')
+            .tableCell
+              | EDITPLUS
+      #step2.step.slide(data-x='0', data-y='-1500')
+        #pfLinkView
+          #pfLink
+            a(href='portfolio/index.html')
+              | PORTFOLIO LINK 
+              span >
+        img(src='img/add.gif')
+        div
+          p
+            | 제가 준비한 포트폴리오는 의류 쇼핑몰을 컨셉으로 한 
+            b 반응형 웹
+            |  입니다. div의 가변너비와 미디어쿼리를 사용하여 화면 너비에 따른 레이아웃의 크기조절과 구조변화를 주었으며 스마트폰 (최대 767px), 태블릿 (최대 1023px), 데스크탑 (최소 1024px) 세가지 너비를 기준으로 미디어쿼리가 동작합니다.
+            br
+            | 사용된 기술로는 
+            b HTML5, CSS3, JAVASCRIPT, JQUERY
+            |  를 적용하였으며 
+            b BOOTSTRAP
+            |  을 사용하지 않은 이유는 개발 프레임워크의 사용으로 작업시간을 최소화 하는것도 중요하지만 포트폴리오 만큼은 기본기의 활용력을 보여드리고 싶었습니다. 모바일 터치 슬라이더를 구현하기 위해 포함된 
+            b swiper.js
+            | 를 제외한 포트폴리오 상의 
+            b JS, Jquery
+            | 는 온전히 스스로 작성해본 로직입니다.
+      #step3.step.slide(data-x='1000', data-y='-1500')
+        img(src='img/slide.gif')
+        .introWrap
+          .introLeft
+            p
+              | CHOI
+            p
+              | WONYOUNG
+            p
+              | INTRO
+          .introRight
+            p
+              | DUCTION
+              span >
+          .introBottom
+      #title.step(data-x='0', data-y='0', data-scale='4')
+        h3.introTitle
+          | ‘하드코딩하는 사람들’
+        p.introTxt
+          | 제가 웹 퍼블리셔란 직업을 알게 되었고, 흥미를 갖게 되어 무작정 html 기본서적을 구매하러 서점으로 달려가게 했던 제겐 정말 인생의 터닝 포인트 같은 웹 사이트입니다.
+          br
+          |             사실 그전에 저는 웹디자인에 관심이 많았던 터라 집근처의 컴퓨터학원에서 웹디자인 취업준비 반을 다니고 있던 취업준비생이었습니다. 그러나 공부를 하면 할수록 디자인보단 코딩에 관한 공부를 하는 시간이 길었고 더 나아가 코딩에 확실한 흥미가 있음을, 재능이 있음을 발견하곤 보다 넓은 지식을 공유할 수 있는 커뮤니티 사이트를 찾아 헤매다 발견하게 된 곳입니다.
+          br
+          |             HTML, CSS, Javascript, JQuery, w3c, 웹표준, 하드코딩, 웹접근성 ……. 갑작스레 정보의 바다로 들어가게 되니 읽는 족족 온통 새롭고 유익한 정보들뿐인데 어디서부터 어떻게 시작해야 할지 도통 알 수가 없어 몇 시간을 끙끙 앓던 때가 생각이 납니다.
+          br
+          |             ‘그래 일단 기초부터 쌓아보자 !’ 라는 생각에 구매하였던 기본서적을 시작으로 한권씩 완독할 때마다, 책상 한켠에 쌓여가는 책들을 볼 때의 뿌듯함과 설렘은 열심히 공부한 하루에 대한 보상 같아 너무나 즐거웠습니다
+          br
+          | 이제는 그동안의 노력의 결과를 보여드리고 유능한 퍼블리셔가 되고 싶습니다.
+      #its.step(data-x='850', data-y='3000', data-rotate='90', data-scale='5')
+        h3.introTitle
+          | ‘좌절을 딛고…….’
+        p.introTxt
+          | 활발한 성격에 활동적인 것을 좋아하던 어린 시절 부모님의 권유로 태권도를 시작했었습니다.
+          br
+          |                 운동은 제게 곧잘 맞았고 좋은 기회를 잡아 국가대표 청소년 시범단 에 들어가게 되었습니다.
+          br
+          |                 한참 하교후면 학교 운동장에 남아 친구들과 축구하고 놀고 싶어 하던 시절 어김없이 체육관에서 훈련을 받아야 했던 제겐 성인이 된 후에도 여전히 도복을 입고 있을 제 모습을 상상하며 꿋꿋이 견뎌냈습니다
+          br
+          |                 그러던 중 홍콩에서 열렸던 청소년부 시합에서 당했던 허리부상이 제 발목을 잡았고 끝내 무릎을 꿇을 수밖에 없었습니다.
+          br
+          |                 ‘일상생활엔 지장이 없으나 운동선수로서의 생명은 끝났다’ 라는 의사선생님의 말씀에 좌절할 수밖에 없었고 큰 충격에 빠져 굉장히 힘든 시절을 보냈던 어린 시절이었습니다
+          br
+          |                 무엇이든 처음이 어렵다고 생각합니다. 이미 한번 큰 좌절을 딛고 일어섰던 제겐 더 이상 두려울 것이 없습니다.
+          br
+          |                 실패하더라도 계속 도전할 것이며 이번 제 인생에 주어진 두 번째 진로를 반드시 놓치지 않겠습니다.
+      #big.step(data-x='3500', data-y='2100', data-rotate='180', data-scale='6')
+        h3.introTitle
+          | ‘Leader ship’
+        p.introTxt
+          | 운동선수 시절 청소년 국가대표 팀의 주장을 맡아왔습니다
+          br
+          |                 국내 태권도 시범은 물론 해외공연 등 많은 팀원들을 통솔하며 이끌어 보았습니다.
+          br
+          |                 강한 카리스마 보다는 부드러운 미소로 팀원들을 격려하고 달래주지만 단체생활 규율에 어긋나는 행동을 하였을 시 단호하게 꾸짖고, 공과 사를 정확하게 구별하며 진지할 땐 누구보다 진지하고 적극적인 리더십으로 인정받는 주장이었습니다.
+          br
+          |                 평소엔 온화한 성격으로 밝게 웃는 모습이지만 옳고 그름을 냉정하게 판단할 줄 알며 잘못된 점을 바로잡을 수 있는 성격입니다
+      #tiny.step(data-x='2825', data-y='2325', data-z='-3000', data-rotate='300', data-scale='1')
+        h3.introTitle
+          | ‘부드러운 언행, 굳은 의지’
+        p.introTxt.marginT10
+          | 언행이 부드럽고 남에 대한 배려가 있으면 좋은 인간관계를 형성할 수 있습니다.
+          br
+          |                 자신의 맡은 일에 대해서 적극적이며 굳은 의지를 가지고 있으며, 이를 반드시 해내는 사람은 어느 사회에서나 주인공으로 살아갈 수 있습니다.
+          br
+          |                 바로 제 자신이 부족하거나 나태해졌을 때에는 냉철하게 비판할 줄 알고, 다른 사람의 실수를 이해해 줄 수 있는 따뜻한 사람이 되고자 노력하고 있습니다.
+      #ing.step(data-x='3500', data-y='-850', data-rotate='270', data-scale='6')
+        h3.introTitle
+          | ‘감사하는 마음으로’
+        p.introTxt.marginT10
+          | 즐겁고 유쾌한 것을 좋아하고 주어진 환경에 적응이 빠르며, 매사에 항상 열정적이고 맡은바 에 최선을 다하는 것이 장점입니다.
+          br
+          |             일을 할 수 있다는 기쁨, 이젠 나도 사회의 구성원이 된다는 감사함으로 임할 수 있기에, 항상 열심히 할 수 있습니다.
+          br
+          |             동아리, 동호회 등 경험이 많아 대인관계가 원만하고, 단체 생활에 익숙합니다.
+          br
+          |             많은 경험을 하자는 주의를 가지고 있어, 변화를 두려워하지 않고 새로운 일에 적극적입니다
+      #imagination.step(data-x='6700', data-y='-300', data-scale='6')
+        h3.introTitle.fontDown
+          | ‘시작은 미흡하나 그 끝은 창대하리라.’
+        p.introTxt.marginT10
+          | 지금의 제 모습과 심정을 잘 반영하는 말이라 생각합니다.
+          br
+          |             아직은 이제 첫 발걸음을 떼려 하는 사회 초년생이고 실력 또한 미흡한 것임에는 분명하지만 보다 나은 내일을 위해 하루하루 최선을 다한다면 10년 후에는 제 분야에서 그리고 회사에서 누구에게나 인정받는 인재가 될 것이라 자부하고 확신하고 있습니다.
+      #source.step(data-x='6300', data-y='2000', data-rotate='20', data-scale='4')
+        h3.introTitle.fontDown
+          | ‘노력 그리고 노력’
+        p.introTxt.marginT10
+          | 하고자하는 열정과 포부만으로는 많이 부족함을 저 역시 잘 알고 있습니다.
+          br
+          |             그렇기 때문에 조금 더 제 분야에서 폭넓은 시야를 갖고자, IT 종사자로서, 웹 퍼블리셔로서의 기본 소양을 갖추고자 올해 초 한양사이버대학에 컴퓨터공학과 신입생으로 입학하게 되었고 취업을 준비하는 과정에서도 열심히 공부하고 있습니다.
+          br
+          |             취업을 이룬 후에도 학교를 졸업하는 그 날까지 학업을 게을리 하지 않을 것이며 배움에는 끝이 없듯 자기계발을 위해 스스로 끊임없이 노력할 것이고, 지금 이 신입사원의 마음가짐을 끝까지 잃지 않을 것임을 약속드립니다.
+      #one-more-thing.step(data-x='6000', data-y='4000', data-scale='2')
+        p 마지막으로...
+      #its-in-3d.step(data-x='6200', data-y='4300', data-z='-100', data-rotate-x='-40', data-rotate-y='10', data-scale='2')
+        p
+          | 매사에 
+          span.have 배우는 자세로
+          span.you 열심히 임하며
+          | , 프로의 자세로 
+          span.noticed 책임감 있게
+          |  일을 할 수 있는  
+          span.its 퍼블리셔
+          span.have
+            b 최원영
+          | 이 되겠습니다.
+          br
+          span.have 바쁘신데도
+          |  불구하고
+          span.you 끝까지 읽어주셔서
+          span.have 감사합니다.
+      #overview.step(data-x='3000', data-y='1500', data-scale='10')
+    .hint
+      p 스페이스바 혹은 화살표 키를 이용해 움직여주세요 !
+    script.
+      if ("ontouchstart" in document.documentElement) {
+      document.querySelector(".hint").innerHTML = "<p>왼쪽화살표 혹은 오른쪽 화살표키를 눌러주세요 !</p>";
+      }
+    script(src='js/impress.js')
+    script.
+      impress().init();

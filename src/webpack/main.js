@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         FB.ui({
           method: 'share',
           display: 'popup',
-          href: location.href,
+          href: location.origin + eventTarget.target.getAttribute('data-href'),
         }, function(response){});
         break;
       default :

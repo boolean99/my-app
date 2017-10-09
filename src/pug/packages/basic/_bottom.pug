@@ -22,6 +22,8 @@ if js
       script(src= key[0] id= key[0].slice(key[0].lastIndexOf('/') + 1, key[0].indexOf('.')))&attributes(attributes)
     else
       script(src= key id= key.slice(key.lastIndexOf('/') + 1, key.indexOf('.')))
+if reloadJs
+  script(src='/reload/reload.js')
 if inlineJavascript
   script
     include ../others/js/script.js

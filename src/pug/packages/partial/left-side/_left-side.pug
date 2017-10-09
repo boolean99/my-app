@@ -19,7 +19,10 @@ if(bodyClass == 'category')
             -for(var j = 0; j < snsList.length; j++)
               case snsList[j]
                 when 'reply'
-                  +e('item', { t: 'a' })(href=`/posts/${postArry[i]._id}#comment`)
+                  +e('item', { t: 'a', b: `js-share-${snsList[j]}` })(href=`/posts/${postArry[i]._id}#comment`)
+                    div: span=snsList[j]
+                when 'facebook'
+                  +e('item', { t: 'button', b: `js-share-${snsList[j]}` })(data-href=`/posts/${postArry[i]._id}`)
                     div: span=snsList[j]
                 default
                   +e('item', { t: 'button', b: `js-share-${snsList[j]}` })

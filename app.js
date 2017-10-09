@@ -45,7 +45,7 @@ const server = http.createServer(app),
       io = require('socket.io')(server);
 
 // 리로드 소스
-reload(app);
+//reload(app);
 
 MongoClient.MongoClient.connect('mongodb://boolean99:truefalse(99)@ds123370.mlab.com:23370/blog', (err, database) => {
   if(err) return consoleError(err, 'wrong');

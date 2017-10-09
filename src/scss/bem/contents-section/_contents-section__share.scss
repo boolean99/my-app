@@ -4,6 +4,6 @@
   > div {
     z-index: 2;
     position: relative;
-//    @include center(true, true);
+    display: inline-block;
   }
 }

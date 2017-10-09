@@ -3,6 +3,7 @@
   font-weight: bold;
   letter-spacing: 0.05em;
   color: #606060;
+  padding-left: 30px;
   
   @include vertical-rythme(rem(30px));
 }

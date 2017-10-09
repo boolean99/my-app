@@ -22,7 +22,8 @@ export function allGetRouter(router, dirname, db) {
         pretty: false,
         postArry: results,
         loadBtn: true,
-        plugins: [ pugIncludeGlob({}) ]
+        plugins: [ pugIncludeGlob({}) ],
+        thisUrl: `http://${req.headers.host}${req.originalUrl}`
       });
 
       res.send(html);
@@ -73,10 +74,18 @@ export function allGetRouter(router, dirname, db) {
     
   });
   
+  router.get('/aboutme', (req, res) => {
+    let html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/about-me.pug'), {
+      pretty: false,
+      plugins: [ pugIncludeGlob({}) ]
+    });
+
+      res.send(html);
+  });
+  
   router.get('/contact', (req, res) => {
     let html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/contact.pug'), {
       pretty: false,
-      test: 'hi',
       plugins: [ pugIncludeGlob({}) ]
     });
 

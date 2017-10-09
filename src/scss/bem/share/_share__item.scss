@@ -1,20 +1,29 @@
 $share-transition: 0.5s all $ease-out-cubic;
 
 .share__item {
+  background: #fff;
   border: 1px solid #e5e5e5;
   transform: skewX(-25deg);
   transition: $share-transition;
+  display: inline-block;
+  position: relative;
   
-  @include mirror(margin-left 10px);
-  @include except(margin-left, first);
+  &:first-child {
+    margin: 0;
+  }
+  
+  @include mirror(margin-left 10px, float left);
   @include size(50px, 40px);
   @include breaking($bp480, below) {
     @include size(40px, 30px);
   }
   
   div {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 2.5px);
     transition: $share-transition;
-    transform: skewX(25deg);
+    transform: skewX(25deg) translate(-50%, -50%);
   }
   
   span {
@@ -24,7 +33,7 @@ $share-transition: 0.5s all $ease-out-cubic;
   $share-i: 1;
 
   @each $key, $value in $snsList {
-    &:nth-of-type(#{$share-i}) {
+    &:nth-child(#{$share-i}) {
       div {
         @include fa-init($value);
       }

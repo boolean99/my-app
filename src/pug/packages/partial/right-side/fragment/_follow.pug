@@ -8,5 +8,6 @@
       +e('list', { t: 'ul' })
         -for(var j = 0; j < snsList.length; j++)
           +e('list-item', { t: 'li' })
-            +e('item', { t: 'button' })
-              div: span=snsList[j]
+            if(snsList[i] !== 'reply')
+              +e('item', { t: 'button' })
+                div: span=snsList[j]

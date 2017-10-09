@@ -123,6 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'js-config-tab__button' :
         settingPanel(eventTarget.target);
         break;
+      case 'js-share-facebook' :
+        FB.ui({
+          method: 'share',
+          display: 'popup',
+          href: location.href,
+        }, function(response){});
+        break;
       default :
         return false;
     }

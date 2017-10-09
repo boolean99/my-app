@@ -34,7 +34,7 @@ import {allGetRouter} from './router/get';
 import {allPostRouter} from './router/post';
 
 // 파일제공 및 use 메서드 사용
-app.set('port', process.env.PORT || 8001);
+app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC)));
 app.use('/posts/:id', express.static(path.join(__dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC)));
 app.use('/category/:sort', express.static(path.join(__dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC)));

@@ -16,4 +16,5 @@
       +e('list', { t: 'li' })
         +e('item', { t: 'a' })(href=`/${i == 0 ? '' : navList[i].toString().toLowerCase()}`)= navList[i]
           span arrow_drop_down
+  - var navHamburger = true
   include ../hamburger/_hamburger

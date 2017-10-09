@@ -21,8 +21,6 @@ export default function settingPanel(evtTarget) {
     'config-tab__button--selected'
   );
   
-  cconsole.log(evtTarget);
-  
   if(modifierTarget !== 'document.body') {
     let id = modifierValue.slice(0, modifierValue.indexOf('-')),
         xHttpObj = returnXHttpObj(

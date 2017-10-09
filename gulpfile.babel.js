@@ -136,7 +136,7 @@ gulp.task('css-strong', () => {
 
 //[*]+---------------[[ Webpack 컴파일 ]]---------------+[*]\\
 gulp.task('webpack-compile', () => {
-  gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/!(${GLOBALCONFIG.WEBPACK.FILENAME})*.js`)
+  gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/!(${GLOBALCONFIG.WEBPACK.FILENAME}|load-more)*.js`)
   .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DIST + '/js'))
   .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DEV + '/js'));
   
@@ -146,7 +146,8 @@ gulp.task('webpack-compile', () => {
         GLOBALCONFIG.DISTRIBUTION,
         webpack({
           entry: {
-            [GLOBALCONFIG.WEBPACK.DISTFILENAME]: './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/${GLOBALCONFIG.WEBPACK.DISTFILENAME}.js`
+            [GLOBALCONFIG.WEBPACK.DISTFILENAME]: './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/${GLOBALCONFIG.WEBPACK.DISTFILENAME}.js`,
+            'load-more': './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/load-more.js`
           },
           devtool: 'source-map',
           context: __dirname,
@@ -173,7 +174,8 @@ gulp.task('webpack-compile', () => {
         }),
         webpack({
           entry: {
-            [GLOBALCONFIG.WEBPACK.FILENAME]: './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/${GLOBALCONFIG.WEBPACK.FILENAME}.js`
+            [GLOBALCONFIG.WEBPACK.FILENAME]: './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/${GLOBALCONFIG.WEBPACK.FILENAME}.js`,
+            'load-more': './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/load-more.js`
           },
           devtool: 'source-map',
           context: __dirname,
@@ -353,7 +355,7 @@ gulp.task('supervisor', ['build-server'], () => {
 gulp.task('build-server', () => {
   runSequence(
     'font-convert',
-    ['pug-compile', 'scss-compile', 'webpack-compile'],
+    ['scss-compile', 'webpack-compile'],
     ['img-sprite', 'img-min', 'file-copy'],
     ['css-strong', 'js-compress']
   );

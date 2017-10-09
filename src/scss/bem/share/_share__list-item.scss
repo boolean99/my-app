@@ -1,19 +1,19 @@
-.share__list-item {
-  display: inline-block;
-  
-  $share-i: 1;
-
-  @each $key, $value in $snsList {
-    &:nth-of-type(#{$share-i}) {
-      div {
-        @include fa-init($value);
-      }
-    }
-
-    $share-i: $share-i + 1;
-  }
-  
-  div {
-    position: static;
-  }
-}
+//.share__list-item {
+//  display: inline-block;
+//  
+//  $share-i: 1;
+//
+//  @each $key, $value in $snsList {
+//    &:nth-of-type(#{$share-i}) {
+//      div {
+//        @include fa-init($value);
+//      }
+//    }
+//
+//    $share-i: $share-i + 1;
+//  }
+//  
+//  div {
+//    position: static;
+//  }
+//}

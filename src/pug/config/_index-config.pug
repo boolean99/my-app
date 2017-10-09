@@ -15,7 +15,7 @@ include _common-config
 - var facebookAppId=        '1496678157078588'
 - var facebookTitle=	 	metaDescription
 - var facebookUrl=			thisUrl
-- var facebookImage=	 	`${locationOrigin}${pathname}/images/facebook_img.jpg`
+- var facebookImage=	 	`${thisUrl}images/facebook_img.jpg`
 - var facebookDescription=	title
 
 //- twitter (기본적으로 facebook의 값을 상속받음)
@@ -42,7 +42,8 @@ include _common-config
       //'/reload/reload.js',
       'js/sass.js',
       //'sass.worker.js',
-      'js/main.bundle.js'
+      'js/main.bundle.js',
+      'js/load-more.bundle.js'
     ]
 
 //- 배포시 수정될 파일명 & img 경로를 바꿔준다

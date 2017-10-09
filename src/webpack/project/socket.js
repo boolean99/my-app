@@ -1,7 +1,5 @@
 function socketFunc(socket) {
   socket.on('loadMorePostsInClient', (param) => {
-    console.log(param);
-    
     if(!param.length) alert(`There's nothing to fetch anymore.. :(`);
     
     const doc = document,
@@ -19,5 +17,3 @@ function socketFunc(socket) {
 }
 
 export {socketFunc};
-
-

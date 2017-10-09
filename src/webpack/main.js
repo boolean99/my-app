@@ -41,6 +41,7 @@ import whenScrollFixElement from './project/when-scroll-fix-element';
 import mobileNav from './project/mobile-nav';
 import makeLayout from './project/make-layout';
 import makeExtraElement from './project/make-extra-element';
+import * as snsShare from './project/sns-share';
 
 let socket;
 
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'js-scroll-to-contents' :
         scroll.top(scrollPageDetect, window.innerHeight, { duration: 1000, ease: ease.inOutCirc });
         break;
-      case 'js-hamburger' :
+      case 'js-nav-hamburger' :
         mobileNav(eventTarget.target);
         break;
       case 'js-handler--left' :
@@ -124,11 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
         settingPanel(eventTarget.target);
         break;
       case 'js-share-facebook' :
-        FB.ui({
-          method: 'share',
-          display: 'popup',
-          href: location.origin + eventTarget.target.getAttribute('data-href'),
-        }, function(response){});
+        snsShare.facebook(eventTarget.target);
+        break;
+      case 'js-share-twitter' :
+        snsShare.twitter(eventTarget.target);
         break;
       default :
         return false;

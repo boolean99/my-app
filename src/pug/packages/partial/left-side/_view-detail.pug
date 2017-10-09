@@ -15,8 +15,16 @@
   +b('share', { t: 'section', e: '&'})
     div
       -for(var j = 0; j < snsList.length; j++)
-        +e('item', { t: 'button' })
-          div: span=snsList[j]
+        case snsList[j]
+          when 'reply'
+            +e('item', { t: 'a', b: `js-share-${snsList[j]}` })(href=`/posts/${selectedPost._id}#comment`)
+              div: span=snsList[j]
+          when 'facebook'
+            +e('item', { t: 'button', b: `js-share-${snsList[j]}` })(data-href=`/posts/${selectedPost._id}`)
+              div: span=snsList[j]
+          default
+            +e('item', { t: 'button', b: `js-share-${snsList[j]}` })
+              div: span=snsList[j]
     hr
 +b('other-articles', { t: 'sectin', e: '&' })
   +e('heading', { t: 'h1' }) YOU MIGHT ALSO LIKE...

@@ -29,7 +29,7 @@ import modifier from './helpers/modifier';
 //import splitSearch from '../../app_helpers/split-search';
 
 // 프로젝트 모듈 호출
-import {socketFunc} from './project/socket';
+//import {socketFunc} from './project/socket';
 //import * as kbs from './project/kbs';
 //import returnXHttpObj from './project/xhttp';
 import gallery from './project/gallery';
@@ -42,8 +42,6 @@ import mobileNav from './project/mobile-nav';
 import makeLayout from './project/make-layout';
 import makeExtraElement from './project/make-extra-element';
 import * as snsShare from './project/sns-share';
-
-let socket;
 
 document.addEventListener('DOMContentLoaded', () => {
   // 돔 로드완료 이벤트
@@ -155,24 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
   if(MD.mobile()) console.log(`mobile WINDOW's been loaded`);
   else console.log(`WINDOW's been loaded`);
-    
-    // 소켓 초기화
-    socket = io(location.href);
-    
-    socket.on('connect', () => {
-      // 소켓에 접속되면 소켓 함수 방출
-      socketFunc(socket);
-      
-      DOC.querySelector('.js-load-more').addEventListener('click', () => {
-        // 포스트 불러오기 관련 서버단 이벤트 호출
-        socket.emit('loadMorePostsInServer',
-                    {
-          id: socket.id,
-          existPostsLength: DOC.querySelectorAll('.contents-section__item').length
-                    }
-                   );
-      });
-    });
   });
   
   WIN.addEventListener('resize', () => {

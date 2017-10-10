@@ -142,11 +142,10 @@ gulp.task('webpack-compile', () => {
   
   return gulp.src(GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK)
       .pipe(plumber())
-      .pipe(gulpIf(
-        GLOBALCONFIG.DISTRIBUTION,
+      .pipe(
         webpack({
           entry: {
-            [GLOBALCONFIG.WEBPACK.DISTFILENAME]: './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/${GLOBALCONFIG.WEBPACK.DISTFILENAME}.js`,
+            'main': './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/main.js`,
             'load-more': './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/load-more.js`
           },
           devtool: 'source-map',
@@ -172,35 +171,7 @@ gulp.task('webpack-compile', () => {
             }]
           },
         }),
-        webpack({
-          entry: {
-            [GLOBALCONFIG.WEBPACK.FILENAME]: './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/${GLOBALCONFIG.WEBPACK.FILENAME}.js`,
-            'load-more': './' + GLOBALCONFIG.DIRECTION.SRC + GLOBALCONFIG.DIRECTION.WEBPACK + `/load-more.js`
-          },
-          devtool: 'source-map',
-          context: __dirname,
-          output: {
-            filename: '[name].bundle.js',
-            pathinfo: true
-          },
-          module: {
-            loaders: [{
-              test: /.jsx?$/,
-              loader: 'babel-loader',
-              exclude: [
-                path.resolve(__dirname, '/node_modules/'),
-                path.resolve(__dirname, '/reload-helper/'),
-                path.resolve(__dirname, '/dev/'),
-                path.resolve(__dirname, '/dist/'),
-                path.resolve(__dirname, '/public/')
-              ],
-              query: {
-                presets: ['es2015']
-              }
-            }]
-          },
-        })
-      ))
+      )
       .pipe(gulp.dest(GLOBALCONFIG.DIRECTION.DEV + '/js'))
       .pipe(reload({stream: true}));
 });
@@ -355,7 +326,7 @@ gulp.task('supervisor', ['build-server'], () => {
 gulp.task('build-server', () => {
   runSequence(
     'font-convert',
-    ['scss-compile', 'webpack-compile'],
+    ['pug-compile', 'scss-compile', 'webpack-compile'],
     ['img-sprite', 'img-min', 'file-copy'],
     ['css-strong', 'js-compress']
   );

@@ -94,4 +94,12 @@ export function allGetRouter(router, dirname, db) {
 
       res.send(html);
   });
+  
+  router.get('/intro', (req, res) => {
+    let html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/intro.pug'), {
+      pretty: false,
+    });
+
+      res.send(html);
+  });
 }

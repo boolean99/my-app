@@ -1,5 +1,6 @@
 .other-articles__list-container {
-  @include container-center(1020px);
+  display: inline-block;
+  width: 80%;
   
   @include breaking($bp1200, below) {
     width: 100%;

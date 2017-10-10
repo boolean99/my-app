@@ -1,5 +1,5 @@
 // ES2015 사용을 위한 babel 모듈 호출
-//import 'babel-polyfill';
+import 'babel-polyfill';
 
 // 전역 변수 객체 호출
 import globalConfig from './helpers/global-config';

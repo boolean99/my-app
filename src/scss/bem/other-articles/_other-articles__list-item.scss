@@ -1,13 +1,9 @@
 .other-articles__list-item {
-  margin-right: 30px;
+  padding: 0 3%;
+  width: 33.33%;
 
   @include mirror(float left);
   @include except(margin-right, last);
-  @include breaking($bp1200, below) {
-    width: 33.33%;
-    padding: 0 30px;
-    margin: 0;
-  }
   @include breaking($bp600, below) {
     width: 100%;
     margin-top: 20px;

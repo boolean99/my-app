@@ -1,5 +1,5 @@
 .contents-section__comment{
-  @include container-center(1200px);
+  @extend %container;
   
   .input--theme-flat_button {
     margin: 0;
@@ -10,9 +10,5 @@
     @include breaking($bp600, below) {
       width: 100%;
     }
-  }
-  
-  @include breaking($bp1200, below) {
-    width: 100%;
   }
 }

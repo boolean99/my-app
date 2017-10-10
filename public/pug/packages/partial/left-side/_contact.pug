@@ -1,10 +1,14 @@
 +b('page-title', { t: 'h1', e: '&'}) CONTACT ME
 +b('contact-info', { t: 'ul' })
-  +e('list', { t: 'li' }) KAKAO ID: choi020810
-  +e('list', { t: 'li' }) GITHUB: https://github.com/boolean99
-  +e('list', { t: 'li' }) FACEBOOK: https://www.facebook.com/boolean99
-  +e('list', { t: 'li' }) EMAIL: boolean99@naver.com
-  +e('list', { t: 'li' }) EMAIL: choi020810@gmail.com
+  +e('list', { t: 'li' }) #[span KAKAO ID:] choi020810
+  +e('list', { t: 'li' })
+    span GITHUB:
+    a(href="https://github.com/boolean99" target='_blank') https://github.com/boolean99
+  +e('list', { t: 'li' })
+    span FACEBOOK:
+    a(href="https://www.facebook.com/boolean99" target='_blank') https://www.facebook.com/boolean99
+  +e('list', { t: 'li' }) #[span EMAIL:] boolean99@naver.com
+  +e('list', { t: 'li' }) #[span EMAIL:] choi020810@gmail.com
 #map.google-map
 +b('comment', { t: 'section', e: '&' })
   +b('form-area', { t: 'form', p: false })(action='' method='POST')

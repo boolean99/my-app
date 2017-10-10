@@ -1,6 +1,4 @@
 function socketFunc(socket) {
-  console.log('socket!!');
-  
   socket.on('loadMorePostsInClient', (param) => {
     if(!param.length) alert(`There's nothing to fetch anymore.. :(`);
     

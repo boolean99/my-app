@@ -27,6 +27,6 @@ export default function compileSassAndInsert(XHttpResult, param) {
       );
     }
     
-    if(param.callbackParam !== undefined) setTimeout(() => makeLayout(param.callbackParam), 500);
+    if(param.callbackParam !== undefined) setTimeout(() => {makeLayout(param.callbackParam)}, 500);
   });
 }

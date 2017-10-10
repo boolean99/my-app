@@ -12,23 +12,21 @@ export default function makeExtraElement() {
   
   doc.body.insertAdjacentHTML('beforeend', containHTMLString.colorPicker);
   doc.body.insertAdjacentHTML('beforeend', containHTMLString.config);
-  doc.body.insertAdjacentHTML('beforeend', containHTMLString.moveViewport);
+  if(!document.documentMode) doc.body.insertAdjacentHTML('beforeend', containHTMLString.moveViewport);
   
   // 페이지에 따른 설정
   switch(dobyClassName) {
     case 'index' :
+    case 'category' :
       makeLayout('standard');
       break;
-    case 'category' :
-      let firstBtn = document.querySelectorAll('.sidebar-existence__button')[0],
-          secondBtn = document.querySelectorAll('.sidebar-existence__button')[1];
+    default :
+      const disableBtn = document.querySelectorAll('.config__panel button');
       
-      firstBtn.setAttribute('disabled', true);
-      firstBtn.setAttribute('style', 'cursor: not-allowed; background: darkred; border: none;');
-      secondBtn.setAttribute('disabled', true);
-      secondBtn.setAttribute('style', 'cursor: not-allowed; background: darkred; border: none;');
-      break;
-    case 'contact' :
+      for(let i = 2, ilen = disableBtn.length; i < ilen; i++) {
+        disableBtn[i].setAttribute('disabled', true);
+        disableBtn[i].setAttribute('style', 'cursor: not-allowed; background: darkred; border: none;');
+      }
       break;
   }
 }

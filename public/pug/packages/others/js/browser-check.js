@@ -1,0 +1,1 @@
+if(!!document.documentMode) document.body.className += ' ie' + document.documentMode;

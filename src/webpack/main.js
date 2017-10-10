@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     switch(eventTarget.findJsString) {
       case 'js-scroll-to-contents' :
-        scroll.top(scrollPageDetect, window.innerHeight, { duration: 1000, ease: ease.inOutCirc });
+        scroll.top(scrollPageDetect, DOC.querySelector('.index__main-visual').offsetHeight, { duration: 1000, ease: ease.inOutCirc });
         break;
       case 'js-nav-hamburger' :
         mobileNav(eventTarget.target);
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scroll.top(scrollPageDetect, 0, { duration: 1000, ease: ease.inOutCirc });
         break;
       case 'js-scroll-to-bottom' :
-        scroll.top(scrollPageDetect, DOC.body.scrollHeight, { duration: 1000, ease: ease.inOutCirc });
+        scroll.top(scrollPageDetect, scrollPageDetect.scrollHeight - DOC.querySelector('.index__main-visual').offsetHeight, { duration: 1000, ease: ease.inOutCirc });
         break;
       case 'js-setting-icon' :
         modifier(
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   WIN.addEventListener('resize', () => {
     // 윈도우 리사이즈 이벤트
-    delayEvent(1000, makeLayout, 'grid');
+    if(!!DOC.querySelector('.article-list--layout-grid')) delayEvent(1000, makeLayout, 'grid');
     Gallery.updateEssentialValue.leftValue();
     Gallery.updateEssentialValue.galleryWidth();
   });

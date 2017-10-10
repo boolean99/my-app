@@ -4,6 +4,8 @@ const DOC = document,
 export default function makeLayout(sort) {
   let gridPositionArryXY = [[0, 0], [0, 0]];
   
+  console.log(sort);
+  
   DOC.querySelector('.contents-section__container').style.opacity = 1;
   
   if(sort === 'list' || sort === 'standard') {

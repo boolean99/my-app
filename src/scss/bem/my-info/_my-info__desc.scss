@@ -1,0 +1,17 @@
+.my-info__desc {
+  @extend %container;
+  @include vertical-rythme(24px, 39px);
+  
+  @include breaking($bp600, below) {
+    @include breaking-space(font-size 20 $bp600, line-height 34 $bp600);
+  }
+  
+  a {
+    text-decoration: underline !important;
+    margin-top: 8px;
+    
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}

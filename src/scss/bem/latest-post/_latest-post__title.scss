@@ -3,6 +3,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-family: $font-NG;
   
   @include vertical-rythme(rem(14px), rem(18px));
   

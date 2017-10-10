@@ -19,6 +19,10 @@
     
     @extend %material-icons;
     @include center(false, true);
+    
+    @at-root .ie9 & {
+      display: none !important;
+    }
   }
   
   &:not(:only-child) {

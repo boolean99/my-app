@@ -1,0 +1,12 @@
+.my-info {
+  font-family: $font-NG;
+  padding: 0 25px;
+  line-height: 100%;
+  
+  @extend %wide-auto;
+  @include mirror(float left);
+  
+  @include breaking($bp600, below) {
+    padding: 0 15px;
+  }
+}

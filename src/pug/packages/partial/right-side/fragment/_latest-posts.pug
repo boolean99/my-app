@@ -10,8 +10,7 @@
         +b('hover-rectangle-line-path', { t: 'span' })
         +b('hover-rectangle-line-path', { t: 'span' })
         +b('hover-rectangle-line-path', { t: 'span' })
-        +e('division', { t: 'div' })
+        +e('division', { t: 'a' })(href=`/posts/${postArry[i]._id}`)
           +e('category', { t: 'span', p: 'independent-article', e: 'latest-post' })= postArry[i].category
-          +e('title', { t: 'h1', p: 'independent-article', e: 'latest-post' })
-            a(href=`$/posts/${postArry[i]._id}`)= postArry[i].title
+          +e('title', { t: 'h1', p: 'independent-article', e: 'latest-post' })= postArry[i].title
           +e('date', { t: 'p', p: 'independent-article', e: 'latest-post' })= postArry[i].display_date

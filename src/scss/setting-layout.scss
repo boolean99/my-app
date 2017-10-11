@@ -106,7 +106,7 @@ $bp700: 700px;
       position: absolute;
       top: 0;
       left: 0;
-      border-bottom: 2px solid #eee;
+      padding-bottom: 0;
       transition: 0.3s all cubic-bezier(0.785, 0.135, 0.15, 0.86);
     }
     
@@ -118,6 +118,8 @@ $bp700: 700px;
     
     .independent-article__figure {
       margin-bottom: 0;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 20px;
     }
     
     .button, .share {

@@ -22,87 +22,235 @@ html(lang='ko')
         |보다 나은 사용자 경험을 위해 Chrome, Safari, Firefox 브라우저의 사용을 권합니다.
     #impress
       #bored.step.slide(data-x='-1000', data-y='-1500')
-        q
-          | Aren’t you just 
-          b bored
-          |  with all those slides-based presentations?
-      .step.slide(data-x='0', data-y='-1500')
-        q
-          | Don’t you think that presentations given 
-          strong in modern browsers
-          |  shouldn’t 
-          strong copy the limits
-          |  of ‘classic’ slide decks?
-      .step.slide(data-x='1000', data-y='-1500')
-        q
-          | Would you like to 
-          strong impress your audience
-          |  with 
-          strong stunning visualization
-          |  of your talk?
+        //img#mianPicture(src='images/intro_boolean99.jpg', alt='choiWonYoung')
+        #tableTop.tableLayout
+          .tableCaption
+            b Profile
+          .tableRow
+            .tableCell
+              b Name
+            .tableCell
+              | 최원영
+          .tableRow
+            .tableCell
+              b Birth
+            .tableCell
+              | 1991.02.08
+          .tableRow
+            .tableCell
+              b Mobile
+            .tableCell
+              | 010.4449.8349
+          .tableRow
+            .tableCell
+              b Address
+            .tableCell
+              | 서울특별시 구로구 신도림로 11가길 36
+              br
+              | 152-771 미성아파트 1동 1002호
+          .tableRow
+            .tableCell
+              b E-mail
+            .tableCell
+              | boolean99@naver.com
+          .tableRow
+            .tableCell
+              b School
+            .tableCell
+              | 한양사이버대학교 컴퓨터공학과 4학년 재학중
+          .tableRow
+            .tableCell
+              b Portfolio
+            .tableCell
+              a(href='https://boolean99-blog.herokuapp.com/', style='text-shadow:none;', target='_blank') https://boolean99-blog.herokuapp.com/
+        #skillsTable.tableLayout.clear.skillsTable(style='width:50%')
+          .tableCaption
+            p#skillsIcon.left.skillsIcon.iconCss
+              img(src='images/skillsIcon.png', alt='skillsIcon')
+            p.left.skillTool
+              | SKILLS
+          .tableRow
+            .tableCell
+              | HTML5, CSS3, PUG, SASS, JAVASCRIPT, ES2015, JSON, AJAX, GULP, NPM, NODEJS, EXPRESS, SOKET.IO, WEBPACK, BABEL, MONGODB
+        #toolsTable.tableLayout.toolsTable(style='width:calc(50% - 60px);')
+          .tableCaption
+            p#toolsIcon.left.toolsIcon.iconCss
+              img(src='images/toolsIcon.gif', alt='toolsIcon')
+            p.left.skillTool
+              | TOOLS
+          .tableRow
+            .tableCell
+              | BRACKETS, ATOM
+      #step2.step.slide(data-x='0', data-y='-1500')
+        div
+          p 포폴 설명
+      #step3.step.slide(data-x='1000', data-y='-1500')
+        p 포폴 설명2
+        .introWrap(style='position: absolute; bottom: 40px;')
+          .introLeft
+            p
+              | CHOI
+            p
+              | WONYOUNG
+            p
+              | INTRO
+          .introRight
+            p
+              | DUCTION
+          .introBottom
       #title.step(data-x='0', data-y='0', data-scale='4')
-        span.try then you should try
-        h1
-          | impress.js
-          sup *
-        span.footnote
-          sup *
-          |  no rhyme intended
+        h3.introTitle ‘KBS MEDIA (World Radio)’
+        p.introTxt
+          |KBS World Radio 의 모바일웹, 데스크톱웹, 하이브리드앱의 유지 보수와 특집사이트등의 프론트엔드 개발이 주 업무였습니다.
+          br
+          |정적인 뉴스 콘텐츠를 다루는 회사이기 때문에 최신기술 보다는 안정적인 기술을 지향 하고 11개국 다국어 지원 이슈, 통신 환경이 빠르지 못한 세계 각국의 사용자를 고려한 웹 최적화 및 크로스 브라우징 이슈 등에 대응하는 능력을 길렀습니다.
+          br
+          |하나의 디자인 작업물을 관리자 페이지에서 11개 언어마다 각각 업로드 해줘야 했기때문에 배로 바빴던 디자이너 팀원들을 위해 서버단 도움없이 스스로 돕고자 관리자 페이지내 단축키를 활용한 네비게이션, 위지윅 에디터 추가, 자동완성기능 추가 등 작업 효율을 높이기 위한 관리자 페이지 개선을 스스로 맡아 했습니다.
       #its.step(data-x='850', data-y='3000', data-rotate='90', data-scale='5')
-        p
-          | It’s a 
-          strong presentation tool
+        h3.introTitle ‘첫 사수가 구글’
+        p.introTxt
+          |개발자로서 첫 입사 후 가장 처음으로 했던 고민이었습니다. 팀 내에 같은 포지션의 동료 개발자도 없었을 뿐더러 사수 선배로서는 php개발자 선배님 한분만 계셨기 때문입니다.
           br
-          |         inspired by the idea behind 
-          a(href='http://prezi.com') prezi.com
+          |하지만 2년 가까이 취업을 목적으로 했던 웹개발 공부 전부를 책과 인터넷강의에 의존해 혼자 준비해 왔던 터라 ‘하고자 한다면 지금 당장 사수가 없더라도 학습하는데 문제될 건 없겠다’ 라는 결론을 내리기까지 그리 오랜 시간이 걸리지 않았습니다.
           br
-          |         and based on the 
-          strong power of CSS3 transforms and transitions
-          |  in modern browsers.
-      #big.step(data-x='3500', data-y='2100', data-rotate='180', data-scale='6')
-        p
-          | visualize your 
-          b big
-          span.thoughts thoughts
-      #tiny.step(data-x='2825', data-y='2325', data-z='-3000', data-rotate='300', data-scale='1')
-        p
-          | and 
-          b tiny
-          |  ideas
-      #ing.step(data-x='3500', data-y='-850', data-rotate='270', data-scale='6')
-        p
-          | by 
-          b.positioning positioning
-          | , 
-          b.rotating rotating
-          |  and 
-          b.scaling scaling
-          |  them on an infinite canvas
-      #imagination.step(data-x='6700', data-y='-300', data-scale='6')
-        p
-          | the only 
-          b limit
-          |  is your 
-          b.imagination imagination
+          |처음 반년정도는 도큐멘테이션을 읽는 법과 필요한 API를 적절히 찾아내는 법, 프론트엔드 기술의 최신트렌드에 대한 정보를 습득하는 법, 스택오버플로우 같은 개발 커뮤니티에서 문제를 찾아 해결하는 능력 등 스스로 먹이를 찾아 사냥하는 법을 배우는 시기였습니다.
+          br
+          |그 당시에는 영어도 아주 낮은 수준이었고, 영어 문장의 맥락만 대충 파악하고 코드로 이해하려 해도 개발 지식이 부족했던 때라 상당수를 이해하지 못하고 좌절했던 답답함의 연속이었지만 이 시기가 그때에 비해 상대적으로 구글링을 자유로이 하는 지금의 제게 참 많은 도움이 되었던 때라고 생각합니다.
+          br
+          |개발자 오픈채팅에서 꽤 자주 나오는 우스갯소리중 하나인 ‘구글이 최고의 사수다’ 라는 말은 시작부터 홀로서기였던 제게 아직까지는 아주 공감하는 얘기입니다.
+      #big.step(data-x='3500', data-y='5000', data-rotate='180', data-scale='6')
+        h3.introTitle ‘EnglishScript’
+        p.introTxt
+          |프로그래밍을 하면서 가장 중요한 언어는 파이썬도 루비도 자바스크립트도 아닌 영어라고 생각합니다.
+          br
+          |어느 날 새로운 라이브러리의 인기 급상승 소식을 접하고는 배우고 싶은 마음에 관련 한글번역 서적이 나오기를 고대했지만 그 당시에 끝끝내 출간소식을 듣지 못하였을 때 공식 사이트의 이해할 수 없는 하얀 종이 위의 까만 글씨를 읽으며 생각했습니다. 이 일을 계속 할 거라면, 그리고 남들보다 항상 앞서가려면 영어는 무조건 공부해야겠다고.
+          br
+          |영어공부를 결심후 2016.01.14. 결제일 을 시작으로 지금까지 시원스쿨에서 영어공부를 계속 해오고 있으며 현재는 회사에서 지원해주는 멀티캠퍼스 이러닝 영어강의를 함께 수강중입니다.
+          br
+          |지금은 #[a(href='http://www.w3schools.com/' target='_blank') w3schools] 사이트나, #[a(href='https://developer.mozilla.org/en-US/docs/Web' target='_blank') MDN] 사이트의 거의 대부분을 독해할 정도의 독해능력을 갖추게 됐습니다. 남들보다 늦은 출발이지만 욕심부리려다가 넘어지지않고 완주하기위해 하루 한두시간씩 꾸준히 공부중입니다.
+          br
+          |당장의 필요에 의해 시작하게 된 공부라 유독 문법과 독해 위주로만 공부하게 됐고, 단어도 개발 사이트에서 사용하는 단어위주로 암기하게 됐지만 지금은 과거와 달리 영어공부에 흥미를 느끼고 있어 공부를 멈추지 않을 계획이라 시간이 해결해줄 것이라 믿습니다.
+      #tiny.step(data-x='2825', data-y='2325', data-z='-3000', data-rotate='300', data-scale='1' style='width: 800px;')
+        h3.introTitle
+          | ‘typeof(최원영)’
+        p.introTxt.marginT10
+          |한 대학생 재능 연결 온라인 플랫폼에서 게시했던 #[a(href='https://www.facebook.com/taling.me/photos/pcb.1520441391383033/1520438514716654/?type=3&theater' target='_blank') ‘개발자의 유형’] 이라는 재밌는 게시물을 본적이 있습니다.
+          
+          span(style='width: 100%;float:left;margin-left:30px; margin-top:15px;') - #[b 모범생 타입]: 작업을 하기전 문서를 꼼꼼히 읽고 이해를 모두 한 후 작업을 진행하기 때문에 많은 초기설정을 결정해야 하는 초반작업에 강점을 보여주는 유형
+          
+          span(style='width: 100%;float:left;margin-left:30px;') - #[b 해결사 타입]: 특정 부분에 막혔을 때 도움을 청하면 언젠가는 해결해주는 유형
+          
+          span(style='width: 100%;float:left;margin-left:30px;') - #[b 2개의 심장 타입]: 처음부터 끝까지 항상 같은 퍼포먼스로 지치지 않고 코딩하는 유형
+          
+          span(style='width: 100%;float:left;margin-left:30px;') - #[b 마무리 투수 타입]: 서비스가 런칭되기 직전 최종 부분에 강점을 보이는 유형
+          span(style='width: 100%;float:left;margin-left:30px; margin-bottom:15px;') - #[b 우사인볼트 타입]: 한국 스타트업에서 가장 인기 있는 빠른 작업속도를 보유한 유형
+          br
+          |이 유형중 제가 속한 유형을 꼽자면 ‘모범생 타입’입니다. 제가 가진 성격중 무언가를 시작했다면 반드시 그 끝을 봐야 한다는 점이 있는데 공부할 때 이 성격으로 인해 조금 무식하게 공부합니다.
+          br
+          |예를 들면 하나의 라이브러리를 배울 때 해당 도큐멘테이션의 모든 레퍼런스를 번역한 내용을 정리해 개인폴더에 저장해둔 후 전부 암기할 때까지 수시로 파일을 열어봅니다.
+          br
+          |성격상 모든 것을 알고 있어야만 속이 후련하고 잘 알아야 잘 쓴다는 생각이 있어서 그런 것 같습니다.
+          br
+          |때문에 기술을 마음 편히 사용하기까지 남들보다는 시간이 조금 더 걸릴지라도 그 레퍼런스 파일을 더블클릭하는 횟수가 줄어들수록 같은 공부를 했더라도 다른 개발자보다 무조건 더 자세한 스펙을 알고 있음을 확신합니다.
+          br
+          |여러 방면으로 뛰어난 만능선수라면 더할나위없이 좋겠지만 현실을 직시하고 우선은 한 가지에 정통하고자 노력하고 있습니다.
+      #ing.step(data-x='3500', data-y='-850', data-rotate='270', data-scale='6' style='width: 700px;')
+        h3.introTitle
+          | ‘자바스크립트 춘추전국시대’
+        p.introTxt.marginT10
+          br
+          |기초적인 프로그래밍에 대한 지식과 적절한 라이브러리, 프레임워크의 조합은 초보 웹 개발자에게도 꽤나 근사한 결과물을 가져다 줄 수 있습니다. 신입 때라 더욱이 그런 마음이 들었는지 저 역시 동참하고 싶었고 그럴싸한 산출물로 주변 사람들에게 자랑도 해보고 싶었습니다.
+          br
+          |그러나 현재 회사 특성상 뉴스 매체를 다뤄야 하기 때문에 수많은 제약에 의해 아무것도 시도조차 할 수 없는 구조였고 그냥 어떤 기술이 유행하는지 흐름을 파악하는 선에서만 만족해야 했습니다. 다소 실망은 했지만 조금 다르게 생각해보니 프레임워크에 의존해 개발하고자 하는 욕심을 여기서 일하는 동안 타의에 의해서지만 완벽하게 제어할 수 있다고 생각했습니다.
+          br
+          |‘어차피 HTML, CSS, JavaScript가 모든 라이브러리들의 근간이 될 테니 그동안 기초를 더 쌓자’ 라는 생각으로 끊임없이 기초를 공부해왔습니다. 영어공부와 개발공부를 함께 하잔 의도로 w3schools 사이트의 모든 레퍼런스를 완주 후 지금은 MDN 사이트를 번역하고 있으나 아직은 HTML까지만 완료된 상태이고 javascript까지 모두 완주하는 것이 목표입니다.
+        
+      #imagination.step(data-x='12000', data-y='-300', data-scale='6' style='width: 800px')
+        h3.introTitle.fontDown
+          | ‘튜닝의 끝은 순정’
+        p.introTxt.marginT10
+          |처음 신입으로 취업 준비를 할 당시에는 기초 자바스크립트 상식만 가지고 제이쿼리를 얹어 개발을 시작했었습니다.
+          br
+          |이후 자바스크립트 기초를 다시 공부하며 제이쿼리를 유지할 것인가에 대한 고민을 계속 해왔지만 이렇다한 자문을 구할 곳이 없어 망설이던 중 Vanila JS를 알게 되었고 ‘간단한 페이지를 개발할 때도 제이쿼리 없이는 아무것도 못하는 개발자’, ‘React, Angular와 같은 다소 진입장벽이 높은 프레임워크를 사용하면서도 기초적인 자바스크립트 문법을 몰라 헤매는 개발자’ 처럼 기본기가 부족하면서 프레임워크에 의존하는 개발자들에게 옳지 않음을 상기시켜주는 글을 보고난 후로는 순수 자바스크립트로만 개발을 하기위해 부단히 노력해왔습니다.
+          br
+          |개발 페이지에 갤러리가 포함돼있을 때 어떤 라이브러리를 가져다 쓸지 고민하는 것이 아니라 어떤 구조로 마크업을 구성할지부터 생각했고, 상대적으로 복잡하게 느껴졌던 모바일의 터치 이벤트를 활용한 갤러리를 만들 때도 npmjs에 접속하기보단 모바일 터치 이벤트를 구글링 하곤 했습니다.
+          br
+          |물론 수많은 사람들이 믿고 쓰는 유명 라이브러리에 비하면 제가 짠 코드들은 정말 볼품없을지도 모릅니다. 차라리 갤러리기능 단 하나를 구현하기 위해 몸집이 큰 프레임워크를 로드하는 게 더 나을 수도 있습니다.
+          br
+          |하지만 매 작업마다 이전보다 더 좋은 코드를 짜고자 했던 다짐이, 생각했던 대로 코드가 유연하지 못해 머리를 쥐어뜯었던 좌절이, 실제 서비스 되는 사이트 여러 곳에 삽입된 내 코드를 볼 때의 뿌듯함이 제겐 아주 소중하고 값진 경험이었습니다.
+          br
+          |라이브러리, 프레임워크의 사용이 잘못되었다는 말이 절대 아닙니다. 지난 2년간 앞으로의 개발을 위해 빠른 학습능력을 기르기 위한 기본 소양을 닦는 과정이었고 비록 지금당장은 다른 개발자들에 비해 jQuery, Angular등 유명 라이브러리에 대한 지식이 적을지라도 분명 다가올 다음 변화에 가장 앞선 대처를 할수있는 개발자가 될것입니다.
+        
       #source.step(data-x='6300', data-y='2000', data-rotate='20', data-scale='4')
-        p want to know more?
-        q
-          a(href='http://github.com/bartaz/impress.js') use the source
-          | , Luke!
+        h3.introTitle.fontDown
+          | ‘무인도’
+        p.introTxt.marginT10
+          |회사 구조상 다른 개발 팀, 부서와의 교류가 거의 없는 탓에 ‘이곳은 사내의 무인도 다 ’라고 농담을 하는 일도 있었습니다.
+          br
+          |공부도 독학을 했고, 신입의 패기로 어쩌다보니 사수 없이 잘 버텼다 한들 선택지가 없는 상황에 결정한 일들이었을 뿐 결코 혼자가 좋았던 적은 없었습니다.
+          br
+          |이 드넓은 개발세계를 달랑 나침반 하나 손에 쥐고 헤쳐 나가기보단 지름길로 인도해줄 수 있는 좋은 사수 선배님을 만나보고도 싶습니다.
+          br
+          |또는 이름도 얼굴도 모르는 개발자들과 카카오톡 오픈채팅에서 질의응답을 하기보단 같은 사무실에 있는 팀원과 함께 고민해보고 해결해가고 싶습니다.
+          br
+          |또는 코드리뷰를 꼭 해보고 싶습니다. 서로가 작성한 코드에 대한 의견을 주고받으며 내가 고쳐야할 점은 무엇인지, 보고 배워야 할 점은 무엇이고 우리가 무엇이 부족하고 더 필요할지 함께 고민해보고 싶습니다.
+          br
+          |사실 이번 이직 결심에 가장 크게 작용한 부분 중 하나입니다. 오프라인 모임이나 세미나에 참석하는 것은 빈도수가 너무 적고 일이 바쁘면 그마저도 시기를 놓쳐 신청하지 못하는 일이 잦았습니다. 여러 교류를 통해 남들과 똑같은 시간을 보내더라도 항상 더 값진 시간이고 싶습니다.
+      #skill1.step(data-x='6300', data-y='6000', data-rotate='200', data-scale='1' style='width: 900px;')
+        h3.introTitle.fontDown ‘보유기술’
+        p.introTxt.marginT10
+          |#[b(style='float:left; width:100%;') HTML5 + Pug]
+          |#[span(style='float: left; width: 100%;') - View template engine으로 pug를 사용하고 있습니다.]
+          |#[span(style='float: left; width: 100%;') - HTML5의 새로 추가된 요소들에 대한 이해를 갖고 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 마크업 각각의 의미를 알고 그에 맞게 사용할 줄 알고 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 웹표준을 준수하는 하드코딩을 하고 웹 접근성에 대한 이슈를 잘 인지하고 대응할 수 있습니다. ]
+          |#[b(style='float:left; width:100%;') CSS3 + Sass(SCSS)]
+          |#[span(style='float: left; width: 100%;') - CSS Preprocessor로 Sass의 SCSS 문법을 사용하고 있습니다.]
+          |#[span(style='float: left; width: 100%;') - bourbon이나 susy같은 tool을 쓰는 것이 아닌 모든 믹스인과 플레이스홀더를 직접 만들어 제 입맛에 맞는 tool을 구성해 사용하고 있습니다.]
+          |#[span(style='float: left; width: 100%;') - CSS3의 새로운 속성들에 대한 이해를 갖고 조합해 사용할 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 데스크톱 웹, 모바일웹 또는 반응형 웹을 제작할 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 하위브라우저 대응을 위해 점진적 기능제공과 CSS핵을 사용할 줄 알고 있습니다.]
+          |#[b(style='float:left; width:100%;') JavaScript + ES6]
+          |#[span(style='float: left; width: 100%;') - 라이브러리, 프레임워크에 의존하지 않은 채 자바스크립트 개발을 할 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 프로젝트에 사용 적합한 라이브러리를 골라 적용, 확장시킬 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - ES6에 대한 이해를 갖고 사용하고 있으며 자바스크립트 전반적인 지식을 채워나가는데 열중하고 있습니다.]
+      #skill2.step(data-x='6300', data-y='8000', data-rotate='0', data-scale='1' style='width: 900px;')
+        h3.introTitle.fontDown ‘보유기술2’
+        p.introTxt.marginT10
+          |#[b(style='float:left; width:100%;') Node.js + MongoDB + Express + Socket.io]
+          |#[span(style='float: left; width: 100%;') - 디자이너가 코딩을 할줄알면 디자인이 바뀌듯 백엔드 개발자와의 보다 나은 협업을 위해 기초적인 수준의 지식을 가지고 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 간단한 RESTful api를 구현한 웹 사이트를 제작할 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 소켓 통신을 활용한 간단한 수준의 채팅 예제를 구현할 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - nosql인 MongoDB가 어떤 구조이며 어느방식으로 데이터를 처리하는지에 대한 이해를 하고 있습니다.]
+          |#[b(style='float:left; width:100%;') Gulp + Webpack + babel]
+          |#[span(style='float: left; width: 100%;') - Task runner인 Gulp를 사용해 업무 자동화를 설정한 개인 프로젝트 폴더가 있습니다.]
+          |#[span(style='float: left; width: 100%;') - Webpack 모듈번들러를 이용해 자바스크립트를 용도에 맞게 잘게 쪼개어 모듈파일로 관리하고 흩어진 파일들의 의존성을 통해 하나의 자바스크립- 트 파일로 모듈화 시킬 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 자바스크립트를 모듈화 하는 과정에서 babel을 로드해 ES6 버전 이상 문법을 특정 브라우저에서 지원할 수 있도록 할 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 전처리기를 컴파일하고, 자바스크립트를 모듈화 하고, 마크업과 스타일시트의 minify등 일련의 모든 과정을 자동화 시키고 보다 생산적인 일에 남은시간을 더 쏟기 위해 노력합니다.]
+          |#[b(style='float:left; width:100%;') BEM]
+          |#[span(style='float: left; width: 100%;') - Naming convention으로 BEM을 사용합니다.]
+          |#[span(style='float: left; width: 100%;') - Pug와 SCSS 폴더에서 BEM 방식 File structure를 적용해 각각의 Block에 맞는 수정사항이 생겼을 때 빠르게 폴더와 해당 파일을 탐색할 수 있도록 하고 있습니다.]
+          |#[b(style='float:left; width:100%;') Github]
+          |#[span(style='float: left; width: 100%;') - 현재 사내에서 버전관리 시스템을 사용하고 있지 않아 접할 기회가 적어 자세한 기능을 습득한 상태는 아니지만 마스터 브랜치 에서의 커밋, 푸쉬, 풀 등의 기본적인 사용방법은 인지하고 있습니다.]
       #one-more-thing.step(data-x='6000', data-y='4000', data-scale='2')
-        p one more thing...
+        p 마지막으로...
       #its-in-3d.step(data-x='6200', data-y='4300', data-z='-100', data-rotate-x='-40', data-rotate-y='10', data-scale='2')
         p
-          span.have have
-          span.you you
-          span.noticed noticed
-          span.its it’s
-          span.in in
-          b
-            | 3D
-            sup *
-          | ?
-        span.footnote * beat that, prezi ;)
+          | 매사에 
+          span.have 배우는 자세로
+          span.you 열심히 임하며
+          | , 프로의 자세로 
+          span.noticed 책임감 있게
+          |  일을 할 수 있는  
+          span.its 프론트엔드 개발자
+          span.have
+            b 최원영
+          | 이 되겠습니다.
+          br
+          span.have 바쁘신데도
+          |  불구하고
+          span.you 끝까지 읽어주셔서
+          span.have 감사합니다.
       #overview.step(data-x='3000', data-y='1500', data-scale='10')
     .hint
       p 스페이스바 혹은 →, ← 키를 눌러 이동하세요

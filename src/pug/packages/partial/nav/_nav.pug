@@ -6,15 +6,15 @@
           +e('item', { t: 'a' })(href=`#`)= navList[i][0]
             span arrow_drop_down
         else
-          +e('item', { t: 'a' })(href=`/${navList[i][0].toString().toLowerCase()}`)= navList[i][0]
+          +e('item', { t: 'a' })(href=`/${navList[i][0].toString().toLowerCase()}#content-start-line`)= navList[i][0]
             span arrow_drop_down
         +e('sub', { t: 'ul' })
           -for(var j = 1; j < navList[i].length; j++)
             +e('list', { t: 'li' })
-              +e('item', { t: 'a' })(href=`/category/${navList[i][j].toString().toLowerCase()}`)= navList[i][j]
+              +e('item', { t: 'a' })(href=`/category/${navList[i][j].toString().toLowerCase()}#content-start-line`)= navList[i][j]
     else
       +e('list', { t: 'li' })
-        +e('item', { t: 'a' })(href=`/${i == 0 ? '' : navList[i].toString().toLowerCase()}`)= navList[i]
+        +e('item', { t: 'a' })(href=`/${i == 0 ? '' : navList[i].toString().toLowerCase() + '#content-start-line'}`)= navList[i]
           span arrow_drop_down
   - var navHamburger = true
   include ../hamburger/_hamburger

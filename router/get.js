@@ -5,15 +5,17 @@ import MongoClient from 'mongodb';
 import GLOBALCONFIG from '../config.server.json';
 import {consoleError} from '../app_helpers/console-color.js';
 import pugIncludeGlob from 'pug-include-glob';
+import MobileDetect from 'mobile-detect';
 
 var ObjectId = MongoClient.ObjectID;
  
 export function allGetRouter(router, dirname, db) {
   // index 페이지
-  let html, cursor;
+  let html, cursor, md;
   
   router.get('/', (req, res) => {
-    cursor = db.collection('article').find().limit(4).sort({date: 1});
+    cursor = db.collection('article').find().limit(4).sort({date: 1}),
+    md = new MobileDetect(req.headers['user-agent']);
     
     cursor.toArray((err, results) => {
       if(err) return consoleError(err, 'wrong');
@@ -23,7 +25,8 @@ export function allGetRouter(router, dirname, db) {
         postArry: results,
         loadBtn: true,
         plugins: [ pugIncludeGlob({}) ],
-        thisUrl: `http://${req.headers.host}${req.originalUrl}`
+        thisUrl: `http://${req.headers.host}${req.originalUrl}`,
+        mobileDetect: md.mobile()
       });
 
       res.send(html);
@@ -32,8 +35,6 @@ export function allGetRouter(router, dirname, db) {
   
   router.get('/category/:sort', (req, res) => {
     cursor = db.collection('article');
-    
-    //console.log(req.params.sort);
     
     cursor.find({ category: req.params.sort.toUpperCase() }).sort({ date: 1 }).toArray((err, results) => {
       if(err) return consoleError(err, 'wrong');

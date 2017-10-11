@@ -5,7 +5,15 @@
   text-align: center;
   padding: 15px 0;
   transition: 0.4s all $ease-in-out-quad;
+  margin-top: 25px;
   
   @extend %fl;
   @include center(true, false, relative);
+  @include breaking($bp1020, below) {
+    margin-bottom: 25px;
+  }
+  @include breaking($bp600, below) {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
 }

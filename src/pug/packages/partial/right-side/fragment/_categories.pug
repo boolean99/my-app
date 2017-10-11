@@ -7,4 +7,4 @@
     +b('category-list', { t: 'ul', e: 'side-bar' })
       -for(var i = 1; i < navList[2].length; i++)
         +e('list', { t: 'li' })
-          +e('item', { t: 'a' })(href=`/category/${navList[2][i].toString().toLowerCase()}`)= navList[2][i]
+          +e('item', { t: 'a' })(href=`/category/${navList[2][i].toString().toLowerCase()}#content-start-line`)= navList[2][i]

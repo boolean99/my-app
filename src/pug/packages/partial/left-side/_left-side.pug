@@ -1,5 +1,5 @@
 if(bodyClass == 'category')
-  +b('page-title', { t: 'h1', e: '&'})= category
+  +b('page-title', { t: 'h1', e: '&'})(id='content-start-line')= category
 +e('article-list', { t: 'main', b: 'article-list' })
   if(!!postArry.length)
     -for(var i = 0; i < postArry.length; i++)
@@ -12,7 +12,7 @@ if(bodyClass == 'category')
           if(!!postArry[i].thumbnail)
             +e('img', { t: 'a', p: 'figure' })(href=`/posts/${postArry[i]._id}`)
               +img(`${postArry[i].thumbnail}.jpg`)
-          +e('figcaption', { t: 'figcaption' }) !{postArry[i].contents.slice(0, 250)} ...
+          +e('figcaption', { t: 'figcaption' })= !!mobileDetect ? `${postArry[i].contents.slice(0, 120)} ...` : `${postArry[i].contents.slice(0, 250)} ...`
         +b('button', { t: 'a', m: 'theme-flat' })(href=`/posts/${postArry[i]._id}`) CONTINUE READING
         +b('share', { t: 'section', e: '&'})
           div

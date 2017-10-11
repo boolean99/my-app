@@ -1,6 +1,9 @@
 .independent-article {
   text-align: center;
-  padding: 20px 25px;
+  padding-right: 25px;
   
   @extend %wide-auto;
+  @include breaking($bp1020, below) {
+    padding-right: 0;
+  }
 }

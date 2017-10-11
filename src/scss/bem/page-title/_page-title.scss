@@ -6,6 +6,8 @@
   margin-bottom: 40px;
   color: #737180;
   
+  @extend %container;
+  
   &:first-letter {
     font-weight: bolder;
     color: #fff;

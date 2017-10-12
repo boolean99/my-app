@@ -1,0 +1,8 @@
+include config/_about-me-config
+doctype html
++b('no-js', { t: 'html' })(lang=docLang)
+  include packages/basic/_top
+  +b('about-me', { t: 'body' })
+    include packages/basic/_skip-navigation
+    include packages/partial/_about-me
+    include packages/basic/_bottom

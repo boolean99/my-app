@@ -49,7 +49,7 @@ MongoClient.MongoClient.connect('mongodb://boolean99:truefalse(99)@ds123370.mlab
   
   db = database;
   
-//   db 생성
+//   테스트 db 생성
 //var readingZero = function(value){ if(value < 10) return `0${value}`; else return value };
 //  
 //var today = new Date();

@@ -21,8 +21,8 @@ html(lang='ko')
         | 현재 사용중인 브라우저는 impress.js의 기능을 지원할수 없기때문에 #[b 간소화된 형태의 문서가 제공되고 있습니다].#[br]
         |보다 나은 사용자 경험을 위해 Chrome, Safari, Firefox 브라우저의 사용을 권합니다.
     #impress
-      #bored.step.slide(data-x='-1000', data-y='-1500')
-        //img#mianPicture(src='images/intro_boolean99.jpg', alt='choiWonYoung')
+      #bored.step.slide(data-x='-2000', data-y='-1500')
+        img#mianPicture(src='images/intro_boolean99.jpg', alt='choiWonYoung')
         #tableTop.tableLayout
           .tableCaption
             b Profile
@@ -81,11 +81,41 @@ html(lang='ko')
           .tableRow
             .tableCell
               | BRACKETS, ATOM
-      #step2.step.slide(data-x='0', data-y='-1500')
+      #step2.step.slide(data-x='-1000', data-y='-1500')
         div
-          p 포폴 설명
+          h1 포트폴리오에 대해
+          p(style='font-size:22px; margin-top: 10px; line-height: 32px;')
+            |이번 포트폴리오에 무엇을 담아볼까 고민해봤습니다. 확장성 좋은 관리자 페이지나 이런 프레젠테이션 라이브러리를 만들어보고 싶기도 했지만 퇴근 후 집에서만 작업해야 했기 때문에 시간도 넉넉하지 못했고 그간 개인 기술 블로그를 운영해보고 싶단 생각을 줄곧 해오고있던터라 갈피를 개인사이트로 잡았습니다.
+            br
+            |디자인적 감각은 딱히 없는 편이라 컨셉만 잡고는 요즘 유행하는 스타일을 알아보기 위해 해외 템플릿 사이트만 며칠을 둘러본 것 같습니다.
+            br
+            |그간 다니던 회사에서 주 업무 시간의 반 이상을 크로스브라우징 하는데 에 썼던 것 같아 이번만큼은 모던브라우저를 타깃으로 하위브라우저 지원으로 인해 못썼던, 우회했던 기술들을 속 시원하게 써보고 싶었습니다. 반응형을 기본으로 네페이지 분량의 간소화된 작은 사이트가 만들어졌는데, 반복되는 템플릿을 재사용 하며 컨텐츠 섹션만 변하는 서브페이지를 여러 개 보여드리는 것 보단 더 다양한 시도를 해보는 게 좋을 것 같아 페이지 수에 대한 욕심은 부리지 않았습니다.
+      #step2-2.step.slide(data-x='0', data-y='-1500')
+        div(style='font-size:22px; margin-top: 10px; line-height: 32px;')
+          |가장 신경 쓴 부분을 한 가지만 꼽자면 접속자의 취향에 따라 사이트의 테마 색상을 자유롭게 변화시키는 기능을 예전부터 구상만 해봤었는데,
+          br
+          a(href='https://github.com/boolean99/my-app/tree/master/public/css' target='_blank') 이곳을 클릭해 프로젝트의 정적 파일을 제공하는 폴더 내부를 보시면.
+          br
+          |컴파일 결과물인 index.css 파일과는 다르게 몇몇 파일은 전처리기 상태로 남아있는 것을 보실 수 있습니다.
+          br
+          |이 파일들은 사용자의 요청에 따른 변화적인 결과물을 얻기 위함도 있지만 특정 사용자의 선택에 따른 추가적인 시간과 자원을 소모하는 과정이기 때문에 기본 사용자들에겐 불필요한 소모를 줄이기 위함입니다.
+          br
+          |클라이언트 사이드에서 비동기적으로 정적 파일을 ajax 통신으로 읽어와 즉석에서 sass.js 라이브러리를 통해 컴파일 된 css를 추가시키는 이유로 약간의 시간이 소요됩니다.
+          br
+          |좌측 두 개의 세팅패널과 우측 하단의 편의 네비게이션 버튼을 pug파일에서 컴파일 시키지 않고 window의 load 이벤트 이후에 동적 추가를 한 이유 역시도 자바스크립트를 반드시 사용해야 하는 환경에서만 제공되는 것이 맞고, 최초 접속 시 사용자가 읽기 원하는 최우선순위의 콘텐츠를 가장 먼저 로드해야 하며 그 시간을 방해받지 말아야한다고 생각했기 때문이었습니다. 
       #step3.step.slide(data-x='1000', data-y='-1500')
-        p 포폴 설명2
+        div(style='font-size:22px; margin-top: 10px; line-height: 32px;')
+          |인덱스 페이지의 하단부에 있는 포스트 더 불러오기 버튼은 첫 작업 시작할 땐 프론트엔드단만 개발해 끝낼 예정이었으나 Node.js + MongoDB + Express + Socket.io 조합으로 라이트한 백엔드 개발까지 하게 된 계기가 되었습니다.
+          br
+          |처음엔 Public 폴더 내에 DB 폴더를 만들어 데이터베이스라 가정하고 게시글의 데이터를 담고있는 json 파일을 저장해두려 했습니다.
+          br
+          |이후 원하는 기준의 정렬로 적절히 걸러 서버 사이드로부터 넘겨받은 JSON 형식의 데이터를 처리 함으로서 그 방법 숙지하고있음을 보여드리면 되겠다고 생각했으나..
+          br
+          |작업하다보니 포스트의 id 탐색이나, 카테고리, 날짜, 이름 등의 여러 기준으로 정렬시킬 상황이 있을 수 있다고 깨닫고는 파일명에 그 많은 정보를 나열하는 건 지저분한 것 같고 내용을 다 읽어보자니 속도 면에서 효율적이지 못한것같아 시도하게 됐습니다.
+          br
+          |백엔드는 공부한지도 꽤 지난 시점이라 서툰 부분이 많았지만 그래도 덕분에 좀 더 유연한 사이트가 만들어진 것 같습니다.
+          br
+          a(href='https://boolean99-blog.herokuapp.com' style="margin-top: 20px; float:left;") 사이트로 가는 링크입니다.
         .introWrap(style='position: absolute; bottom: 40px;')
           .introLeft
             p
@@ -96,8 +126,8 @@ html(lang='ko')
               | INTRO
           .introRight
             p
-              | DUCTION
-          .introBottom
+              | DUCTION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;
+          .introBottom 
       #title.step(data-x='0', data-y='0', data-scale='4')
         h3.introTitle ‘KBS MEDIA (World Radio)’
         p.introTxt
@@ -115,7 +145,7 @@ html(lang='ko')
           br
           |처음 반년정도는 도큐멘테이션을 읽는 법과 필요한 API를 적절히 찾아내는 법, 프론트엔드 기술의 최신트렌드에 대한 정보를 습득하는 법, 스택오버플로우 같은 개발 커뮤니티에서 문제를 찾아 해결하는 능력 등 스스로 먹이를 찾아 사냥하는 법을 배우는 시기였습니다.
           br
-          |그 당시에는 영어도 아주 낮은 수준이었고, 영어 문장의 맥락만 대충 파악하고 코드로 이해하려 해도 개발 지식이 부족했던 때라 상당수를 이해하지 못하고 좌절했던 답답함의 연속이었지만 이 시기가 그때에 비해 상대적으로 구글링을 자유로이 하는 지금의 제게 참 많은 도움이 되었던 때라고 생각합니다.
+          |그 당시에는 영어도 아주 낮은 수준이었고, 영어 문장의 맥락만 대충 파악하고 코드로 이해하려 해도 개발 지식이 부족했던 때라 상당수를 이해하지 못하고 좌절했던 답답함의 연속이었지만 그때에 비해 구글링을 자유로이 하는 지금의 제게 많은 도움이 되었던 경험이었다고 생각합니다.
           br
           |개발자 오픈채팅에서 꽤 자주 나오는 우스갯소리중 하나인 ‘구글이 최고의 사수다’ 라는 말은 시작부터 홀로서기였던 제게 아직까지는 아주 공감하는 얘기입니다.
       #big.step(data-x='3500', data-y='5000', data-rotate='180', data-scale='6')
@@ -127,16 +157,16 @@ html(lang='ko')
           br
           |영어공부를 결심후 2016.01.14. 결제일 을 시작으로 지금까지 시원스쿨에서 영어공부를 계속 해오고 있으며 현재는 회사에서 지원해주는 멀티캠퍼스 이러닝 영어강의를 함께 수강중입니다.
           br
-          |지금은 #[a(href='http://www.w3schools.com/' target='_blank') w3schools] 사이트나, #[a(href='https://developer.mozilla.org/en-US/docs/Web' target='_blank') MDN] 사이트의 거의 대부분을 독해할 정도의 독해능력을 갖추게 됐습니다. 남들보다 늦은 출발이지만 욕심부리려다가 넘어지지않고 완주하기위해 하루 한두시간씩 꾸준히 공부중입니다.
+          |지금은 #[a(href='http://www.w3schools.com/' target='_blank') w3schools] 사이트나, #[a(href='https://developer.mozilla.org/en-US/docs/Web' target='_blank') MDN] 사이트의 거의 대부분을 독해할 정도의 독해능력을 갖추게 됐습니다. 남들보다 조금 늦은 출발이지만 욕심부리려다가 넘어지지않고 끝까지 완주하기위해 무리하지 않는 선에서 꾸준히 공부하고 있습니다.
           br
-          |당장의 필요에 의해 시작하게 된 공부라 유독 문법과 독해 위주로만 공부하게 됐고, 단어도 개발 사이트에서 사용하는 단어위주로 암기하게 됐지만 지금은 과거와 달리 영어공부에 흥미를 느끼고 있어 공부를 멈추지 않을 계획이라 시간이 해결해줄 것이라 믿습니다.
+          |당장의 필요에 의해 시작하게 된 공부라 유독 문법과 독해 위주로만 공부하게 됐고, 단어도 개발 사이트에서 사용하는 단어위주로 암기하게 됐지만 지금은 과거와 달리 영어공부에 흥미를 느끼고 있어 이대로 포기하지 않는다면 시간이 해결해줄 것이라 믿습니다.
       #tiny.step(data-x='2825', data-y='2325', data-z='-3000', data-rotate='300', data-scale='1' style='width: 800px;')
         h3.introTitle
           | ‘typeof(최원영)’
         p.introTxt.marginT10
           |한 대학생 재능 연결 온라인 플랫폼에서 게시했던 #[a(href='https://www.facebook.com/taling.me/photos/pcb.1520441391383033/1520438514716654/?type=3&theater' target='_blank') ‘개발자의 유형’] 이라는 재밌는 게시물을 본적이 있습니다.
           
-          span(style='width: 100%;float:left;margin-left:30px; margin-top:15px;') - #[b 모범생 타입]: 작업을 하기전 문서를 꼼꼼히 읽고 이해를 모두 한 후 작업을 진행하기 때문에 많은 초기설정을 결정해야 하는 초반작업에 강점을 보여주는 유형
+          span(style='width: 100%;float:left;margin-left:30px; margin-top:15px;') - #[b 모범생 타입]: 작업을 하기전 문서를 꼼꼼히 읽고 이해를 하고 난 뒤에 작업을 진행하는 유형
           
           span(style='width: 100%;float:left;margin-left:30px;') - #[b 해결사 타입]: 특정 부분에 막혔을 때 도움을 청하면 언젠가는 해결해주는 유형
           
@@ -145,13 +175,13 @@ html(lang='ko')
           span(style='width: 100%;float:left;margin-left:30px;') - #[b 마무리 투수 타입]: 서비스가 런칭되기 직전 최종 부분에 강점을 보이는 유형
           span(style='width: 100%;float:left;margin-left:30px; margin-bottom:15px;') - #[b 우사인볼트 타입]: 한국 스타트업에서 가장 인기 있는 빠른 작업속도를 보유한 유형
           br
-          |이 유형중 제가 속한 유형을 꼽자면 ‘모범생 타입’입니다. 제가 가진 성격중 무언가를 시작했다면 반드시 그 끝을 봐야 한다는 점이 있는데 공부할 때 이 성격으로 인해 조금 무식하게 공부합니다.
+          |이 유형중 제가 속한 유형을 꼽자면 ‘모범생 타입’입니다. 제가 가진 성격중 무언가를 시작했다면 반드시 그 끝을 봐야 한다는 점이 있는데 공부할 때 이 성격으로 인해 다소 무식하게 공부합니다.
           br
           |예를 들면 하나의 라이브러리를 배울 때 해당 도큐멘테이션의 모든 레퍼런스를 번역한 내용을 정리해 개인폴더에 저장해둔 후 전부 암기할 때까지 수시로 파일을 열어봅니다.
           br
           |성격상 모든 것을 알고 있어야만 속이 후련하고 잘 알아야 잘 쓴다는 생각이 있어서 그런 것 같습니다.
           br
-          |때문에 기술을 마음 편히 사용하기까지 남들보다는 시간이 조금 더 걸릴지라도 그 레퍼런스 파일을 더블클릭하는 횟수가 줄어들수록 같은 공부를 했더라도 다른 개발자보다 무조건 더 자세한 스펙을 알고 있음을 확신합니다.
+          |때문에 기술을 마음 편히 사용하기까지 남들보다는 시간이 조금 더 걸릴지라도 그 레퍼런스 파일을 더블클릭하는 횟수가 줄어들수록 같은 공부를 했을지언정 다른 개발자보다 무조건 더 자세한 스펙을 알고 있음을 확신합니다.
           br
           |여러 방면으로 뛰어난 만능선수라면 더할나위없이 좋겠지만 현실을 직시하고 우선은 한 가지에 정통하고자 노력하고 있습니다.
       #ing.step(data-x='3500', data-y='-850', data-rotate='270', data-scale='6' style='width: 700px;')
@@ -193,7 +223,7 @@ html(lang='ko')
           br
           |또는 이름도 얼굴도 모르는 개발자들과 카카오톡 오픈채팅에서 질의응답을 하기보단 같은 사무실에 있는 팀원과 함께 고민해보고 해결해가고 싶습니다.
           br
-          |또는 코드리뷰를 꼭 해보고 싶습니다. 서로가 작성한 코드에 대한 의견을 주고받으며 내가 고쳐야할 점은 무엇인지, 보고 배워야 할 점은 무엇이고 우리가 무엇이 부족하고 더 필요할지 함께 고민해보고 싶습니다.
+          |또는 코드리뷰도 해보고 싶습니다. 서로가 작성한 코드에 대한 의견을 주고받으며 내가 고쳐야할 점은 무엇인지, 보고 배워야 할 점은 무엇이고 우리가 무엇이 부족하고 더 필요할지 함께 고민해보고 싶습니다.
           br
           |사실 이번 이직 결심에 가장 크게 작용한 부분 중 하나입니다. 오프라인 모임이나 세미나에 참석하는 것은 빈도수가 너무 적고 일이 바쁘면 그마저도 시기를 놓쳐 신청하지 못하는 일이 잦았습니다. 여러 교류를 통해 남들과 똑같은 시간을 보내더라도 항상 더 값진 시간이고 싶습니다.
       #skill1.step(data-x='6300', data-y='6000', data-rotate='200', data-scale='1' style='width: 900px;')
@@ -218,39 +248,31 @@ html(lang='ko')
         h3.introTitle.fontDown ‘보유기술2’
         p.introTxt.marginT10
           |#[b(style='float:left; width:100%;') Node.js + MongoDB + Express + Socket.io]
-          |#[span(style='float: left; width: 100%;') - 디자이너가 코딩을 할줄알면 디자인이 바뀌듯 백엔드 개발자와의 보다 나은 협업을 위해 기초적인 수준의 지식을 가지고 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 디자이너가 코딩을 할줄알면 디자인이 바뀌듯 백엔드 개발자와의 보다 나은 협업을 위해 기초적인 수준의 학습을 했습니다.]
           |#[span(style='float: left; width: 100%;') - 간단한 RESTful api를 구현한 웹 사이트를 제작할 수 있습니다.]
           |#[span(style='float: left; width: 100%;') - 소켓 통신을 활용한 간단한 수준의 채팅 예제를 구현할 수 있습니다.]
           |#[span(style='float: left; width: 100%;') - nosql인 MongoDB가 어떤 구조이며 어느방식으로 데이터를 처리하는지에 대한 이해를 하고 있습니다.]
           |#[b(style='float:left; width:100%;') Gulp + Webpack + babel]
-          |#[span(style='float: left; width: 100%;') - Task runner인 Gulp를 사용해 업무 자동화를 설정한 개인 프로젝트 폴더가 있습니다.]
-          |#[span(style='float: left; width: 100%;') - Webpack 모듈번들러를 이용해 자바스크립트를 용도에 맞게 잘게 쪼개어 모듈파일로 관리하고 흩어진 파일들의 의존성을 통해 하나의 자바스크립- 트 파일로 모듈화 시킬 수 있습니다.]
+          |#[span(style='float: left; width: 100%;') - Task runner인 Gulp를 사용해 업무 자동화를 취향과 목적에 맞게 설정한 개인 프로젝트 폴더가 있습니다.]
+          |#[span(style='float: left; width: 100%;') - Webpack 모듈번들러를 이용해 자바스크립트를 용도에 맞게 잘게 쪼개어 모듈파일로 관리하고 흩어진 파일들의 의존성을 통해 하나의 자바스크립트 파일로 모듈화 시킬 수 있습니다.]
           |#[span(style='float: left; width: 100%;') - 자바스크립트를 모듈화 하는 과정에서 babel을 로드해 ES6 버전 이상 문법을 특정 브라우저에서 지원할 수 있도록 할 수 있습니다.]
           |#[span(style='float: left; width: 100%;') - 전처리기를 컴파일하고, 자바스크립트를 모듈화 하고, 마크업과 스타일시트의 minify등 일련의 모든 과정을 자동화 시키고 보다 생산적인 일에 남은시간을 더 쏟기 위해 노력합니다.]
           |#[b(style='float:left; width:100%;') BEM]
           |#[span(style='float: left; width: 100%;') - Naming convention으로 BEM을 사용합니다.]
           |#[span(style='float: left; width: 100%;') - Pug와 SCSS 폴더에서 BEM 방식 File structure를 적용해 각각의 Block에 맞는 수정사항이 생겼을 때 빠르게 폴더와 해당 파일을 탐색할 수 있도록 하고 있습니다.]
           |#[b(style='float:left; width:100%;') Github]
-          |#[span(style='float: left; width: 100%;') - 현재 사내에서 버전관리 시스템을 사용하고 있지 않아 접할 기회가 적어 자세한 기능을 습득한 상태는 아니지만 마스터 브랜치 에서의 커밋, 푸쉬, 풀 등의 기본적인 사용방법은 인지하고 있습니다.]
+          |#[span(style='float: left; width: 100%;') - 현재 사내에서 버전관리 시스템을 사용하고 있지 않아 접할 기회가 적어 자세한 기능을 습득한 상태는 아니지만 자주 쓰이는 브랜치, 커밋, 푸쉬, 풀 등의 기본 사용방법을 인지하고 있습니다.]
       #one-more-thing.step(data-x='6000', data-y='4000', data-scale='2')
         p 마지막으로...
-      #its-in-3d.step(data-x='6200', data-y='4300', data-z='-100', data-rotate-x='-40', data-rotate-y='10', data-scale='2')
+      #its-in-3d.step(data-x='6800', data-y='4700', data-z='-100', data-rotate-x='-40', data-rotate-y='10', data-scale='3' style='font-size: 23px;')
         p
-          | 매사에 
-          span.have 배우는 자세로
-          span.you 열심히 임하며
-          | , 프로의 자세로 
-          span.noticed 책임감 있게
-          |  일을 할 수 있는  
-          span.its 프론트엔드 개발자
-          span.have
-            b 최원영
-          | 이 되겠습니다.
+          |늦은 나이에 프론트엔드 개발에 푹 빠져 공부가 의무이자 습관이 된 삶을 살고있습니다.
           br
-          span.have 바쁘신데도
-          |  불구하고
-          span.you 끝까지 읽어주셔서
-          span.have 감사합니다.
+          |영어공부도 늦게 시작했고, 학교도 뒤늦게 다니기 시작했지만 훗날을 기약하는 열정으로 예쁘게 봐주셨으면 좋겠습니다. :)
+          br
+          |매사에 배우는 자세로 자신감 넘치지만 자만하지 않는 책임감있는 프론트엔드 개발자가 되겠습니다.
+          br
+          |바쁘신데도 불구하고 긴 글 읽어주셔서 감사합니다.
       #overview.step(data-x='3000', data-y='1500', data-scale='10')
     .hint
       p 스페이스바 혹은 →, ← 키를 눌러 이동하세요

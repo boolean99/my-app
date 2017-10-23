@@ -9,7 +9,7 @@ import express from 'express';
 import path from 'path';
 import http from 'http';
 import MongoClient from 'mongodb';
-//import compression from 'compression';
+import compression from 'compression';
 
 // HELPERS
 import {consoleError} from './app_helpers/console-color';
@@ -33,7 +33,7 @@ import {allPostRouter} from './router/post';
 
 // 파일제공 및 use 메서드 사용
 app.set('port', process.env.PORT || 3000);
-//app.use(express.compress());
+app.use(express.compression());
 app.use(express.static(path.join(__dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC)));
 app.use('/posts/:id', express.static(path.join(__dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC)));
 app.use('/category/:sort', express.static(path.join(__dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC)));

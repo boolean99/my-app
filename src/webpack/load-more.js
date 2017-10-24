@@ -15,7 +15,7 @@ doc.addEventListener('DOMContentLoaded', () => {
       // 소켓에 접속되면 소켓 함수 방출
       socketFunc(socket);
 
-      doc.querySelector('.js-load-more').addEventListener('click', () => {
+      doc.getElementById('load-more').addEventListener('click', () => {
         // 포스트 불러오기 관련 서버단 이벤트 호출
         socket.emit('loadMorePostsInServer', {
           id: socket.id,

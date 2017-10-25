@@ -1,5 +1,4 @@
 import makeLayout from './make-layout';
-import colorPickerModule from './color-picker';
 
 export default function makeExtraElement() {
   const doc = document,
@@ -12,7 +11,9 @@ export default function makeExtraElement() {
   
   doc.body.insertAdjacentHTML('beforeend', containHTMLString.colorPicker);
   doc.body.insertAdjacentHTML('beforeend', containHTMLString.config);
-  if(!document.documentMode) doc.body.insertAdjacentHTML('beforeend', containHTMLString.moveViewport);
+  
+  // 하위 브라우저 컨트롤러 미지원
+  if(!doc.documentMode) doc.body.insertAdjacentHTML('beforeend', containHTMLString.moveViewport);
   
   // 페이지에 따른 설정
   switch(dobyClassName) {
@@ -21,7 +22,7 @@ export default function makeExtraElement() {
       makeLayout('standard');
       break;
     default :
-      const disableBtn = document.querySelectorAll('.config__panel button');
+      const disableBtn = doc.querySelectorAll('.config__panel button');
       
       for(let i = 2, ilen = disableBtn.length; i < ilen; i++) {
         disableBtn[i].setAttribute('disabled', true);

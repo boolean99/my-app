@@ -16,8 +16,8 @@ export default function colorPickerModule() {
   colorPicker.setColor('#23aef4');
   
   function onChangeInnerFunc(changedHexString) {
-    let changedRGBString = `rgba(${colorPicker.getRGB().r}, ${colorPicker.getRGB().g}, ${colorPicker.getRGB().b}, ${colorPicker.getRGB().a})`,
-        xHttpObj = returnXHttpObj(
+    let changedRGBString = `rgba(${colorPicker.getRGB().r}, ${colorPicker.getRGB().g}, ${colorPicker.getRGB().b}, ${colorPicker.getRGB().a})`;
+        var xHttpObj = returnXHttpObj(
           compileSassAndInsert,
           {
             variable: ['main-color', changedRGBString],
@@ -39,7 +39,9 @@ export default function colorPickerModule() {
   }
     
   colorPicker.onChange((changedHexString) => {
+    // colorPicker 모듈 응답 에러를 잡기위함
     clearTimeout(onChangeInnerFunc.tId);
+    
     onChangeInnerFunc.tId = setTimeout(() => {
       onChangeInnerFunc(changedHexString);
     }, 500);

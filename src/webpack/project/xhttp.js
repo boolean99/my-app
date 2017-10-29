@@ -1,3 +1,5 @@
+// 함수 감속 패턴
+
 export default function returnXHttpObj(func, param) {
   let xHttp = new XMLHttpRequest();
   

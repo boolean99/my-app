@@ -13,6 +13,26 @@ export function allGetRouter(router, dirname, db) {
   // index 페이지
   let html, cursor, md;
   
+  router.get('/intro', (req, res) => {
+    cursor = db.collection('article').find().limit(4).sort({date: 1}),
+    md = new MobileDetect(req.headers['user-agent']);
+    
+    cursor.toArray((err, results) => {
+      if(err) return consoleError(err, 'wrong');
+
+      html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/index.pug'), {
+        pretty: false,
+        postArry: results,
+        loadBtn: true,
+        plugins: [ pugIncludeGlob({}) ],
+        thisUrl: `http://${req.headers.host}${req.originalUrl}`,
+        mobileDetect: md.mobile()
+      });
+
+      res.send(html);
+    });
+  });
+  
   router.get('/', (req, res) => {
     cursor = db.collection('article').find().limit(4).sort({date: 1}),
     md = new MobileDetect(req.headers['user-agent']);
@@ -91,14 +111,6 @@ export function allGetRouter(router, dirname, db) {
       pretty: false,
       plugins: [ pugIncludeGlob({}) ],
       thisUrl: `http://${req.headers.host}${req.originalUrl}`
-    });
-
-      res.send(html);
-  });
-  
-  router.get('/intro', (req, res) => {
-    let html = pug.renderFile(path.join(dirname, GLOBALCONFIG.DIRECTION.STATIC.PUBLIC, GLOBALCONFIG.DIRECTION.VIEW.PUG, '/intro.pug'), {
-      pretty: false,
     });
 
       res.send(html);

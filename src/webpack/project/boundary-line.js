@@ -16,11 +16,11 @@ export default function detectPostBoundaryLine (currentScrollTop, method) {
   
   for(let i = 0, ilen = boundaryLineArry.length; i < ilen; i++) {
     if(currentScrollTop < boundaryLineArry[0]) {
-      // 첫번째 포스트 이전일 때
+      // 방향에 상관없이 첫번째 포스트 이전일 때
       scroll.top(scrollPageDetect, boundaryLineArry[0], { duration: 1000, ease: ease.inOutCirc });
       break;
     }else if(boundaryLineArry[ilen - 1] < currentScrollTop) {
-      // 마지막 포스트 이후일때
+      // 방향에 상관없이 마지막 포스트 이후일때
       scroll.top(scrollPageDetect, boundaryLineArry[ilen - 1], { duration: 1000, ease: ease.inOutCirc });
       break;
     }

@@ -1,13 +1,13 @@
-const DOC = document,
-      allArticle = DOC.querySelectorAll('.contents-section__item');
-
 export default function makeLayout(sort) {
+  const DOC = document,
+        allArticle = DOC.querySelectorAll('.contents-section__item');
+  
   let gridPositionArryXY = [[0, 0], [0, 0]];
   
   DOC.querySelector('.contents-section__container').style.opacity = 1;
   
   if(sort === 'list' || sort === 'standard') {
-    removeAllStyle();
+    removeAllStyle(allArticle);
   }else{
     for(let i = 0, ilen = allArticle.length; i < ilen; i++) {
       if(i % 2) {
@@ -39,8 +39,8 @@ export default function makeLayout(sort) {
   }
 }
 
-function removeAllStyle() {
-  DOC.querySelector('.contents-section__article-list').removeAttribute('style');
+function removeAllStyle(allArticle) {
+  document.querySelector('.contents-section__article-list').removeAttribute('style');
   
   for(let i = 0, ilen = allArticle.length; i < ilen; i++) {
     allArticle[i].removeAttribute('style');
